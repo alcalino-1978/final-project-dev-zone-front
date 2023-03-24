@@ -1,0 +1,39 @@
+.main-header {
+  width: 100%;
+  padding-right: 0;
+  justify-content: space-between;
+  &__title {
+    font-family: 'Amatic SC', sans-serif;
+    color: #4d455dff;
+    font-size: 28px;
+    margin-right: auto;
+    font-weight: bold;
+    margin-left: 0.4rem;
+  }
+  .main-header__logo {
+    width: 42px;
+    height: 47px;
+    overflow: hidden;
+    &-img {
+      width: 100%;
+    }
+  }
+  .account {
+    @media only screen and (min-width:768px) {
+      margin-right: 1.6rem;
+    }
+  }
+}
+
+.switch-theme {
+  height: 48px;
+  .mat-icon {
+    height: auto;
+    font-size: 16px;
+  }
+}
+.mat-mdc-icon-button.mat-mdc-button-base {
+  width: 43px;
+  height: 43px;
+  padding: 8px;
+}

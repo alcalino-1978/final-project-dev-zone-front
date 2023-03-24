@@ -1,0 +1,43 @@
+<!--TODO METER POR QUERYPARAMS EN LAS RUTAS CUANDO ESTÉ LOGADO QUE ME CAMBIE EL TÍTULO POR EL UPDATE Y
+  EL BOTÓN QUE LLAME A LA FUNCIÓN DE UPDATE USUARIO-->
+<div class="row">
+  <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
+  <div class="col-12 col-md-4 offset-md-4">
+    <h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.LOGIN' | translate }}</h2>
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm" class="form-container">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label for="email">{{ 'FORMS.EMAIL' | translate }}:</mat-label>
+        <input matInput type="text" id="email" formControlName="email" placeholder="{{ 'FORMS.EMAIL' | translate }}"/>
+        <mat-error *ngIf="!emailFormControl?.valid && emailFormControl?.dirty || isSubmitted">
+          <p *ngIf="emailFormControl?.errors?.['required']">
+            {{ 'FORMS.FIELD-REQUIRED' | translate }}
+          </p>
+          <p *ngIf="emailFormControl?.errors?.['maxlength']">
+            {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '20'} }}
+          </p>
+          <p *ngIf="passwordFormControl?.errors?.['minlength']">
+            {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '14'} }}
+          </p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label for="password">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
+        <input matInput type="password" id="password" formControlName="password" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
+        <mat-error *ngIf="!passwordFormControl?.valid && passwordFormControl?.dirty || isSubmitted">
+          <p *ngIf="passwordFormControl?.errors?.['required']">
+            {{ 'FORMS.FIELD-REQUIRED' | translate }}
+          </p>
+          <p *ngIf="passwordFormControl?.errors?.['pattern']">
+            {{ 'FORMS.FIELD-PASSWORD' | translate }}
+          </p>
+          <p *ngIf="passwordFormControl?.errors?.['minlength']">
+            {{ 'FORMS.FIELD-PASSWORD-MIN' | translate: { value1: '8'} }}
+          </p>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.SUBMIT' | translate }}</button>
+    </form>
+
+  </div>
+</div>

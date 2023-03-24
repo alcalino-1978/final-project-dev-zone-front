@@ -1,0 +1,39 @@
+.banner-hero {
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  position: relative;
+  height: 45vh;
+  width: 100%;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 30%);
+  @media only screen and (min-aspect-ratio: 4/3) {
+  }
+  @media only screen and (max-aspect-ratio: 3/4) {
+    aspect-ratio: 3 / 2;
+  }
+  &__title {
+    position: absolute;
+    bottom: 0;
+    font-size: 6.4rem;
+    color: white;
+    // background: linear-gradient(rgba(255, 255, 255, 0.2) 0%, #FFFFFF 50%);
+    -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    margin: 0;
+    line-height: 1;
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.5), 4px 4px 6px rgba(0,0,0,0.6);
+    @media only screen and (min-width: 768px) {
+      font-size: 8rem;
+    }
+    // @media only screen and (min-width: 992px) {
+    //   font-size: 10rem;
+    // }
+  }
+  .container {
+    display: flex;
+    height: 100%;
+    .row {
+      width: 100%;
+    }
+  }
+}

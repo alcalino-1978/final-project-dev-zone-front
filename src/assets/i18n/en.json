@@ -1,0 +1,57 @@
+{
+  "HELLO": "Hello!",
+  "BANNER-HERO": "Kitten of the Day",
+  "PREVIOUS-PAGE": "Back",
+  "PREVIOUS-PAGE-HOME": "Home",
+  "CHARACTER-LIST": {
+    "TITLE": "Character list"
+  },
+  "MAIN-MENU": {
+    "PROFILE": "Profile",
+    "REGISTER": "New User",
+    "LOGIN": "Log In",
+    "LOGOUT": "Log Out"
+  },
+  "FORMS": {
+    "TITLE": {
+      "LOGIN": "Log In",
+      "REGISTER": "New User Registration",
+      "UPDATE-USER": "User update",
+      "PROFILE": "Profile"
+    },
+    "NAME": "Name",
+    "LASTNAME": "Last Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "REPASSWORD": "Repeat password",
+    "PHONE-NUMBER": "Phone Number",
+    "UPDATE": "Update user",
+    "DELETE": "Delete user",
+    "SUBMIT": "Submit",
+    "FIELD-REQUIRED": "This field is required",
+    "FIELD-PASSWORD": "The password must contain at least 8 characters, one uppercase, one lowercase and one number",
+    "FIELD-PASSWORD-MIN": "The password must contain at least {{ value1 }} characters long",
+    "FIELD-PASSWORD-MAX": "This field must be at most {{ value1 }} characters long",
+    "FIELD-PASSWORD-STRENGTH": "Password strength",
+    "FIELD-PASSWORD-NOT-MATCH": "Passwords do not match"
+  }
+  ,
+  "LIST": "Kitten List",
+  "DETAILS": {
+    "TEMPERAMENT": "Temperament",
+    "ORIGIN": "Origin",
+    "WEIGHT": "Weight",
+    "LIFE-SPAN": "Life span",
+    "ADAPTABILITY": "Adaptability",
+    "AFFECTION-LEVEL": "Affection level",
+    "CHILD-FRIENDLY": "Child friendly",
+    "DOG-FRIENDLY": "Dog friendly",
+    "GROOMING": "Grooming",
+    "HEALTH-ISSUES": "Health issues",
+    "INTELLIGENCE": "Intelligence",
+    "SHEDDING-LEVEL": "Shedding level",
+    "ENERGY-LEVEL": "Energy level",
+    "SOCIAL-NEEDS": "Social needs",
+    "STRANGER-FRIENDLY": "Stranger friendly"
+  }
+}

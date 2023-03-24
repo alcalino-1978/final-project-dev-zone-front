@@ -1,0 +1,33 @@
+<div class="row">
+  <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
+  <div class="col-12 col-md-4 offset-md-4">
+    <h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.PROFILE' | translate }}</h2>
+    <div class="container" *ngIf="currentUser; else loggedOut">
+      <p>
+        <strong>{{ 'FORMS.NAME' | translate }}:</strong>
+        {{ currentUser.name }}
+      </p>
+      <p>
+        <strong>{{ 'FORMS.LASTNAME' | translate }}:</strong>
+        {{ currentUser.lastName }}
+      </p>
+      <p>
+        <strong>{{ 'FORMS.EMAIL' | translate }}:</strong>
+        {{ currentUser.email }}
+      </p>
+      <p>
+        <strong>{{ 'FORMS.PHONE-NUMBER' | translate }}:</strong>
+        {{ currentUser.phoneNumber }}
+      </p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="my-5 d-flex justify-content-between">
+      <!-- <button mat-raised-button color="primary" routerLink="/update-user">{{ 'FORMS.UPDATE' | translate }}</button> -->
+      <button mat-raised-button color="warn" (click)="deleteUser()">{{ 'FORMS.DELETE' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

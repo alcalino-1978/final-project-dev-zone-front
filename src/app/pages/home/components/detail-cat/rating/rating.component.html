@@ -1,0 +1,4 @@
+<mat-icon class="rating-icon" *ngFor="let ratingId of ratingArr; index as i"
+[id]="'star_' + i">
+  {{ showIcon(i) }}
+</mat-icon>

@@ -1,0 +1,61 @@
+.strength {
+  display: flex;
+
+  .level {
+    display: inline-block;
+    height: 5px;
+    width: 25%;
+    transition:width .4s ease-in-out , transform .4s ease-in-out;
+    background-color: #ff0000;
+
+    & + .level {
+      margin-left: 2px;
+    }
+  }
+
+  &.low {
+    .level {
+      background-color: orange;
+    }
+  }
+
+  &.mid {
+    .level {
+      background-color: #00BCD4;
+    }
+  }
+
+  &.hight {
+    .level {
+      background-color: #4CAF50;
+    }
+  }
+}
+
+
+
+.meter-text{
+  display: flex;
+  width:70%;
+  justify-content:space-between;
+  margin:1rem 0 .1rem 0;
+  color:rgba(#111,.6);
+  text-transform:capitalize;
+  .meter-status{
+    text-transform:capitalize;
+  }
+}
+.meter{
+  display: block;
+  width:70%;
+  height:10px;
+  border-radius:3px;
+  background: rgba(#111,.1);
+  overflow: hidden;
+  .meter-bar{
+    display: block;
+    width:0;
+    height:100%;
+    transition:width .4s ease-in-out , transform .4s ease-in-out;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "/users": {
+    "target": "https://final-project-node-ten.vercel.app",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

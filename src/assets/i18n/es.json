@@ -1,0 +1,56 @@
+{
+  "HELLO": "Hola!",
+  "BANNER-HERO": "Gatete del día",
+  "PREVIOUS-PAGE": "Atrás",
+  "PREVIOUS-PAGE-HOME": "Inicio",
+  "CHARACTER-LIST": {
+    "TITLE": "Listado de characters"
+  },
+  "MAIN-MENU": {
+    "PROFILE": "Perfil",
+    "REGISTER": "Crear usuario",
+    "LOGIN": "Iniciar Sesión",
+    "LOGOUT": "Cerrar Sesión"
+  },
+  "FORMS": {
+    "TITLE": {
+      "LOGIN": "Inicie sesión",
+      "REGISTER": "Registro nuevo usuario",
+      "UPDATE-USER": "Actualizar usuario",
+      "PROFILE": "Perfil"
+    },
+    "NAME": "Nombre",
+    "LASTNAME": "Apellidos",
+    "EMAIL": "Correo",
+    "PASSWORD": "Contraseña",
+    "REPASSWORD": "Repetir contraseña",
+    "PHONE-NUMBER": "Teléfono",
+    "UPDATE": "Modificar usuario",
+    "DELETE": "Borrar usuario",
+    "SUBMIT": "Enviar",
+    "FIELD-REQUIRED": "Este campo es obligatorio",
+    "FIELD-PASSWORD": "La contraseña debe contener al menos 8 caracteres, una mayúscula, una minúscula y un número",
+    "FIELD-PASSWORD-MIN": "Este campo tiene que tener al menos {{ value1 }} caracteres",
+    "FIELD-PASSWORD-MAX": "Este campo tiene que tener como mucho {{ value1 }} caracteres",
+    "FIELD-PASSWORD-STRENGTH": "Resistencia de contraseña",
+    "FIELD-PASSWORD-NOT-MATCH": "Las contraseñas no coinciden"
+  },
+  "LIST": "Listado de gatetes",
+  "DETAILS": {
+    "TEMPERAMENT": "Carácter",
+    "ORIGIN": "Origen",
+    "WEIGHT": "Peso",
+    "LIFE-SPAN": "Esperanza de vida",
+    "ADAPTABILITY": "Adaptabilidad",
+    "AFFECTION-LEVEL": "Afectuoso",
+    "CHILD-FRIENDLY": "Amigable con los niños",
+    "DOG-FRIENDLY": "Amigable con los perros",
+    "GROOMING": "Aseo",
+    "HEALTH-ISSUES": "Problemas de salud",
+    "INTELLIGENCE": "Inteligencia",
+    "SHEDDING-LEVEL": "Nivel de muda",
+    "ENERGY-LEVEL": "Nivel de energía",
+    "SOCIAL-NEEDS": "Sociable",
+    "STRANGER-FRIENDLY": "Amigable con los extraños"
+  }
+}

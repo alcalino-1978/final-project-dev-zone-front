@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -23,6 +24,7 @@ import { BannerHeroComponent } from './components/banner-hero/banner-hero.compon
     CommonModule,
     HomeRoutingModule,
     SharedModule,
+    FormsModule,
     // Material
     MatMenuModule,
     MatButtonModule,

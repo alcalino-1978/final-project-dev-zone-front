@@ -42,3 +42,75 @@ export function checkPasswordStrength(password: string): number {
   return strength;
 }
 
+export function validateCIF(cif: string): boolean {
+  // Comprobar que la longitud es 9 caracteres
+  if (cif.length !== 9) {
+    return false;
+  }
+
+  // Extraer el primer caracter (letra) y convertirla a número
+  const firstChar = cif.charAt(0).toUpperCase();
+  const firstCharCode = firstChar.charCodeAt(0);
+  let firstNumber;
+  if (firstCharCode >= 65 && firstCharCode <= 90) {
+    firstNumber = firstCharCode - 64;
+  } else {
+    return false;
+  }
+
+  // Comprobar si el primer número es válido
+  if (firstNumber < 1 || firstNumber > 23 || firstNumber === 9 || firstNumber === 15 || firstNumber === 16 || firstNumber === 20) {
+    return false;
+  }
+
+  // Calcular la suma de los números de posición par
+  let evenSum = 0;
+  for (let i = 1; i < 8; i += 2) {
+    const number = parseInt(cif.charAt(i), 10);
+    if (isNaN(number)) {
+      return false;
+    }
+    evenSum += number;
+  }
+
+  // Calcular la suma de los números de posición impar
+  let oddSum = 0;
+  for (let i = 0; i < 9; i += 2) {
+    const number = parseInt(cif.charAt(i), 10);
+    if (isNaN(number)) {
+      return false;
+    }
+    let oddNumber = number * 2;
+    if (oddNumber > 9) {
+      oddNumber = oddNumber - 9;
+    }
+    oddSum += oddNumber;
+  }
+
+  // Calcular la suma total
+  const totalSum = evenSum + oddSum;
+
+  // Extraer el último dígito de la suma total
+  const lastDigit = parseInt(String(totalSum).charAt(1), 10);
+
+  // Calcular el dígito de control
+  let controlDigit;
+  if (lastDigit === 0) {
+    controlDigit = 0;
+  } else {
+    controlDigit = 10 - lastDigit;
+  }
+
+  // Comprobar si el último caracter coincide con el dígito de control
+  const lastChar = cif.charAt(8);
+  if (isNaN(parseInt(lastChar, 10))) {
+    return lastChar.toUpperCase() === String.fromCharCode(controlDigit + 64);
+  } else {
+    return parseInt(lastChar, 10) === controlDigit;
+  }
+}
+
+// Ejemplo de como usarlo
+// const cif = 'B12345678';
+// const isValid = validateCIF(cif);
+// console.log(isValid); // true

@@ -13,6 +13,7 @@ export class CatApiService {
     private httpClient: HttpClient
   ) { }
 
+  // TODO todos los endpoint que NO requiere autenticación
   getCats(): Observable<CatModelAPI[]> {
     return this.httpClient.get<CatModelAPI[]>(environment.url + 'breeds')
   }

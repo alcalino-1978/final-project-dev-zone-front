@@ -24,6 +24,7 @@ export class StorageService {
   }
 
   public getUser(): any {
+    // todo guardar también el tipo de usuario
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       return JSON.parse(user);
@@ -40,4 +41,5 @@ export class StorageService {
 
     return false;
   }
+
 }

@@ -1,8 +1,8 @@
 <mat-toolbar class="main-header">
   <a [routerLink]="['/']" class="main-header__logo">
-    <img class="main-header__logo-img" src="/assets/logo.svg" alt="Logo">
+    <img class="main-header__logo-img" src="/assets/logo.png" alt="Logo">
   </a>
-  <h1 class="main-header__title">Schrödinger's Cat</h1>
+  <!--><h1 class="main-header__title">Schrödinger's Cat</h1> #}-->
   <div class="d-flex">
     <button mat-icon-button (click)="switchTheme('light-theme');showTheme.light = !showTheme.light; showTheme.dark = !showTheme.dark;"
       *ngIf="showTheme.light"><mat-icon>brightness_5</mat-icon></button>

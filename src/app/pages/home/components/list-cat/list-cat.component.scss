@@ -1,6 +1,6 @@
 @import '../../../../../styles/mixins.scss';
 
-.list-cat {
+.list-joboffer {
   &__header {
     margin-bottom: 16px;
   }
@@ -45,9 +45,7 @@
       }
     }
   }
-  [class*="headline"],
-  .mat-mdc-card-title {
-    color: #E96479;
-    margin-bottom: 0.8rem;
+  &__title {
+    color: var(--secondaryColor);
   }
 }

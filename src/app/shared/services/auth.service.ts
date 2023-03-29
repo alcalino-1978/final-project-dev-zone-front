@@ -39,6 +39,7 @@ export class AuthService {
 
   // todo Tres tipos de registros según Entidad
   registerCompany(name: string, cif: string,logo: string, description: string,  email: string, password: string, listOffers:string[], numberEmployees: string): Observable<any> {
+    //this.http.post('http://localhost:8001/upload.php', formData)
     return this.http.post<any>(
       environment.urlCompany,
       {

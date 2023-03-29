@@ -19,6 +19,7 @@ export class ListOffersComponent {
 
   constructor(
     private jobofferService: JobofferService,
+    private router: Router,
     private searchValueService: SearchValueService,
   ) {}
 
@@ -38,6 +39,8 @@ export class ListOffersComponent {
 
   public getOfferDetail(id: any): void {
     console.log(id);
+    this.router.navigateByUrl(`/offers/${id}`)
+
   }
 
   private getSearchValue(): void {

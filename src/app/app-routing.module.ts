@@ -9,8 +9,8 @@ const routes: Routes = [
     loadChildren: () => import('@pages/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'breeds/:id',
-    loadChildren: () => import('@pages/home/components/detail-cat/detail-cat.module').then(m => m.DetailCatModule)
+    path: 'offers/:id',
+    loadChildren: () => import('@pages/home/components/detail-offer/detail-offer.module').then(m => m.DetailOfferModule)
   },
   {
     path: 'register',

@@ -25,19 +25,19 @@ export class BannerHeroComponent {
     ) { }
 
   ngOnInit(): void {
-    this.getCatRandom();
+    // this.getCatRandom();
   }
-  private getCatRandom(): void {
-    this.isLoading = true;
-    this.catApiService.getCatRandom().subscribe(
-      (response: CatModelUnsplashAPI) => {
-        this.catRandom= response;
-        this.randomImageUrl= this.catRandom.urls.regular;
-        // console.log(response.urls.full)
-        this.isLoading = false;
-      }, (error) => {
-      });
-  }
+  // private getCatRandom(): void {
+  //   this.isLoading = true;
+  //   this.catApiService.getCatRandom().subscribe(
+  //     (response: CatModelUnsplashAPI) => {
+  //       this.catRandom= response;
+  //       this.randomImageUrl= this.catRandom.urls.regular;
+  //       // console.log(response.urls.full)
+  //       this.isLoading = false;
+  //     }, (error) => {
+  //     });
+  // }
   sendRequest() {
     this.openaiService.completions(this.prompt)
       .subscribe((data: any) => {
@@ -45,4 +45,6 @@ export class BannerHeroComponent {
         this.response = data.message;
       });
   }
+
+
 }

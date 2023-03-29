@@ -2,3 +2,15 @@
 <div class="container pt-4 px-4 my-5">
   <!--<app-list-cat></app-list-cat>-->
 </div>
+<form (ngSubmit)="OnSubmit()">
+  <input id="search" type="text" class="search__container-input" placeholder="Search..." [(ngModel)]="filter" name="filter">
+  <!-- <button type="submit">dale</button> -->
+</form>
+
+<div *ngFor="let offer of (offerList | filterSearch: filter)">
+  <h1>{{ offer.title }}</h1>
+  <h2>{{ offer.company }}</h2>
+  <h5>{{ offer.id }}</h5>
+  <p [innerHTML]="offer.description"></p>
+  <p>{{ offer.keywords }}</p>
+</div>

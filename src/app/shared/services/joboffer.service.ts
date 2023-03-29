@@ -9,13 +9,29 @@ import { Observable } from 'rxjs';
 })
 export class JobofferService {
 
+  public API_URL: string = 'http://localhost:3000/v1/joboffers/';
   constructor(
     private httpClient: HttpClient
   ) { }
 
   // TODO todos los endpoint que NO requiere autenticación
-  getOffer(): Observable<JobOfferModelAPI[]> {
-    return this.httpClient.get<JobOfferModelAPI[]>('http://localhost:3000/v1/joboffers/')
+  public getOffer(): Observable<JobOfferModelAPI[]> {
+    return this.httpClient.get<JobOfferModelAPI[]>(this.API_URL)
   }
 
+  public getOfferbyID(id: string): Observable<JobOfferModelAPI> {
+    return this.httpClient.get<JobOfferModelAPI>(this.API_URL + `/${id}`)
+  }
+
+  public offerRegistration(offerId: string, userId: string): Observable<JobOfferModelAPI> {
+    const url = this.API_URL + `${offerId}`;
+    const data = { applicants: [userId]};
+    return this.httpClient.patch<JobOfferModelAPI>(url, data)
+  }
+
+  public updateUserJobOffers(userId: string, offerId: string): Observable<JobOfferModelAPI> {
+    const url = 'http://localhost:3000/v1/developers/' + `${userId}`;
+    const data = { jobOffers: [offerId]};
+    return this.httpClient.patch<JobOfferModelAPI>(url, data)
+  }
 }

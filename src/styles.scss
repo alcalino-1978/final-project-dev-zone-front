@@ -43,13 +43,22 @@ $headline: mat.define-typography-level(20px, 27px, 400, );
   --textOnPrimary: #3e38f2;
   --textOnPrimary: #5c73f2;
   --backgroundDark: #142642;
-  --backgroundLight: #ffffff;
+  --white: #ffffff;
   --boxShadowLight: 0px 0px 16px 0px rgba(0,0,0,0.4);
   --boxShadowDark: 0px 0px 16px 0px rgba(255,255,255,0.4);
   --dropShadowSvgLight: 0px 0px 8px rgba(0,0,0,0.4);
   --dropShadowSvgDark: 0px 0px 8px rgba(255,255,255,0.4);
+  --rootUnit: 8px;
+  --spacingXxs: calc(var(--rootUnit)/2);
+  --spacingXs: var(--rootUnit);
+  --spacingSm: calc(var(--rootUnit)*2);
+  --spacingMd: calc(var(--rootUnit)*3);
+  --spacingLg: calc(var(--rootUnit)*4);
+  --spacingXl: calc(var(--rootUnit)*5);
 }
 
+
+@import url('./styles/animations.scss');
 
 @import url('./styles/_helpers.scss');
 

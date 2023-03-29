@@ -10,6 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from './components/loader/loader.component';
 
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
     TranslateModule,
     // Material
     MatProgressSpinnerModule,
+    MatIconModule,
 
 
   ],

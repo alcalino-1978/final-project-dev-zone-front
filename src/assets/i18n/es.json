@@ -21,10 +21,14 @@
     },
     "NAME": "Nombre",
     "LASTNAME": "Apellidos",
+    "CIF": "CIF",
     "EMAIL": "Correo",
     "PASSWORD": "Contraseña",
     "REPASSWORD": "Repetir contraseña",
     "PHONE-NUMBER": "Teléfono",
+    "NUMBER-EMPLOYESRS": "Numero de empleados",
+    "LOGO":"URL logo",
+    "DESCRIPTION":"descripción de la comañía",
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",
@@ -54,7 +58,7 @@
     "STRANGER-FRIENDLY": "Amigable con los extraños"
   },
   "CHATBOT": {
-    "HEADER": "Profesor asistente",
+    "HEADER": "Hola 👋🤖 , soy tu profesor de código asistente.\n¿En que te puedo ayudar?",
     "BUTTON-CLOSE": "Cerrar",
     "INPUT-PLACEHOLDER": "Pon tu consulta aquí...",
     "INPUT-SUBMIT": "Consultar"

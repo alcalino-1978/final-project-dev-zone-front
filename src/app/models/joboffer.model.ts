@@ -1,21 +1,21 @@
 export interface JobOfferCompanyModel {
-  id: string,
+  _id: string,
   name: string,
   logo: string,
   numberEmployees: number
 }
 
 export interface JobOfferApplicantsModel {
-  id: string,
+  _id: string,
   fullName: string,
   photo: string
 }
 
 export interface JobOfferModelAPI {
-  id: string,
+  _id: string,
   title: string,
   description: string,
-  company: [JobOfferCompanyModel],
+  company: JobOfferCompanyModel[],
   salaryRange: {
     min: number,
     max: number
@@ -27,18 +27,19 @@ export interface JobOfferModelAPI {
   offerStatus: boolean,
   typeJob: string,
   vacancies: number,
-  applicants: [JobOfferApplicantsModel],
+  applicants: JobOfferApplicantsModel[],
   keywords: [string],
-  createdAt: string,
-  updatedAt: string
+  createdAt: Date,
+  updatedAt: Date
 }
 
 export interface JobOfferModel{
-  id: string,
+  _id: string,
   title: string,
   description: string,
-  company: [JobOfferCompanyModel],
+  company: JobOfferCompanyModel[],
   offerStatus: boolean,
   typeJob: string,
   keywords: [string],
+  createdAt: Date
 }

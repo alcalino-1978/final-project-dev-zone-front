@@ -17,14 +17,5 @@ export class JobofferService {
   getOffer(): Observable<JobOfferModelAPI[]> {
     return this.httpClient.get<JobOfferModelAPI[]>('http://localhost:3000/v1/joboffers/')
   }
-  // getCatId(id:number): Observable<JobOfferModelAPI> {
-  //   return this.httpClient.get<JobOfferModelAPI>(environment.url + 'breeds/' + id)
-  // }
-  // getCatRandom(): Observable<CatModelUnsplashAPI> {
-  //   return this.httpClient.get<CatModelUnsplashAPI>(environment.urlUnsplash)
-  // }
-  // postUserLogin(urlUserLogin:urlUserLogin): Observable<UserModelAPI> {
-  //   return this.httpClient.post<UserModelAPI>(environment.urlUserLogin, urlUserLogin)
-  // }
 
 }

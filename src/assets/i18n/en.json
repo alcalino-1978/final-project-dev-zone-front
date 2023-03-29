@@ -53,5 +53,11 @@
     "ENERGY-LEVEL": "Energy level",
     "SOCIAL-NEEDS": "Social needs",
     "STRANGER-FRIENDLY": "Stranger friendly"
+  },
+  "CHATBOT": {
+    "HEADER": "Assistant teacher",
+    "BUTTON-CLOSE": "Close",
+    "INPUT-PLACEHOLDER": "Type your message here...",
+    "INPUT-SUBMIT": "Send"
   }
 }

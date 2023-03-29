@@ -9,10 +9,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LoaderComponent } from './components/loader/loader.component';
 
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
     LoaderComponent,
+    ChatbotComponent,
     FilterSearchPipe
   ],
   imports: [
@@ -20,6 +22,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule,
     // Material
     MatProgressSpinnerModule,
 

@@ -1,0 +1,111 @@
+.skynet-assistant {
+  &__popup {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    width: 300px;
+    height: 50vh;
+    min-height: 450px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+    &-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1000;
+      img {
+        width: 4.8rem;
+        transition: 0.2s ease-in-out all;
+        filter: drop-shadow(var(--dropShadowSvgDark));
+        &:hover {
+          width: 5.2rem;
+        }
+      }
+    }
+  }
+  &__header {
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  &__close-button {
+    float: right;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  &__body {
+    height: calc(100% - 133px);
+    padding: 10px;
+  }
+
+  &__footer {
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    &-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #fff;
+      border-radius: 5px 5px 0 0;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+  }
+  &__submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2ca1da;
+    color: #fff;
+    border: none;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  &__messages {
+      height: 100%;
+      overflow: auto;
+      .skynet-assistant__message{
+        display: flow-root;
+        width: 100%;
+        .client {
+          background-color: #333;
+          color: white;
+          padding: 10px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          display: inline-block;
+          max-width: 80%;
+        }
+
+        .user {
+          border: 0.5px solid #333;
+          background-color: #fff;
+          color: #333;
+          padding: 10px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          display: inline-block;
+          max-width: 80%;
+          text-align: right;
+          float: right;
+        }
+      }
+    }
+}

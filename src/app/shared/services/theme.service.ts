@@ -9,7 +9,7 @@ export type Theme = 'light-theme' | 'dark-theme';
 })
 
 export class ThemeToggler {
-  currentTheme: Theme = 'light-theme';
+  currentTheme: Theme = 'dark-theme';
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.document.body.classList.add(this.currentTheme);

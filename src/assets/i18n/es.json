@@ -52,5 +52,11 @@
     "ENERGY-LEVEL": "Nivel de energía",
     "SOCIAL-NEEDS": "Sociable",
     "STRANGER-FRIENDLY": "Amigable con los extraños"
+  },
+  "CHATBOT": {
+    "HEADER": "Profesor asistente",
+    "BUTTON-CLOSE": "Cerrar",
+    "INPUT-PLACEHOLDER": "Pon tu consulta aquí...",
+    "INPUT-SUBMIT": "Consultar"
   }
 }

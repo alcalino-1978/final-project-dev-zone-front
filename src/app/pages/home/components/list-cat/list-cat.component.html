@@ -1,6 +1,6 @@
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="row"><h2 class="mat-headline-3 cat-title -gradient mb-2">{{ 'LIST' | translate }}</h2></div>
-<ul class="list-cat my-4 d-flex flex-wrap" *ngIf="!isLoading">
+<ul class="list-joboffer my-4 d-flex flex-wrap" *ngIf="!isLoading">
   <ng-container *ngFor="let cat of catList">
     <li class="list-joboffer__item col-12" *ngIf="cat.image"  (click)="getCatDetail(cat.id)">
       <div class="card mb-3">

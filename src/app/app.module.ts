@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
-
+import { MatTabsModule } from '@angular/material/tabs'; 
 
 import { CoreModule } from '@core/core.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +44,8 @@ import { UpdateUserComponent } from './pages/update-user/update-user.component';
     MatDividerModule,
     MatButtonModule,
     MatPseudoCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule
   ],
   providers: [ThemeToggler],
   bootstrap: [AppComponent]

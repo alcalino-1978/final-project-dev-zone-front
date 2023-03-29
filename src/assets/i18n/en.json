@@ -1,6 +1,6 @@
 {
   "HELLO": "Hello!",
-  "BANNER-HERO": "Kitten of the Day",
+  "BANNER-HERO": "Look for your next job!",
   "PREVIOUS-PAGE": "Back",
   "PREVIOUS-PAGE-HOME": "Home",
   "CHARACTER-LIST": {
@@ -36,7 +36,7 @@
     "FIELD-PASSWORD-NOT-MATCH": "Passwords do not match"
   }
   ,
-  "LIST": "Kitten List",
+  "LIST": "Offer List",
   "DETAILS": {
     "TEMPERAMENT": "Temperament",
     "ORIGIN": "Origin",

@@ -31,7 +31,8 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
   exports: [
     TranslateModule,
     LoaderComponent,
-    FilterSearchPipe
+    FilterSearchPipe,
+    ChatbotComponent
   ]
 })
 export class SharedModule { }

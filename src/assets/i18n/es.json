@@ -1,6 +1,6 @@
 {
   "HELLO": "Hola!",
-  "BANNER-HERO": "Gatete del día",
+  "BANNER-HERO": "¡Encuentra tu nuevo empleo!",
   "PREVIOUS-PAGE": "Atrás",
   "PREVIOUS-PAGE-HOME": "Inicio",
   "CHARACTER-LIST": {
@@ -35,7 +35,7 @@
     "FIELD-PASSWORD-STRENGTH": "Resistencia de contraseña",
     "FIELD-PASSWORD-NOT-MATCH": "Las contraseñas no coinciden"
   },
-  "LIST": "Listado de gatetes",
+  "LIST": "Listado de ofertas",
   "DETAILS": {
     "TEMPERAMENT": "Carácter",
     "ORIGIN": "Origen",

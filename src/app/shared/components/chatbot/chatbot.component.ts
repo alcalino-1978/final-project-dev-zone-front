@@ -21,13 +21,13 @@ export class ChatbotComponent {
   });
   @ViewChild('scrollMe') private myScrollContainer: any;
 
-  constructor(private openaiService: OpenaiService) {
-    this.messages.push({
-      type: 'client',
-      message: 'Hi, I am your support agent. How can I help you?',
-    });
+  constructor(private openaiService: OpenaiService) {}
+  ngOnInit() {
+    // this.messages.push({
+    //   type: 'client',
+    //   message: 'Hi 👋, I am your support agent. How can I help you?',
+    // });
   }
-
   openSupportPopup() {
     this.isOpen = !this.isOpen;
   }

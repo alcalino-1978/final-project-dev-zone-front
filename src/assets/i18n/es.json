@@ -54,7 +54,7 @@
     "STRANGER-FRIENDLY": "Amigable con los extraños"
   },
   "CHATBOT": {
-    "HEADER": "Profesor asistente",
+    "HEADER": "Hola 👋🤖 , soy tu profesor de código asistente.\n¿En que te puedo ayudar?",
     "BUTTON-CLOSE": "Cerrar",
     "INPUT-PLACEHOLDER": "Pon tu consulta aquí...",
     "INPUT-SUBMIT": "Consultar"

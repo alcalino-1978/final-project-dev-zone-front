@@ -44,6 +44,10 @@ $headline: mat.define-typography-level(20px, 27px, 400, );
   --textOnPrimary: #5c73f2;
   --backgroundDark: #142642;
   --backgroundLight: #ffffff;
+  --boxShadowLight: 0px 0px 16px 0px rgba(0,0,0,0.4);
+  --boxShadowDark: 0px 0px 16px 0px rgba(255,255,255,0.4);
+  --dropShadowSvgLight: 0px 0px 8px rgba(0,0,0,0.4);
+  --dropShadowSvgDark: 0px 0px 8px rgba(255,255,255,0.4);
 }
 
 

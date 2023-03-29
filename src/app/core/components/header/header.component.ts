@@ -16,8 +16,8 @@ import { AuthService } from '@shared/services/auth.service';
 })
 export class HeaderComponent {
   showTheme = {
-    light: false,
-    dark: true,
+    light: true,
+    dark: false,
   };
   public isLoggedIn!: boolean;
   isActived: boolean = false;

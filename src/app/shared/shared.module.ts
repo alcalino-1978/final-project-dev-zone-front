@@ -7,16 +7,19 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LoaderComponent } from './components/loader/loader.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
     LoaderComponent,
+    ChatbotComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule,
     // Material
     MatProgressSpinnerModule,
 
@@ -25,6 +28,7 @@ import { LoaderComponent } from './components/loader/loader.component';
   exports: [
     TranslateModule,
     LoaderComponent,
+    ChatbotComponent
 
   ]
 })

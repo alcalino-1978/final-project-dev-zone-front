@@ -1,0 +1,46 @@
+<div id="helpdesk" class="skynet-assistant">
+  <button class="skynet-assistant__popup-button" id="helpdesk-popup-button" (click)="openSupportPopup()">
+    <img src="/assets/chatbot.svg">
+  </button>
+  <div id="helpdesk-popup" class="skynet-assistant__popup" [style.display]="isOpen ? 'block' : 'none'">
+    <div id="helpdesk-popup-header" class="skynet-assistant__header">
+      {{ 'CHATBOT.HEADER' | translate }}
+      <button id="helpdesk-popup-close-button" class="skynet-assistant__close-button" (click)="openSupportPopup()">
+        {{ 'CHATBOT.BUTTON-CLOSE' | translate }}
+      </button>
+    </div>
+    <div id="helpdesk-popup-body" class="skynet-assistant__body">
+      <div class="skynet-assistant__messages" #scrollMe>
+        <div *ngFor="let message of messages" class="skynet-assistant__message">
+          <div [class]="message.type">
+            {{ message.message }}
+          </div>
+        </div>
+        <div
+          *ngIf="loading"
+          class="skynet-assistant__message"
+          style="width: 100%; display: block"
+        >
+          <div [class]="'client'">...</div>
+        </div>
+      </div>
+    </div>
+    <form id="helpdesk-popup-footer" class="skynet-assistant__footer" [formGroup]="chatForm">
+      <input
+        formControlName="message"
+        type="text"
+        id="helpdesk-popup-input"
+        class="skynet-assistant__footer-input"
+        placeholder="{{ 'CHATBOT.INPUT-PLACEHOLDER' | translate }}"
+      />
+      <button
+        id="helpdesk-popup-submit-button"
+        class="skynet-assistant__submit-button"
+        [disabled]="!chatForm.valid"
+        (click)="sendMessage()"
+      >
+      {{ 'CHATBOT.INPUT-SUBMIT' | translate }}
+      </button>
+    </form>
+  </div>
+</div>

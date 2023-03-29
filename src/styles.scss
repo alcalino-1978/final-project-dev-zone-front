@@ -36,7 +36,19 @@ $angular-dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(
 $headline: mat.define-typography-level(20px, 27px, 400, );
 
 
-
+:root {
+  --primaryColor: #829fd9;
+  --secondaryColor: #0029fa;
+  --yellow: #fffc14;
+  --textOnPrimary: #3e38f2;
+  --textOnPrimary: #5c73f2;
+  --backgroundDark: #142642;
+  --backgroundLight: #ffffff;
+  --boxShadowLight: 0px 0px 16px 0px rgba(0,0,0,0.4);
+  --boxShadowDark: 0px 0px 16px 0px rgba(255,255,255,0.4);
+  --dropShadowSvgLight: 0px 0px 8px rgba(0,0,0,0.4);
+  --dropShadowSvgDark: 0px 0px 8px rgba(255,255,255,0.4);
+}
 
 
 @import url('./styles/_helpers.scss');
@@ -158,15 +170,14 @@ a {
 // THEMING
 .dark-theme {
   @include mat.all-component-colors($angular-dark-theme);
-  background-color: #303030;
   .main-header__title {
     color: #ffffbdff !important;
   }
   .main-header__logo-img {
-    margin-top: -58px;
+    margin-top: -53px;
   }
   .cat-title.-gradient {
-    background: linear-gradient( #E96479 35%, #FFFFFF 100%);
+    background: linear-gradient(var(--primaryColor) 10%, #FFFFFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -174,6 +185,9 @@ a {
     background: linear-gradient(rgba(0, 0, 0, 0.1) 45%, rgba(255, 255, 255, 0.07) 100%);
     box-shadow: 0 0 10px 0 rgb(255 255 255 / 30%);
   }
+}
+.dark-theme, .dark-theme .mat-app-background {
+  background-color: var(--backgroundDark);
 }
 
 .light-theme .mat-toolbar {
@@ -203,7 +217,7 @@ a {
   }
   // Angular material button size && radius border
   .cat-button {
-    background: linear-gradient(45deg, #F5E9CF 0%, #E96479 70%);
+    background-color: var(--primaryColor);
       height: 6rem;
       font-size: 2rem;
       border-radius: 3.2rem;

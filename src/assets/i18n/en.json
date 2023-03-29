@@ -59,7 +59,7 @@
     "STRANGER-FRIENDLY": "Stranger friendly"
   },
   "CHATBOT": {
-    "HEADER": "Assistant teacher",
+    "HEADER": "Hi 👋🤖 , I am your Assistant teacher. \nHow can I help you?",
     "BUTTON-CLOSE": "Close",
     "INPUT-PLACEHOLDER": "Type your message here...",
     "INPUT-SUBMIT": "Send"

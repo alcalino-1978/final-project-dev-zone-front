@@ -63,10 +63,10 @@ export class UpdateUserComponent {
         password: this.passwordFormControl.value,
       }
 
-      this.authService.login(user.email, user.password).subscribe({
+      this.authService.login(user.email, user.password, 'Developer').subscribe({
         next: response => {
-          this.storageService.saveUser(response.data.user);
-          this.storageService.saveToken(response.data);
+          // this.storageService.saveUser(response.data.user);
+          // this.storageService.saveToken(response.data);
           console.log(this.storageService.getUser())
           this.isLoginFailed = false;
           this.isLoggedIn = true;

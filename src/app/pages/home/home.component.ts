@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -10,20 +10,16 @@ export class HomeComponent {
   public isLoading: boolean = false;
   containerClasses = "home";
 
-  constructor(private elRef:ElementRef) { }
+
+  constructor(
+    private elRef:ElementRef,
+  ) { }
+
   ngAfterViewInit() {
     this.elRef.nativeElement.parentElement.classList.add(this.containerClasses);
   }
   ngOnInit(): void {
-    this.getListItems();
-  }
 
-  private getListItems(): void {
-    // llamada asincrona a la API
-    this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
   }
 
 }

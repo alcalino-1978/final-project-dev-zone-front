@@ -1,7 +1,7 @@
+import { SearchValueService } from './../../../../shared/services/search-value.service';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { CatApiService } from '@shared/services/catApi.service';
-import { OpenaiService } from '@shared/services/openia.service';
 import { CatModelUnsplashAPI } from 'src/app/models/cat.model';
 
 @Component({
@@ -14,13 +14,11 @@ export class BannerHeroComponent {
   public catRandom!: CatModelUnsplashAPI;
   public randomImageUrl!: string;
 
-  // Open IA
-  public prompt = 'Escribe aquí lo que quieras que el modelo complete';
-  public response = '';
+  public filter: string = '';
 
   constructor(
     private catApiService : CatApiService,
-    private openaiService: OpenaiService,
+    private searchValueService: SearchValueService,
     @Inject(DOCUMENT) private document: Document,
     ) { }
 
@@ -38,11 +36,10 @@ export class BannerHeroComponent {
       }, (error) => {
       });
   }
-  sendRequest() {
-    this.openaiService.completions(this.prompt)
-      .subscribe((data: any) => {
-        console.log(data);
-        this.response = data.message;
-      });
-  }
+
+  OnSubmit() {
+    console.log(this.filter);
+     this.searchValueService.getData(this.filter);
+  };
+
 }

@@ -3,10 +3,9 @@
     <div class="row position-relative">
       <h1 class="banner-hero__title cat-title">{{ 'BANNER-HERO' | translate }}</h1>
     </div>
-    <div class="row">
-      <textarea [(ngModel)]="prompt"></textarea>
-      <button (click)="sendRequest()">Enviar solicitud</button>
-      <textarea [(ngModel)]="response"></textarea>
-    </div>
   </div>
+  <form (ngSubmit)="OnSubmit()">
+    <input id="search" type="text" class="search__container-input" placeholder="Search..." [(ngModel)]="filter" name="filter">
+  </form>
 </div>
+

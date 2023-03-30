@@ -12,13 +12,15 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { BannerHeroComponent } from './components/banner-hero/banner-hero.component';
+import { ListOffersComponent } from './components/list-offers/list-offers.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ListCatComponent,
-    BannerHeroComponent
+    BannerHeroComponent,
+    ListOffersComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,36 @@
+<ng-container *ngIf="offerDetail">
+  <a (click)="backWithLocation()" class="mb-5 d-flex">{{ 'PREVIOUS-PAGE' | translate }}</a>
+  <div class="row"><h2 class="mat-headline-3 cat-title -gradient">{{ offerDetail.title }}</h2></div>
+  <div class="row">
+    <p>Jornada: {{ offerDetail.hiring.shift }}</p>
+    <p>Contrato: {{ offerDetail.hiring.contract }}</p>
+    <p>Modalidad: {{ offerDetail.typeJob }}</p>
+    <p>{{ offerDetail.salaryRange.min | currency:'EUR':'symbol':'4.2-2' }} - {{ offerDetail.salaryRange.max | currency:'EUR':'symbol':'4.2-2' }}</p>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6 order-1 order-md-0 detail-data">
+      <h3>Descripción:</h3>
+      <p [innerHTML]="offerDetail.description"></p>
+      <p>{{ applicantsCount }} personas se han inscrito a la oferta.</p>
+      <!-- <ul class="list-detail">
+        <li class="list-detail__item row">
+          <div class="col-5"><strong>{{ 'DETAILS.WEIGHT' | translate }}:</strong></div>
+          <div class="col-6">{{ catDetail.weight.metric}} Kg.</div>
+        </li>
+
+      </ul> -->
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary"
+  (click)="jobOfferRegistration(offerDetail._id)"
+  [disabled]="!offerDetail.offerStatus">INSCRIBIRME</button>
+  <div *ngFor="let item of offerDetail.company" class="col-12 col-md-6 order-0 order-md-1 mb-5">
+    <picture>
+      <img [src]="item.logo">
+    </picture>
+    <div>{{ item.name }}</div>
+    <div>{{ item.numberEmployees }} Empleados</div>
+  </div>
+  <!--TODO añadir vacantes de la oferta-->
+</ng-container>
+

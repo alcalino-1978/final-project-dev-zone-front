@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
 import { StorageService } from '@shared/services/storage.service';
-import { UserModelAPI } from '../../models/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +23,7 @@ export class ProfileComponent implements OnInit {
   }
   // Delete User
   deleteUser(): void {
-    // console.log(this.currentUser)
+    console.log(this.currentUser)
     this.authService.deleteUserService(this.currentUser.email).subscribe(
       response => {
         console.log(response); // Handle successful response

@@ -23,6 +23,8 @@ import { ThemeToggler } from '@shared/services/theme.service';
 import { SharedModule } from '@shared/shared.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
+import { DeveloperComponent } from '@pages/profile/components/developer/developer.component';
+import { CompanyComponent } from '@pages/profile/components/company/company.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { UpdateUserComponent } from './pages/update-user/update-user.component';
     ProfileComponent,
     RegisterComponent,
     UpdateUserComponent,
+    DeveloperComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,

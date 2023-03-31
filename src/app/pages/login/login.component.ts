@@ -11,8 +11,8 @@ import { passwordPattern, emailRegx } from '@utils/validators';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  formName = 'userLoginDeveloperForm';
   public strength = 0;
-
   public userLoginForm!: FormGroup;
   public emailFormControl!: FormControl;
   public passwordFormControl!: FormControl;
@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
     private router: Router
     ) {}
 
+  // Método para cambiar el nombre del formulario
+  setType(type: string) {
+    this.userLoginForm.get('type')?.setValue(type);
+  }
 
 	ngOnInit() {
     this.initForm();
@@ -40,11 +44,13 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
   private initForm(): void {
     // FormGroup
     this.userLoginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern(emailRegx)]],
-      password: ['', [Validators.required, Validators.pattern(passwordPattern)]],
+      password: ['', [Validators.required]],
+      type: ['Developer', [Validators.required]]
     }),
 
     // FormControls
@@ -54,22 +60,25 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-
     if (this.userLoginForm.valid) {
       this.isLoading = true;
 
       const user = {
         email: this.emailFormControl.value,
         password: this.passwordFormControl.value,
+        type: this.userLoginForm.get('type')?.value
       }
 
-      this.authService.login(user.email, user.password).subscribe({
+      this.authService.login(user.email, user.password, user.type).subscribe({
         next: response => {
-          this.storageService.saveUser(response.data.user);
+          console.log(response.data.user)
+          this.storageService.saveUser(response.data.user, user.type);
           this.storageService.saveToken(response.data);
           // console.log(this.storageService.getUser())
           this.isLoginFailed = false;
           this.isLoggedIn = true;
+          this.userLoginForm.reset();
+          this.isLoading = false;
           this.router.navigate(['/profile']);
           // this.reloadPage();
         },
@@ -80,9 +89,8 @@ export class LoginComponent implements OnInit {
         }
       });
       setTimeout(() => {
-        this.userLoginForm.reset();
-        this.isLoading = false;
-      }, 1000);
+
+      }, 3000);
     }
   }
 }

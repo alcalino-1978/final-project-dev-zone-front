@@ -2,7 +2,7 @@ import { SearchValueService } from './../../../../shared/services/search-value.s
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { CatApiService } from '@shared/services/catApi.service';
-import { CatModelUnsplashAPI } from 'src/app/models/cat.model';
+import { CatModelUnsplashAPI } from 'src/app/models/developer.model';
 
 @Component({
   selector: 'app-banner-hero',

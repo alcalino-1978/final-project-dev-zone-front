@@ -13,9 +13,10 @@ export class StorageService {
     localStorage.clear();
   }
 
-  public saveUser(user: any): void {
+  public saveUser(user: any, entityType: string): void {
+    const userData = { user, entityType };
     window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(userData));
   }
   public saveToken(user: any): void {
     localStorage.removeItem('token');
@@ -24,7 +25,6 @@ export class StorageService {
   }
 
   public getUser(): any {
-    // todo guardar también el tipo de usuario
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       return JSON.parse(user);

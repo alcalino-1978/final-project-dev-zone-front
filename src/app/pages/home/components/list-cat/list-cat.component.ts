@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CatApiService } from '@shared/services/catApi.service';
-import { CatModelAPI } from '../../../../models/cat.model';
+import { CatModelAPI } from '../../../../models/developer.model';
 import { Router } from '@angular/router';
 
 @Component({

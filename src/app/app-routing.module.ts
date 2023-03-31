@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@shared/auth.guard';
-import { RegisterModule } from './pages/register/register.module';
 
 const routes: Routes = [
   {
@@ -24,7 +23,7 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('@pages/profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard]
-  },
+  }
   // ...
 ];
 

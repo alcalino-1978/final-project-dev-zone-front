@@ -1,0 +1,11 @@
+<h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.PROFILE' | translate }} {{ data.name }}</h2>
+<div>
+  <h3>Company Component</h3>
+  <p>Company ID: {{ data._id }}</p>
+  <p>Company Cif: {{ data.cif }}</p>
+  <p>Company email: {{ data.email }}</p>
+  <p>Company description: {{ data.description }}</p>
+  <img src="{{ data.logo }}" alt="{{ data.name }}"/>
+  <p>Company numberEmployees: {{ data.numberEmployees }}</p>
+  <p>Company Date created: {{ data.updatedAt }}</p>
+</div>

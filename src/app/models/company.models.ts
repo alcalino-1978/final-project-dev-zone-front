@@ -6,5 +6,5 @@ export interface CompanyModelAPI {
     logo: string,
     cif: string,
     listOfferts: [string],
-    numberEmployees: string,   
+    numberEmployees: string,
   }

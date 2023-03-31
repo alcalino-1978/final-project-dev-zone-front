@@ -16,11 +16,11 @@ export class AuthService {
 
   // TODO todos los endpoint que REQUIEREN autenticación
 
-  login(email: string, password: string): Observable<any> {
+  login(email: string, password: string, type: string): Observable<any> {
+    const urlLogin = `http://localhost:3000/v1/users/login/${type}/${email}`;
     return this.http.post<any>(
-      environment.urlUsers + 'login',
+      urlLogin,
       {
-        email,
         password,
       },
       httpOptions
@@ -38,35 +38,34 @@ export class AuthService {
   }
 
   // todo Tres tipos de registros según Entidad
-  registerCompany(name: string, cif: string,logo: string, description: string,  email: string, password: string, listOffers:string[], numberEmployees: string): Observable<any> {
+  registerCompany(formData:any): Observable<any> {
+    const httpOptionsCustom = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+      }),
+    }
     //this.http.post('http://localhost:8001/upload.php', formData)
     return this.http.post<any>(
       environment.urlCompany,
-      {
-        name,
-        cif,
-        logo,
-        description,
-        email,
-        password,
-        listOffers,
-        numberEmployees,
-      },
-      httpOptions
+      formData,
+      httpOptionsCustom
     );
   }
-  /*register(name: string, lastName: string, email: string, password: string, phoneNumber: string): Observable<any> {
-    return this.http.post<any>(
-      environment.urlUsers + 'register/',
-      {
-        name,
-        lastName,
-        email,
-        password,
-        phoneNumber,
-      },
-      httpOptions
-    );
-  }*/
+
+  // TODO HACER REGISTRO DEVELOPER
+  // registerDeveloper(formData:any): Observable<any> {
+  //   const httpOptionsCustom = {
+  //     headers: new HttpHeaders({
+  //       'Accept': 'application/json',
+  //     }),
+  //   }
+  //   //this.http.post('http://localhost:8001/upload.php', formData)
+  //   return this.http.post<any>(
+  //     environment.urlDeveloper,
+  //     formData,
+  //     httpOptionsCustom
+  //   );
+  // }
+
 
 }

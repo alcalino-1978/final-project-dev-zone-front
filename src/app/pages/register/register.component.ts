@@ -19,13 +19,14 @@ export class RegisterComponent {
   //public lastNameFormControl!: FormControl;
   public cifFormControl!: FormControl;
   public logoFormControl!: FormControl;
-  
-  
+  public fileSourceFormControl!: FormControl;
+
+
   public descriptionFormControl!: FormControl;
   public emailFormControl!: FormControl;
   public numberEmployeesFormControl!: FormControl;
   //public phoneNumberFormControl!: FormControl;
-  
+
   public passwordFormControl!: FormControl;
   public passwordRepeatFormControl!: FormControl;
 
@@ -45,7 +46,7 @@ export class RegisterComponent {
     private router: Router
     ) {}
 
-    
+
 
 	ngOnInit() {
     this.initForm();
@@ -54,15 +55,14 @@ export class RegisterComponent {
   private initForm(): void {
 
     //FormGroup
-    
+
     this.userLoginForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(20)]],
       cif: ['', [Validators.required, Validators.maxLength(10)]],
-      logo: ['', [Validators.required, Validators.maxLength(200)]],
-      fileSource: ['', [Validators.required, ]],
       description: ['', [Validators.required, Validators.maxLength(200)]],
       email: ['', [Validators.required, Validators.pattern(emailRegx)]],
       password: ['', [Validators.required, Validators.pattern(passwordPattern)]],
+      fileSource: ['', [Validators.required, ]],
       passwordRepeat: ['', [Validators.required, ]],
       numberEmployees: ['', [Validators.required, Validators.maxLength(9)]],
     }
@@ -72,17 +72,16 @@ export class RegisterComponent {
     });
 
     // FormControls
-  
+
     this.nameFormControl = this.userLoginForm.get('name') as FormControl;
     this.cifFormControl = this.userLoginForm.get('cif') as FormControl;
-    this.logoFormControl = this.userLoginForm.get('logo') as FormControl;
-
-    //this.logoFormControl = this.selectFile;
+    this.fileSourceFormControl = this.userLoginForm.get('fileSource') as FormControl;
     this.descriptionFormControl = this.userLoginForm.get('description') as FormControl;
     this.emailFormControl = this.userLoginForm.get('email') as FormControl;
     this.passwordFormControl = this.userLoginForm.get('password') as FormControl;
     this.passwordRepeatFormControl = this.userLoginForm.get('passwordRepeat') as FormControl;
     this.numberEmployeesFormControl = this.userLoginForm.get('numberEmployees') as FormControl;
+
     // Reactive control (RxJS)
     this.passwordFormControl.valueChanges.subscribe((change) => {
       this.strength = checkPasswordStrength(change);
@@ -91,20 +90,15 @@ export class RegisterComponent {
   }
 
   onFileSelected(event:any) {
-      this.selectFile = event.target.files[0];
-      console.log('**************');
-    };
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.userLoginForm.patchValue({
+        fileSource: file
+      });
+  }
 
-    /*onFileChange(event:any) {
-  
-      if (event.target.files.length > 0) {
-        const file = event.target.files[0];
-        this.userLoginForm.patchValue({
-          fileSource: file
-        });
-      }
-    };*/
-  
+}
+
   onSubmit() {
     this.isSubmitted = true;
     console.log(this.userLoginForm);
@@ -112,36 +106,21 @@ export class RegisterComponent {
     if (this.userLoginForm.valid) {
       this.isLoading = true;
 
-      
 
-      const user = {
-        name: this.nameFormControl.value,
-        cif: this.cifFormControl.value,
-        logo: this.logoFormControl.value,
-        //fileSource:
-        //logo: this.selectFile,
-        description: this.descriptionFormControl.value,
-        email: this.emailFormControl.value,
-        password: this.passwordFormControl.value,
-        listOffers:[],
-        numberEmployees: this.numberEmployeesFormControl.value,
-      }
+      const formData = new FormData();
+      formData.append('name', this.nameFormControl.value);
+      formData.append('cif', this.cifFormControl.value);
+      formData.append('logo', this.fileSourceFormControl.value);
+      formData.append('description', this.descriptionFormControl.value);
+      formData.append('email', this.emailFormControl.value);
+      formData.append('password', this.passwordFormControl.value);
+      formData.append('numberEmployees', this.numberEmployeesFormControl.value);
 
-      console.log(user);
-      this.authService.registerCompany(
-        user.name, 
-        user.cif, 
-        user.logo, 
-        user.description, 
-        user.email, 
-        user.password, 
-        user.listOffers, 
-        user.numberEmployees
-        ).subscribe({
+      this.authService.registerCompany(formData).subscribe({
         next: response => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.storageService.saveUser(response.data.userDb);
+          // this.storageService.saveUser(response.data.userDb);
           this.storageService.saveToken(response.data);
 
           this.isLoginFailed = false;

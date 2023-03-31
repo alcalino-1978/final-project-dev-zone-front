@@ -23,14 +23,16 @@ import { ThemeToggler } from '@shared/services/theme.service';
 import { SharedModule } from '@shared/shared.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
+import { DeveloperComponent } from '@pages/profile/components/developer/developer.component';
+import { CompanyComponent } from '@pages/profile/components/company/company.component';
+import { ProfileModule } from '@pages/profile/profile.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent,
     RegisterComponent,
-    UpdateUserComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { UpdateUserComponent } from './pages/update-user/update-user.component';
     MatButtonModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    ProfileModule
   ],
   providers: [ThemeToggler],
   bootstrap: [AppComponent]

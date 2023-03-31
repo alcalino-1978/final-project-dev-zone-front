@@ -1,17 +1,8 @@
-<div class="main-footer">
+<footer class="container">
+  <div class="main-footer">
     <ul class="pages-footer d-flex">
       <li class="pages-footer__item">Copyright © 2023 Dev Zone</li>
-      <ul class="col-md-4" href="quienes-somos.component.html"> Quienes somos
-        <ul class="col-md-4">
-          <li class="pages-footer__item"><a href="#">Alberto</a></li>
-          <li class="pages-footer__item"><a href="#">Carlos</a></li>
-          <li class="pages-footer__item"><a href="#">Chema</a></li>
-          <li class="pages-footer__item"><a href="#">Rafael</a></li>
-        </ul>
-        </ul>
-        <a routerLink="/" class="pages-footer__link">
-          {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
-      <li class="pages-footer__item"></li>
+      <li class="pages-footer__item"><a routerLink="/quienes-somos">Alberto</a></li>
     </ul>
     <ul class="social-footer d-flex">
       <li class="social-footer__item"><img src="/assets/logo-linkedin.svg" class="social-footer__img"/></li>
@@ -19,4 +10,5 @@
       <li class="social-footer__item"><img src="/assets/logo-medium.svg" class="social-footer__img"/></li>
     </ul>
   </div>
+</footer>
 <app-chatbot></app-chatbot>

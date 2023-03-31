@@ -77,6 +77,8 @@ export class LoginComponent implements OnInit {
           // console.log(this.storageService.getUser())
           this.isLoginFailed = false;
           this.isLoggedIn = true;
+          this.userLoginForm.reset();
+          this.isLoading = false;
           this.router.navigate(['/profile']);
           // this.reloadPage();
         },
@@ -87,9 +89,8 @@ export class LoginComponent implements OnInit {
         }
       });
       setTimeout(() => {
-        this.userLoginForm.reset();
-        this.isLoading = false;
-      }, 1000);
+
+      }, 3000);
     }
   }
 }

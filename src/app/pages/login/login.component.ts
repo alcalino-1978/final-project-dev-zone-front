@@ -72,11 +72,13 @@ export class LoginComponent implements OnInit {
       this.authService.login(user.email, user.password, user.type).subscribe({
         next: response => {
           console.log(response.data.user)
-          this.storageService.saveUser(response.data.user._id);
+          this.storageService.saveUser(response.data.user, user.type);
           this.storageService.saveToken(response.data);
           // console.log(this.storageService.getUser())
           this.isLoginFailed = false;
           this.isLoggedIn = true;
+          this.userLoginForm.reset();
+          this.isLoading = false;
           this.router.navigate(['/profile']);
           // this.reloadPage();
         },
@@ -87,9 +89,8 @@ export class LoginComponent implements OnInit {
         }
       });
       setTimeout(() => {
-        this.userLoginForm.reset();
-        this.isLoading = false;
-      }, 1000);
+
+      }, 3000);
     }
   }
 }

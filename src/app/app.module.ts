@@ -25,16 +25,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { DeveloperComponent } from '@pages/profile/components/developer/developer.component';
 import { CompanyComponent } from '@pages/profile/components/company/company.component';
+import { ProfileModule } from '@pages/profile/profile.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent,
     RegisterComponent,
-    UpdateUserComponent,
-    DeveloperComponent,
-    CompanyComponent
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +47,8 @@ import { CompanyComponent } from '@pages/profile/components/company/company.comp
     MatButtonModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    ProfileModule
   ],
   providers: [ThemeToggler],
   bootstrap: [AppComponent]

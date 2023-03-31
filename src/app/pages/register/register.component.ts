@@ -120,7 +120,7 @@ export class RegisterComponent {
         next: response => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.storageService.saveUser(response.data.userDb);
+          // this.storageService.saveUser(response.data.userDb);
           this.storageService.saveToken(response.data);
 
           this.isLoginFailed = false;

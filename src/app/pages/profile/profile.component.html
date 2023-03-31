@@ -1,10 +1,13 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
   <div class="col-12 col-md-4 offset-md-4">
-    <h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.PROFILE' | translate }}</h2>
     <div class="container" *ngIf="currentUser; else loggedOut">
-      <app-company></app-company>
-      <app-developer></app-developer>
+      <ng-container *ngIf="currentUser.entityType === 'Company'">
+        <app-company [data]="currentUser.user"></app-company>
+      </ng-container>
+      <ng-container *ngIf="currentUser.entityType === 'Developer'">
+        <app-developer [data]="currentUser"></app-developer>
+      </ng-container>
     <mat-divider></mat-divider>
     <div class="my-5 d-flex justify-content-between">
       <!-- <button mat-raised-button color="primary" routerLink="/update-user">{{ 'FORMS.UPDATE' | translate }}</button> -->

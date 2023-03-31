@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CatModelAPI, CatModelUnsplashAPI } from '../../models/cat.model';
+import { CatModelAPI, CatModelUnsplashAPI } from '../../models/developer.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

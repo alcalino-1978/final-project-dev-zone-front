@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-developer',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./developer.component.scss']
 })
 export class DeveloperComponent {
-
+  @Input() userId: string = '';
 }

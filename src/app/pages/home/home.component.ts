@@ -10,7 +10,6 @@ export class HomeComponent {
   public isLoading: boolean = false;
   containerClasses = "home";
 
-
   constructor(
     private elRef:ElementRef,
   ) { }

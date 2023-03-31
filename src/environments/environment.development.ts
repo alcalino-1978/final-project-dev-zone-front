@@ -6,6 +6,8 @@ export const environment = {
   urlUsers: 'https://final-project-node-ten.vercel.app/users/',
 
   urlCompany: 'http://localhost:3000/v1/companies/',
+  urlDevelopers: 'http://localhost:3000/v1/developers/',
+  urlJobOffers: 'http://localhost:3000/v1/joboffers/',
 
   UNSPLASH_API_KEY: process.env['NG_APP_UNSPLASH_API_KEY'],
   urlUnsplash: `https://api.unsplash.com/photos/random/?query=developer&orientation=landscape&client_id=${process.env['NG_APP_UNSPLASH_API_KEY']}`,

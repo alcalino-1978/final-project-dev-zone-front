@@ -39,17 +39,20 @@
   &__item {
     margin-bottom: 2.4rem;
     cursor: pointer;
+    padding-right: 1rem;
     @include media-breakpoint-up(sm) {
       padding-right: 2.4rem;
-      &:last-child {
-        padding-right: 0;
-      }
     }
   }
   &__title {
-    color: var(--secondaryColor);
-  }
-  &__definition {
     color: var(--backgroundDark);
   }
+  &__definition {
+    color: var(--textOnPrimary);
+  }
+}
+
+.img-fluid {
+  object-fit: cover;
+  height: 5vh;
 }

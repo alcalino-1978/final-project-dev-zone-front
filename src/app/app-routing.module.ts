@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('@pages/profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard]
   },
+    {
+    path: 'post-offer',
+    loadChildren: () => import('@pages/post-offer/post-offer.module').then(m => m.PostOfferModule)
+  },
   // ...
 ];
 

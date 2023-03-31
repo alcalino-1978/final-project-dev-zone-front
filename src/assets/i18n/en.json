@@ -1,5 +1,6 @@
 {
   "HELLO": "Hello!",
+  "SEARCH": "Search...",
   "BANNER-HERO": "Look for your next job!",
   "PREVIOUS-PAGE": "Back",
   "PREVIOUS-PAGE-HOME": "Home",
@@ -40,7 +41,21 @@
     "FIELD-PASSWORD-NOT-MATCH": "Passwords do not match"
   }
   ,
-  "LIST": "Offer List",
+  "OFFER-LIST": "Last offers",
+  "OFFER-DETAIL": {
+    "SHIFT": "Workday",
+    "CONTRACT": "Contract",
+    "MODALITY": "Work model",
+    "SALARY": "Salary",
+    "VACANCIES": "Vacancies",
+    "DESCRIPTION": "Description",
+    "APPLICANTS": "Developers have signed up for this offer",
+    "APPLY": "APPLY",
+    "APPLIED": "ALREADY APPLIED",
+    "EMPLOYEES": "Employees",
+    "STATUS": "This offer is no longer available!"
+  },
+  "PUBLISHED": "Published on ",
   "DETAILS": {
     "TEMPERAMENT": "Temperament",
     "ORIGIN": "Origin",

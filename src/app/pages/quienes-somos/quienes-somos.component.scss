@@ -1,0 +1,103 @@
+/* Estilos para el encabezado */
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Estilos para las secciones */
+section {
+  padding: 50px 0;
+}
+
+section h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilos para los valores */
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.valor-item {
+  text-align: center;
+}
+
+.valor-item img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.valor-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.valor-item p {
+  font-size: 16px;
+}
+
+/* Estilos para el equipo */
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.miembro {
+  text-align: center;
+}
+
+.miembro img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.miembro h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.miembro p {
+  font-size: 16px;
+}

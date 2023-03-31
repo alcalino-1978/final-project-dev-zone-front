@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailCatComponent } from './detail-cat.component';
+import { CarrucelComponent } from './carrucel.component';
 
-describe('DetailCatComponent', () => {
-  let component: DetailCatComponent;
-  let fixture: ComponentFixture<DetailCatComponent>;
+describe('CarrucelComponent', () => {
+  let component: CarrucelComponent;
+  let fixture: ComponentFixture<CarrucelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailCatComponent ]
+      declarations: [ CarrucelComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DetailCatComponent);
+    fixture = TestBed.createComponent(CarrucelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

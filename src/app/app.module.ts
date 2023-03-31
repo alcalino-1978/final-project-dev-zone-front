@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
-import { MatTabsModule } from '@angular/material/tabs'; 
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { CoreModule } from '@core/core.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,9 @@ import { ThemeToggler } from '@shared/services/theme.service';
 import { SharedModule } from '@shared/shared.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+
+
 import { DeveloperComponent } from '@pages/profile/components/developer/developer.component';
 import { CompanyComponent } from '@pages/profile/components/company/company.component';
 import { ProfileModule } from '@pages/profile/profile.module';
@@ -32,7 +35,8 @@ import { ProfileModule } from '@pages/profile/profile.module';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    QuienesSomosComponent,
   ],
   imports: [
     BrowserModule,

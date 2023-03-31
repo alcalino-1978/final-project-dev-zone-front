@@ -20,7 +20,8 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
-    console.log('currentUser', this.currentUser.user);
+    console.log('currentUser', this.currentUser);
+    console.log('currentUser.user', this.currentUser.user);
   }
   // Delete User
   deleteUser(): void {

@@ -1,4 +1,11 @@
 <div>
   <h3>Company Component</h3>
-  <p>User ID: {{ data }}</p>
+  <p>Company ID: {{ data._id }}</p>
+  <p>Company Name: {{ data.name }}</p>
+  <p>Company Cif: {{ data.cif }}</p>
+  <p>Company email: {{ data.email }}</p>
+  <p>Company description: {{ data.description }}</p>
+  <img src="{{ data.logo }}" alt="{{ data.name }}"/>
+  <p>Company numberEmployees: {{ data.numberEmployees }}</p>
+  <p>Company Date created: {{ data.updatedAt }}</p>
 </div>

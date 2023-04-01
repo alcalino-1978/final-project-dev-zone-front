@@ -1,0 +1,86 @@
+<div class="row">
+  <a routerLink="/" class="mb-5 d-flex">
+    < {{ 'PREVIOUS-PAGE-HOME' | translate }}</a> <div class="col-12 col-md-4 offset-md-4">
+      <h2 class="mat-headline-3 cat-title -gradient">oferta</h2>
+      <form novalidate class="form-container" [formGroup]="registerOfferForm" >
+
+        <mat-form-field class="form-field" appearance="outline" >
+          <mat-label for="title">titulo:</mat-label>
+          <input matInput type="text" id="title" formControlName="title" placeholder="" />
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>descripcion:</mat-label>
+          <textarea matInput cdkTextareaAutosize formControlName="description" #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="10"
+            cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label for="salaryMin">salary min:</mat-label>
+          <input matInput type="number" id="salaryMin" formControlName="salaryMin" placeholder="" />
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label for="salaryMax">salary max:</mat-label>
+          <input matInput type="number" id="salaryMax" formControlName="salaryMax" placeholder="" />
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>shift</mat-label>
+          <mat-select #shift formControlName="shift">
+            <mat-option value="Full-Time">Full-Time</mat-option>
+            <mat-option value="Part-Time">Part-Time</mat-option>
+            <mat-option value="Reduced">Reduced</mat-option>
+            <mat-option value="Split Day">Split Day</mat-option>
+            <mat-option value="Rotating">Rotating</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>contract</mat-label>
+          <mat-select #contract formControlName="contract">
+            <mat-option value="Indefinite-Term">Indefinite-Term</mat-option>
+            <mat-option value="Fixed-Term">Fixed-Term</mat-option>
+            <mat-option value="Training">Training</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <label id="example-radio-group-label">modalidad</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="typejob">
+          <mat-radio-button #modalidad class="example-radio-button" value="Full Remote">
+            Full Remote
+          </mat-radio-button>
+          <mat-radio-button class="example-radio-button" value="Hybrid">
+            Hybrid
+          </mat-radio-button>
+          <mat-radio-button class="example-radio-button" value="Presential">
+            Presential
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label for="vacancies">vacancies:</mat-label>
+          <input matInput type="number" id="vacancies" formControlName="vacancies"/>
+        </mat-form-field>
+
+        <mat-form-field class="example-chip-list" appearance="outline">
+          <mat-label>keywords</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Keywords" formControlName="keywords">
+            <mat-chip-row *ngFor="let keyword of keywords" (removed)="remove(keyword)">
+              {{ keyword }}
+              <button matChipRemove [attr.aria-label]="'remove ' + keyword">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input placeholder="Keywords..."
+            #keywordInput [formControl]="keywordCtrl"
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)" />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="cat-button" (click)="onSubmit()"></button>
+      </form>
+</div>
+</div>

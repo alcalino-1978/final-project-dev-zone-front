@@ -14,30 +14,45 @@ export class JobofferService {
   ) { }
 
   // TODO todos los endpoint que NO requiere autenticación
+
+  // GET ALL JOB OFFERS
   public getOffer(): Observable<JobOfferModelAPI[]> {
     return this.httpClient.get<JobOfferModelAPI[]>(environment.urlJobOffers)
   }
 
+  // GET SORTED JOB OFFERS
   public getLastOfferList(): Observable<JobOfferModelAPI[]> {
     return this.httpClient.get<JobOfferModelAPI[]>(environment.urlJobOffers)
     .pipe(
       map((response: JobOfferModelAPI[]) => {
         return response.sort((a: JobOfferModelAPI, b: JobOfferModelAPI) => {
           return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        }).slice(0, 4); //ultimas 4 ofertas creadas
+        })
+        // .slice(0, 8); //ultimas 4 ofertas creadas
       })
     )
   }
 
+  // GET JOB OFFER BY ID
   public getOfferbyID(id: string): Observable<JobOfferModelAPI> {
     return this.httpClient.get<JobOfferModelAPI>(environment.urlJobOffers + `${id}`)
   }
 
+  // POST JOB OFFER
+  public postOffer(offer: any): Observable<any> {
+    return this.httpClient.post<any>(environment.urlJobOffers, offer)
+  }
+
+  // PATCH DEVELEPER IN JOB OFFER
+  // TODO change the name of the function to 'updateOfferWithUser()'
   public offerRegistration(offerId: string, userId: string): Observable<JobOfferModelAPI> {
     const url = environment.urlJobOffers + `${offerId}`;
     const data = { applicants: [userId]};
     return this.httpClient.patch<JobOfferModelAPI>(url, data)
   }
+
+  // PATCH JOB OFFER IN DEVELOPER
+  // TODO change the name of the function to 'updateUserWithOffer()'
 
   public updateUserJobOffers(userId: string, offerId: string): Observable<JobOfferModelAPI> {
     const url = environment.urlDevelopers + `${userId}`;

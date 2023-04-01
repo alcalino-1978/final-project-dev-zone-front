@@ -1,8 +1,8 @@
 import { SearchValueService } from './../../../../shared/services/search-value.service';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { CatApiService } from '@shared/services/catApi.service';
-import { CatModelUnsplashAPI } from 'src/app/models/developer.model';
+import { UnsplashModelAPI } from 'src/app/models/unsplash.model';
+import { UnsplashService } from '@shared/services/unsplash.service';
 
 @Component({
   selector: 'app-banner-hero',
@@ -11,26 +11,26 @@ import { CatModelUnsplashAPI } from 'src/app/models/developer.model';
 })
 export class BannerHeroComponent {
   public isLoading: boolean = false;
-  public catRandom!: CatModelUnsplashAPI;
+  public photoRandom!: UnsplashModelAPI;
   public randomImageUrl!: string;
 
   public filter: string = '';
 
   constructor(
-    private catApiService : CatApiService,
+    private unsplashService : UnsplashService,
     private searchValueService: SearchValueService,
     @Inject(DOCUMENT) private document: Document,
     ) { }
 
   ngOnInit(): void {
-    this.getCatRandom();
+    this.getPhotoRandom();
   }
-  private getCatRandom(): void {
+  private getPhotoRandom(): void {
     this.isLoading = true;
-    this.catApiService.getCatRandom().subscribe(
-      (response: CatModelUnsplashAPI) => {
-        this.catRandom= response;
-        this.randomImageUrl= this.catRandom.urls.regular;
+    this.unsplashService.getPhotoRandom().subscribe(
+      (response: UnsplashModelAPI) => {
+        this.photoRandom= response;
+        this.randomImageUrl= this.photoRandom.urls.regular;
         // console.log(response.urls.full)
         this.isLoading = false;
       }, (error) => {

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CompanyModelAPI } from 'src/app/models/company.models';
 
 @Component({
   selector: 'app-company',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./company.component.scss']
 })
 export class CompanyComponent {
-  @Input() data!: any;
+  @Input() data!: CompanyModelAPI;
 }

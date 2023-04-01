@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
     ) {}
 
   // Método para cambiar el nombre del formulario
-  setType(type: string) {
+  setType(a:any) {
+    const type = a.tab.textLabel;
     this.userLoginForm.get('type')?.setValue(type);
   }
 

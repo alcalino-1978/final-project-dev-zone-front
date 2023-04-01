@@ -42,6 +42,7 @@
   },
   "OFFER-LIST": "Últimas ofertas",
   "OFFER-DETAIL": {
+    "TITLE": "Título",
     "SHIFT": "Jornada",
     "CONTRACT": "Contrato",
     "MODALITY": "Modalidad",

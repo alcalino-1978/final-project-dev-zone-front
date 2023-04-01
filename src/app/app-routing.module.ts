@@ -26,7 +26,7 @@ const routes: Routes = [
   },
     {
     path: 'register-offer',
-    loadChildren: () => import('@pages/profile/components/company/register-offer/register-offer.module').then(m => m.RegisterOfferModule)
+    loadChildren: () => import('@pages/register-offer/register-offer.module').then(m => m.RegisterOfferModule)
   },
   // ...
 ];

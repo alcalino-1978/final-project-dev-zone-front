@@ -1,6 +1,7 @@
+import { JobOfferModelPost } from './../../models/joboffer.model';
+import { JobofferService } from './../../shared/services/joboffer.service';
 
-import { JobOfferModelAPI, JobOfferModelPost } from './../../../../../models/joboffer.model';
-import { JobofferService } from './../../../../../shared/services/joboffer.service';
+
 
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -114,7 +115,7 @@ export class RegisterOfferComponent {
       console.log(offer.keywords);
 
       this.jobofferService.postOffer(offer).subscribe
-      ((data: any) => {
+      ((data: JobOfferModelPost) => {
         console.log(data);
       })
 

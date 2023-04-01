@@ -27,8 +27,7 @@ export class JobofferService {
       map((response: JobOfferModelAPI[]) => {
         return response.sort((a: JobOfferModelAPI, b: JobOfferModelAPI) => {
           return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        })
-        // .slice(0, 8); //ultimas 4 ofertas creadas
+        }).slice(0, 3); //ultimas 4 ofertas creadas
       })
     )
   }
@@ -44,17 +43,14 @@ export class JobofferService {
   }
 
   // PATCH DEVELEPER IN JOB OFFER
-  // TODO change the name of the function to 'updateOfferWithUser()'
-  public offerRegistration(offerId: string, userId: string): Observable<JobOfferModelAPI> {
+  public updateOfferWithUser(offerId: string, userId: string): Observable<JobOfferModelAPI> {
     const url = environment.urlJobOffers + `${offerId}`;
     const data = { applicants: [userId]};
     return this.httpClient.patch<JobOfferModelAPI>(url, data)
   }
 
   // PATCH JOB OFFER IN DEVELOPER
-  // TODO change the name of the function to 'updateUserWithOffer()'
-
-  public updateUserJobOffers(userId: string, offerId: string): Observable<JobOfferModelAPI> {
+  public updateUserWithOffer(userId: string, offerId: string): Observable<JobOfferModelAPI> {
     const url = environment.urlDevelopers + `${userId}`;
     const data = { jobOffers: [offerId]};
     return this.httpClient.patch<JobOfferModelAPI>(url, data)

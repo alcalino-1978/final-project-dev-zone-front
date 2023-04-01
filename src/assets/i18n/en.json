@@ -43,6 +43,7 @@
   ,
   "OFFER-LIST": "Last offers",
   "OFFER-DETAIL": {
+    "TITLE": "Title",
     "SHIFT": "Workday",
     "CONTRACT": "Contract",
     "MODALITY": "Work model",

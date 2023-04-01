@@ -75,11 +75,11 @@ export class DetailOfferComponent {
 
   public jobOfferRegistration(offerId: string): void {
     this.isLoading = true;
-    this.jobofferService.offerRegistration(offerId, this.userId)
+    this.jobofferService.updateOfferWithUser(offerId, this.userId)
     .subscribe((data: JobOfferModelAPI) => {
       console.log(data);
     })
-    this.jobofferService.updateUserJobOffers(this.userId, offerId)
+    this.jobofferService.updateUserWithOffer(this.userId, offerId)
     .subscribe((data: JobOfferModelAPI) => {
       console.log(data);
     })

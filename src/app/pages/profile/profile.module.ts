@@ -25,7 +25,7 @@ import { NewLinePipe } from 'src/app/pipes/new-line.pipe';
     MatIconModule,
     MatMenuModule,
     ProfileRoutingModule,
-    MatDividerModule,
+    MatDividerModule
   ],
   exports: [
     ProfileComponent

@@ -1,36 +1,52 @@
 <ng-container *ngIf="offerDetail">
   <a (click)="backWithLocation()" class="mb-5 d-flex">{{ 'PREVIOUS-PAGE' | translate }}</a>
-  <div class="row"><h2 class="mat-headline-3 cat-title">{{ offerDetail.title }}</h2></div>
-  <div class="row">
-    <p>Jornada: {{ offerDetail.hiring.shift }}</p>
-    <p>Contrato: {{ offerDetail.hiring.contract }}</p>
-    <p>Modalidad: {{ offerDetail.typeJob }}</p>
-    <p>{{ offerDetail.salaryRange.min | currency:'EUR':'symbol':'4.2-2' }} - {{ offerDetail.salaryRange.max | currency:'EUR':'symbol':'4.2-2' }}</p>
-  </div>
-  <div class="row">
-    <div class="col-12 col-md-6 order-1 order-md-0 detail-data">
-      <h3>Descripción:</h3>
-      <p [innerHTML]="offerDetail.description"></p>
-      <p>{{ applicantsCount }} personas se han inscrito a la oferta.</p>
-      <!-- <ul class="list-detail">
-        <li class="list-detail__item row">
-          <div class="col-5"><strong>{{ 'DETAILS.WEIGHT' | translate }}:</strong></div>
-          <div class="col-6">{{ catDetail.weight.metric}} Kg.</div>
-        </li>
-
-      </ul> -->
+  <div *ngIf="isAvailable" class="not-available">{{ 'OFFER-DETAIL.STATUS' | translate }}</div>
+<div class="offer-detail">
+  <div>
+    <div class="row">
+      <h2 class="mat-headline-3 cat-title">{{ offerDetail.title }}</h2>
+    </div>
+    <div class="offer-detail__contract-detail">
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.SHIFT' | translate }}</h4>
+        <p>{{ offerDetail.hiring.shift }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.CONTRACT' | translate }}</h4>
+        <p>{{ offerDetail.hiring.contract }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.MODALITY' | translate }}</h4>
+        <p>{{ offerDetail.typeJob }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.VACANCIES' | translate }}</h4>
+        <p>{{ offerDetail.vacancies }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.SALARY' | translate }}</h4>
+        <p>{{ offerDetail.salaryRange.min | currency:'EUR':'symbol':'1.0-0' }}  {{ offerDetail.salaryRange.max | currency:'EUR':'symbol':'1.0-0' }}</p>
+      </div>
+    </div>
+    <div class="">
+      <p>{{ applicantsCount }} {{ 'OFFER-DETAIL.APPLICANTS' | translate }}</p>
+      <button type="submit" class="btn btn-primary col-4" (click)="jobOfferRegistration(offerDetail._id)" [disabled]="isDisabled">
+        {{ buttonApplyName | translate }}
+      </button>
+      <div class="col-12 col-md-6 order-1 order-md-0 detail-data">
+        <h3>{{ 'OFFER-DETAIL.DESCRIPTION' | translate }}</h3>
+        <p [innerHTML]="formatDescription()" class="offer-detail__description"></p>
+      </div>
     </div>
   </div>
-  <button type="button" class="btn btn-primary"
-  (click)="jobOfferRegistration(offerDetail._id)"
-  [disabled]="!offerDetail.offerStatus">INSCRIBIRME</button>
-  <div *ngFor="let item of offerDetail.company" class="col-12 col-md-6 order-0 order-md-1 mb-5">
+  <div *ngFor="let company of offerDetail.company" class="col-12 col-md-6 order-0 order-md-1 mb-5">
     <picture>
-      <img [src]="item.logo">
+      <img [src]="company.logo">
     </picture>
-    <div>{{ item.name }}</div>
-    <div>{{ item.numberEmployees }} Empleados</div>
+    <div>{{ company.name }}</div>
+    <div>{{ company.numberEmployees }} {{ 'OFFER-DETAIL.EMPLOYEES' | translate }}</div>
   </div>
-  <!--TODO añadir vacantes de la oferta-->
+</div>
 </ng-container>
+
 

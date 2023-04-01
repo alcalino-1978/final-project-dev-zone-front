@@ -30,7 +30,7 @@ export class ListOffersComponent {
 
   private getOfferList(): void {
     this.isLoading = true;
-    this.jobofferService.getOffer().subscribe(
+    this.jobofferService.getLastOfferList().subscribe(
       (data: JobOfferModelAPI[]) => {
         this.offerList = data;
         this.isLoading = false;

@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SharedModule } from '@shared/shared.module';
-import { ListCatComponent } from './components/list-cat/list-cat.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -25,7 +24,6 @@ import { CarrucelComponent } from './components/carrucel/carrucel.component';
 @NgModule({
   declarations: [
     HomeComponent,
-    ListCatComponent,
     BannerHeroComponent,
     ListOffersComponent,
     CarrucelComponent,

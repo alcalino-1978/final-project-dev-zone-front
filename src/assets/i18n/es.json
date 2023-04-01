@@ -1,5 +1,6 @@
 {
   "HELLO": "Hola!",
+  "SEARCH": "Buscar...",
   "BANNER-HERO": "¡Encuentra tu nuevo empleo!",
   "PREVIOUS-PAGE": "Atrás",
   "PREVIOUS-PAGE-HOME": "Inicio",
@@ -47,7 +48,23 @@
     "FIELD-PASSWORD-NOT-MATCH": "Las contraseñas no coinciden",
     "CREATED": "Fecha de creación"
   },
-  "LIST": "Listado de ofertas",
+  "OFFER-LIST": "Últimas ofertas",
+  "OFFER-DETAIL": {
+    "TITLE": "Título",
+    "SHIFT": "Jornada",
+    "CONTRACT": "Contrato",
+    "MODALITY": "Modalidad",
+    "SALARY": "Salario",
+    "VACANCIES": "Vacantes",
+    "DESCRIPTION": "Descripción",
+    "APPLICANTS": "Developers se han inscrito en esta oferta",
+    "APPLY": "INSCRIBIRME",
+    "APPLIED": "YA INSCRITO",
+    "EMPLOYEES": "Empleados",
+    "STATUS": "Esta oferta ya no está disponible!"
+
+  },
+  "PUBLISHED": "Publicado el ",
   "DETAILS": {
     "TEMPERAMENT": "Carácter",
     "ORIGIN": "Origen",

@@ -1,4 +1,5 @@
-import { JobOfferModelAPI, JobOfferModel } from './../../models/joboffer.model';
+import { CompanyModelAPI } from './../../models/company.models';
+import { JobOfferModelAPI, JobOfferModelPost } from './../../models/joboffer.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
@@ -38,15 +39,23 @@ export class JobofferService {
   }
 
   // POST JOB OFFER
-  public postOffer(offer: any): Observable<any> {
-    return this.httpClient.post<any>(environment.urlJobOffers, offer)
+  public postOffer(offer: JobOfferModelPost): Observable<JobOfferModelAPI> {
+    return this.httpClient.post<JobOfferModelAPI>(environment.urlJobOffers, offer)
   }
+
 
   // PATCH DEVELEPER IN JOB OFFER
   public updateOfferWithUser(offerId: string, userId: string): Observable<JobOfferModelAPI> {
     const url = environment.urlJobOffers + `${offerId}`;
     const data = { applicants: [userId]};
     return this.httpClient.patch<JobOfferModelAPI>(url, data)
+  }
+
+  // PATCH OFFER IN COMPANY.LISTOFFERS
+  public postOfferOnCompany(companyId: string, offerId: string): Observable<CompanyModelAPI> {
+    const url = environment.urlCompany + `${companyId}`;
+    const data = { listOffers: [offerId]};
+    return this.httpClient.patch<CompanyModelAPI>(url, data)
   }
 
   // PATCH JOB OFFER IN DEVELOPER

@@ -1,3 +1,4 @@
+import { CompanyModelAPI } from './../../models/company.models';
 import { JobOfferModelPost } from './../../models/joboffer.model';
 import { JobofferService } from './../../shared/services/joboffer.service';
 
@@ -17,7 +18,8 @@ export class RegisterOfferComponent {
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  public company: any = window.localStorage.getItem('_id');
+  public company: any = window.sessionStorage.getItem('auth-user');
+  public userJSON = window.sessionStorage.getItem('auth-user') as string;
 
   public keywords: string[] = [];
 
@@ -42,6 +44,9 @@ export class RegisterOfferComponent {
 
   ngOnInit(): void {
     this.initForm();
+    const userPARSED = JSON.parse(this.userJSON);
+    console.log(this.userJSON);
+    console.log(userPARSED.user);
   }
 
   private initForm(): void {
@@ -91,10 +96,14 @@ export class RegisterOfferComponent {
   public onSubmit(): void {
     if(this.registerOfferForm.valid) {
 
+      const userPARSED = JSON.parse(this.userJSON);
+      console.log(userPARSED.user._id);
+
       const offer: JobOfferModelPost = {
+        _id: '' as string,
         title: this.titleFormControl.value as string,
         description: this.descriptionFormControl.value as string,
-        company: [this.company] as string[],
+        company: [userPARSED.user._id] as string[],
         salaryRange: {
           min: this.salaryMinFormControl.value as number,
           max:this.salaryMaxFormControl.value as number
@@ -109,14 +118,15 @@ export class RegisterOfferComponent {
         keywords: this.keywordsFormControl.value as string[]
       }
 
-      console.log(offer);
-      const aaa = typeof offer.keywords;
-      console.log(aaa);
-      console.log(offer.keywords);
-
+      // sacar el offer id por oferta
       this.jobofferService.postOffer(offer).subscribe
-      ((data: JobOfferModelPost) => {
-        console.log(data);
+      ((dataOffer) => {
+        const offerId = dataOffer._id as string;
+        console.log(offerId);
+        this.jobofferService.postOfferOnCompany(userPARSED.user._id, offerId).subscribe
+        ((dataCompany: CompanyModelAPI) => {
+          console.log(dataCompany);
+        })
       })
 
     } else {

@@ -45,6 +45,7 @@ export interface JobOfferModel{
 }
 
 export interface JobOfferModelPost{
+  _id?: string,
   title: string,
   description: string,
   company: string[],

@@ -1,5 +1,5 @@
 .main-footer {
-  border-top: 1px solid rgba(#fff, 0.2);
+  border-top: 1px solid rgba(#000, 0.2);
   margin-top: var(--spacingXl);
   padding-top: var(--spacingSm);
   padding-bottom: var(--spacingSm);
@@ -10,12 +10,12 @@
 
 .pages-footer {
   &__item {
-    border-right: 1px solid rgba(#fff, 0.2);
+    border-right: 1px solid rgba(#000, 0.2);
     margin-right: var(--spacingSm);
     padding-right: var(--spacingSm);
     &:last-child {
       margin-right: 0;
-      padding-right: 0;
+      border-right: 0;
     }
   }
   &__link {
@@ -34,7 +34,6 @@
   &__img {
     width: var(--spacingLg);
     height: var(--spacingLg);
-    filter: invert(1);
+    filter: invert(0);
   }
 }
-

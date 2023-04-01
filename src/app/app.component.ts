@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = "Schrödinger's Cat";
+  title = "DEV ZONE APP";
   lang = 'es';
   isDarkTheme!: Observable<boolean>;
   public url = '';

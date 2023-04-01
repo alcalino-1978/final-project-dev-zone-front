@@ -20,10 +20,10 @@
 </div>
 <div class="row mb-5">
   <div class="col-md-4">
-    <img src="{{ data.logo }}" class="img-fluid rounded-start" alt="{{ data.name }}">
+    <img src="{{ data.logo }}" class="border-rounded img-fluid" alt="{{ data.name }}">
   </div>
-  <div class="col-md-8">
-      <h3 class="mat-headline-4 cat-title">{{ data.name | titlecase }}</h3>
+  <div class="col-md-8 pt-5 pt-md-0 ps-md-5">
+      <h3 class="mat-headline-4 cat-title mb-4">{{ data.name | titlecase }}</h3>
       <ul class="list-icons">
         <li class="list-icons__item">
           <span class="list-icons__icon"><mat-icon> email</mat-icon></span><span class="list-icons__text">{{ 'FORMS.EMAIL' | translate }}:</span> <a href="mailto:{{ data.email }}">{{ data.email }}</a>

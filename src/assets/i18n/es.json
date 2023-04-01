@@ -88,5 +88,14 @@
     "INPUT-PLACEHOLDER": "Pon tu consulta aquí...",
     "INPUT-SUBMIT": "Consultar"
   },
-  "DESCRIPTION": "Descripción"
+  "DESCRIPTION": "Descripción",
+  "DEVELOPER": {
+    "AGE": "Edad",
+    "SALARY": "Salario",
+    "EXPERIENCE": "Experiencia",
+    "LANGUAGES": "Idiomas",
+    "EDUCATION": "Educación",
+    "MOBILITY": "Movilidad geográfica",
+    "TYPEJOB": "Tipo de trabajo"
+  }
 }

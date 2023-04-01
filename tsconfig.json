@@ -28,6 +28,7 @@
       "@shared/*": ["src/app/shared/*"],
       "@utils/*": ["src/app/utils/*"],
       "@pages/*": ["src/app/pages/*"],
+      "@styles/*": ["src/styles/*"],
     },
     "types": ["node"]
   },

@@ -29,6 +29,7 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 import { DeveloperComponent } from '@pages/profile/components/developer/developer.component';
 import { CompanyComponent } from '@pages/profile/components/company/company.component';
 import { ProfileModule } from '@pages/profile/profile.module';
+import { NewLinePipe } from './pipes/new-line.pipe';
 
 @NgModule({
   declarations: [

@@ -23,7 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatMenuModule,
     ProfileRoutingModule,
-    MatDividerModule,
+    MatDividerModule
   ],
   exports: [
     ProfileComponent

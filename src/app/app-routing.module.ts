@@ -27,8 +27,12 @@ const routes: Routes = [
   {
     path: 'quienes-somos',
     loadChildren: () => import('@pages/quienes-somos/quienes-somos.module').then(m => m.QuienesSomosModule),
-  }
-  // ...
+  },
+  {
+    path: 'register-offer',
+    loadChildren: () => import('@pages/register-offer/register-offer.module').then(m => m.RegisterOfferModule)
+  },
+ // ...
 ];
 
 @NgModule({

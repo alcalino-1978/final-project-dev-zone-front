@@ -28,7 +28,7 @@ export interface JobOfferModelAPI {
   typeJob: string,
   vacancies: number,
   applicants: JobOfferApplicantsModel[],
-  keywords: [string],
+  keywords: string[],
   createdAt: Date,
   updatedAt: Date
 }
@@ -40,6 +40,25 @@ export interface JobOfferModel{
   company: JobOfferCompanyModel[],
   offerStatus: boolean,
   typeJob: string,
-  keywords: [string],
+  keywords: string[],
   createdAt: Date
+}
+
+export interface JobOfferModelPost{
+  _id?: string,
+  title: string,
+  description: string,
+  company: string[],
+  salaryRange: {
+    min: number,
+    max: number
+  },
+  hiring: {
+    shift: string,
+    contract: string
+  },
+  offerStatus: boolean,
+  typeJob: string,
+  vacancies: number,
+  keywords: string[]
 }

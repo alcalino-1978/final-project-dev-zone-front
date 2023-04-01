@@ -1,4 +1,4 @@
-import { JobOfferModel, JobOfferModelAPI } from './../../../../models/joboffer.model';
+import { JobOfferModel, JobOfferModelAPI, JobOfferApplicantsModel } from './../../../../models/joboffer.model';
 import { JobofferService } from './../../../../shared/services/joboffer.service';
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
@@ -11,12 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailOfferComponent {
   public offerDetail!: JobOfferModelAPI;
+  public offerDescription!: string;
   public isLoading: boolean = false;
   public userId: any = window.localStorage.getItem('_id');
   public applicantsCount!: number;
-
-  // public rating: number = 2;
-  // public starCount: number = 5;
+  public isDisabled!: boolean;
+  public isAvailable!: boolean;
+  public buttonApplyName: string = 'OFFER-DETAIL.APPLY';
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -29,21 +30,43 @@ export class DetailOfferComponent {
       params => {
         this.getOffer(params['id']);
       }
-    )
+    );
   }
 
   private getOffer(id: string): void {
     this.isLoading = true;
+
     this.jobofferService.getOfferbyID(id).subscribe(
       (data: JobOfferModelAPI) => {
         this.offerDetail = data;
         const applicantsLength = data.applicants.length;
         this.applicantsCount = applicantsLength;
+        this.offerDescription = data.description;
+
+        if (!data.offerStatus){
+           this.isDisabled = true;
+           this.isAvailable = true;
+        } else {
+           this.isDisabled = false;
+           this.isAvailable = false;
+        }
+
+        data.applicants.filter((developer: JobOfferApplicantsModel) => {
+          if(developer._id === this.userId) {
+             this.isDisabled = true;
+             this.buttonApplyName = 'OFFER-DETAIL.APPLIED';
+          } else {
+             this.isDisabled = false;
+          }
+        });
+
         this.isLoading = false;
-      }, (error) => {
-        console.log('ay madre mia.. el BICHOOO')
       }
     )
+  }
+
+  public formatDescription(): string {
+    return this.offerDescription.replace(/\n/g, '<br>');
   }
 
   public backWithLocation() {
@@ -52,21 +75,15 @@ export class DetailOfferComponent {
 
   public jobOfferRegistration(offerId: string): void {
     this.isLoading = true;
-    this.jobofferService.offerRegistration(offerId, this.userId)
+    this.jobofferService.updateOfferWithUser(offerId, this.userId)
     .subscribe((data: JobOfferModelAPI) => {
       console.log(data);
     })
-    this.jobofferService.updateUserJobOffers(this.userId, offerId)
+    this.jobofferService.updateUserWithOffer(this.userId, offerId)
     .subscribe((data: JobOfferModelAPI) => {
       console.log(data);
     })
+    this.isDisabled = true;
     this.isLoading = false;
-  }
-
-  public assignOfferToUser(offerId: string): void {
-    this.jobofferService.updateUserJobOffers(this.userId, offerId)
-    .subscribe((data: JobOfferModelAPI) => {
-      console.log(data);
-    })
   }
 }

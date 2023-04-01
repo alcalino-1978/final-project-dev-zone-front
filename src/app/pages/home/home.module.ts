@@ -12,13 +12,22 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { BannerHeroComponent } from './components/banner-hero/banner-hero.component';
 import { ListOffersComponent } from './components/list-offers/list-offers.component';
+import { CarrucelComponent } from './components/carrucel/carrucel.component';
+
+
+
+
+
+
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     BannerHeroComponent,
-    ListOffersComponent
+    ListOffersComponent,
+    CarrucelComponent,
+
   ],
   imports: [
     CommonModule,

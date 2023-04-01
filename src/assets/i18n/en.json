@@ -72,5 +72,14 @@
     "INPUT-PLACEHOLDER": "Type your message here...",
     "INPUT-SUBMIT": "Send"
   },
-  "DESCRIPTION": "Description"
+  "DESCRIPTION": "Description",
+  "DEVELOPER": {
+    "AGE": "Age",
+    "SALARY": "Salary",
+    "EXPERIENCE": "Experience",
+    "LANGUAGES": "Languages",
+    "EDUCATION": "Education",
+    "MOBILITY": "Geographical mobility",
+    "TYPEJOB": "Type of job"
+  }
 }

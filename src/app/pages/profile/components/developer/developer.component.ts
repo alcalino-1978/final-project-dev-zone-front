@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NewLinePipe } from '../../../../pipes/new-line.pipe';
 
 @Component({
   selector: 'app-developer',

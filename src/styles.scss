@@ -20,7 +20,7 @@ $angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 $angular-warn: mat.define-palette(mat.$red-palette);
 
-$angular-default-theme: mat.define-light-theme((color: (primary: $angular-primary,
+$angular-default-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$blue-palette),
         accent: $angular-accent,
         warn: $angular-warn,
       ),
@@ -62,6 +62,7 @@ $headline: mat.define-typography-level(20px, 27px, 400, );
 
 @import url('./styles/animations.scss');
 
+
 @import url('./styles/_helpers.scss');
 
 @import url('./styles/reset.scss');
@@ -101,6 +102,7 @@ img {
 
 a {
   cursor: pointer;
+  color: var(--primaryLightColor);
 }
 
 .mat-form-field {
@@ -236,6 +238,12 @@ a {
 .-border-bottom {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+// BORDER
+.border-rounded {
+  border-radius: var(--spacingSm);
+  border: 1px solid var(--primaryLightColor);
+}
+
 .dark-theme .-border-bottom {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -251,8 +259,20 @@ a {
   }
 }
 
+// img-entity
+
+.img-entity {
+  margin-bottom: var(--spacingMd);
+  @media only screen and (min-width: 992px) {
+    margin: 0 var(--spacingMd) var(--spacingMd) 0;
+  }
+}
+
 // THEMING
 .dark-theme {
+  a {
+    color: var(--secondaryDarkColor);
+  }
   @include mat.all-component-colors($angular-dark-theme);
   .main-header__title {
     color: #ffffbdff !important;
@@ -268,6 +288,9 @@ a {
   .mat-toolbar {
     background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.07) 100%);
     box-shadow: 0 2px 5px #0000004d;
+  }
+  .border-rounded {
+    border: 1px solid var(--primaryDarkColor);
   }
   footer {
     .main-footer {
@@ -305,7 +328,15 @@ a {
   background-color: var(--backgroundDark);
 }
 
-.light-theme .mat-toolbar {
-  background: linear-gradient(rgba(255, 255, 255, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
-  box-shadow: 0 0 10px 0 rgb(0 0 0 / 30%);
+.light-theme {
+  .pages-footer {
+    &__link {
+      color: rgba(0, 0, 0, 0.87);
+      text-decoration: none;
+    }
+  }
+  .mat-toolbar {
+    background: linear-gradient(rgba(255, 255, 255, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 30%);
+  }
 }

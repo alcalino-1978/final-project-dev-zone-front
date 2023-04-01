@@ -1,5 +1,5 @@
 <app-loader *ngIf="isLoading"></app-loader>
-<div class="row"><h2 class="mat-headline-3 cat-title -gradient mb-2">{{ 'LIST' | translate }}</h2></div>
+<div class="row"><h2 class="mat-headline-3 cat-title mb-2">{{ 'LIST' | translate }}</h2></div>
 <ul class="list-joboffer my-4 d-flex flex-wrap" *ngIf="!isLoading">
   <ng-container *ngFor="let offer of (offerList | filterSearch: filter )">
     <li class="list-joboffer__item col-12" (click)="getOfferDetail(offer._id)">

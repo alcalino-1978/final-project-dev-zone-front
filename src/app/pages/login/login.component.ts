@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
     // FormGroup
     this.userLoginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern(emailRegx)]],
+      // TODO PONER OTRA VEZ LA VALIDACIÓN DE PASSWORD
       password: ['', [Validators.required]],
       type: ['Developer', [Validators.required]]
     }),

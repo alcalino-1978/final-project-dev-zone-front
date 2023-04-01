@@ -1,6 +1,6 @@
 <ng-container *ngIf="offerDetail">
   <a (click)="backWithLocation()" class="mb-5 d-flex">{{ 'PREVIOUS-PAGE' | translate }}</a>
-  <div class="row"><h2 class="mat-headline-3 cat-title -gradient">{{ offerDetail.title }}</h2></div>
+  <div class="row"><h2 class="mat-headline-3 cat-title">{{ offerDetail.title }}</h2></div>
   <div class="row">
     <p>Jornada: {{ offerDetail.hiring.shift }}</p>
     <p>Contrato: {{ offerDetail.hiring.contract }}</p>

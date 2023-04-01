@@ -8,7 +8,7 @@
         Developer
       </mat-tab>
       <mat-tab label="Company">
-        <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm" enctype="multipart/form-data" class="form-container">
+        <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm" enctype="multipart/form-data" class="form-container mt-5">
           <mat-form-field class="form-field" appearance="outline">
             <mat-label for="name">{{ 'FORMS.NAME' | translate }}:</mat-label>
             <input matInput type="text" id="name" formControlName="name" placeholder="{{ 'FORMS.NAME' | translate }}"/>

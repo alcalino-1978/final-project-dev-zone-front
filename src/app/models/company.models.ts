@@ -1,4 +1,5 @@
 export interface CompanyModelAPI {
+    _id: string,
     email: string,
     password: string,
     name: string,
@@ -7,4 +8,5 @@ export interface CompanyModelAPI {
     cif: string,
     listOfferts: [string],
     numberEmployees: string,
+    updatedAt: string
   }

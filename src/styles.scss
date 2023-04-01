@@ -26,7 +26,7 @@ $angular-default-theme: mat.define-light-theme((color: (primary: $angular-primar
       ),
       typography: $my-custom-typography-config,
     ));
-$angular-dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$purple-palette),
+$angular-dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$blue-palette),
         accent: mat.define-palette(mat.$green-palette),
         warn: $angular-warn,
       ),
@@ -37,8 +37,10 @@ $headline: mat.define-typography-level(20px, 27px, 400, );
 
 
 :root {
-  --primaryColor: #829fd9;
-  --secondaryColor: #0029fa;
+  --primaryLightColor: #0079c8;
+  --primaryDarkColor: #b9fe00;
+  --secondaryLightColor: #00335b;
+  --secondaryDarkColor: #e9ffae;
   --yellow: #fffc14;
   --textOnPrimary: #3e38f2;
   --textOnPrimary: #5c73f2;
@@ -176,6 +178,79 @@ a {
 }
 
 
+
+// FORMS
+.mat-typography {
+  .mat-mdc-form-field {
+    margin-bottom: 2.4rem;
+    *{
+      font-family: 'Celebes', sans-serif;
+    }
+  }
+  .cat-button {
+    font-family: 'Oceanwide', sans-serif;
+  }
+  .mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper {
+    position: static;
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .mat-mdc-form-field-bottom-align::before {
+    display: none;
+  }
+  // Angular material button size && radius border
+  .cat-button {
+    background-color: var(--primaryColor);
+      height: 6rem;
+      font-size: 2rem;
+      border-radius: 3.2rem;
+      text-align: center;
+      text-transform: uppercase;
+  }
+  .mat-headline-4.cat-title {
+    color: var(--primaryLightColor);
+  }
+  .cat-title {
+      font-family: "Oceanwide", sans-serif;
+      font-weight: bold;
+      margin-bottom: 3.2rem;
+      color: var(--secondaryLightColor);
+  }
+}
+
+
+//list-icons
+.list-icons {
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacingXs);
+  }
+  &__icon, &__text {
+    margin-right: var(--spacingXs);
+  }
+}
+
+// BORDER TITLE
+.-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.dark-theme .-border-bottom {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondary-menu {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  &__button {
+    background: none;
+    border: none;
+    color: var(--mdc-icon-button-icon-color, inherit);
+  }
+}
+
 // THEMING
 .dark-theme {
   @include mat.all-component-colors($angular-dark-theme);
@@ -212,6 +287,19 @@ a {
       }
     }
   }
+  .mat-headline-4.cat-title {
+    color: var(--secondaryDarkColor);
+  }
+  .cat-title {
+      font-family: "Oceanwide", sans-serif;
+      font-weight: bold;
+      margin-bottom: 3.2rem;
+      color: var(--primaryDarkColor);
+  }
+  .secondary-menu {
+    &__button {
+    }
+  }
 }
 .dark-theme, .dark-theme .mat-app-background {
   background-color: var(--backgroundDark);
@@ -220,35 +308,4 @@ a {
 .light-theme .mat-toolbar {
   background: linear-gradient(rgba(255, 255, 255, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 30%);
-}
-
-// FORMS
-.mat-typography {
-  .mat-mdc-form-field {
-    margin-bottom: 2.4rem;
-    *{
-      font-family: 'Celebes', sans-serif;
-    }
-  }
-  .cat-button {
-    font-family: 'Oceanwide', sans-serif;
-  }
-  .mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper {
-    position: static;
-    p {
-      margin-bottom: 0;
-    }
-  }
-  .mat-mdc-form-field-bottom-align::before {
-    display: none;
-  }
-  // Angular material button size && radius border
-  .cat-button {
-    background-color: var(--primaryColor);
-      height: 6rem;
-      font-size: 2rem;
-      border-radius: 3.2rem;
-      text-align: center;
-      text-transform: uppercase;
-  }
 }

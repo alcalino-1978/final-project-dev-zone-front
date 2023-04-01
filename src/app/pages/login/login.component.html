@@ -2,11 +2,15 @@
   EL BOTÓN QUE LLAME A LA FUNCIÓN DE UPDATE USUARIO-->
   <div class="row">
     <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
-    <div class="col-12 col-md-4 offset-md-4">
+    <div class="col-12 col-lg-4 offset-lg-4">
       <h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.LOGIN' | translate }}</h2>
-      <button (click)="setType('Developer')">DEVELOPER</button>
-      <button (click)="setType('Company')">COMPANY</button>
-      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm" class="form-container">
+<!--<button (click)="setType('Developer')">DEVELOPER</button>
+      <button (click)="setType('Company')">COMPANY</button>-->
+      <mat-tab-group (selectedTabChange)="setType($event)">
+        <mat-tab label="Developer"></mat-tab>
+        <mat-tab label="Company"></mat-tab>
+      </mat-tab-group>
+      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm" class="form-container mt-5">
 
         <mat-form-field class="form-field" appearance="outline">
           <mat-label for="email">{{ 'FORMS.EMAIL' | translate }}:</mat-label>

@@ -7,6 +7,8 @@ import { DeveloperComponent } from './components/developer/developer.component';
 import { CompanyComponent } from './components/company/company.component';
 import { ProfileComponent } from './profile.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { MatDividerModule } from '@angular/material/divider';
   imports: [
     CommonModule,
     SharedModule,
+    MatIconModule,
+    MatMenuModule,
     ProfileRoutingModule,
     MatDividerModule
   ],

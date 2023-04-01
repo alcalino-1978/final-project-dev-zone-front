@@ -24,11 +24,14 @@ const routes: Routes = [
     loadChildren: () => import('@pages/profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard]
   },
-    {
+  {
+    path: 'quienes-somos',
+    loadChildren: () => import('@pages/quienes-somos/quienes-somos.module').then(m => m.QuienesSomosModule),
+  }    {
     path: 'register-offer',
     loadChildren: () => import('@pages/register-offer/register-offer.module').then(m => m.RegisterOfferModule)
   },
-  // ...
+ // ...
 ];
 
 @NgModule({

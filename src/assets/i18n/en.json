@@ -4,14 +4,21 @@
   "BANNER-HERO": "Look for your next job!",
   "PREVIOUS-PAGE": "Back",
   "PREVIOUS-PAGE-HOME": "Home",
-  "CHARACTER-LIST": {
-    "TITLE": "Character list"
+  "ENTITIES": {
+    "DEVELOPER": "Developer",
+    "COMPANY": "Company",
+    "JOBOFFERS": "Job Offer"
   },
   "MAIN-MENU": {
     "PROFILE": "Profile",
     "REGISTER": "New User",
     "LOGIN": "Log In",
     "LOGOUT": "Log Out"
+  },
+  "SECONDARY-MENU": {
+    "EDIT": "Edit",
+    "REGISTER": "Create",
+    "DELETE": "Delete"
   },
   "FORMS": {
     "TITLE": {
@@ -38,7 +45,8 @@
     "FIELD-PASSWORD-MIN": "The password must contain at least {{ value1 }} characters long",
     "FIELD-PASSWORD-MAX": "This field must be at most {{ value1 }} characters long",
     "FIELD-PASSWORD-STRENGTH": "Password strength",
-    "FIELD-PASSWORD-NOT-MATCH": "Passwords do not match"
+    "FIELD-PASSWORD-NOT-MATCH": "Passwords do not match",
+    "CREATED": "Created at"
   }
   ,
   "OFFER-LIST": "Last offers",
@@ -79,5 +87,6 @@
     "BUTTON-CLOSE": "Close",
     "INPUT-PLACEHOLDER": "Type your message here...",
     "INPUT-SUBMIT": "Send"
-  }
+  },
+  "DESCRIPTION": "Description"
 }

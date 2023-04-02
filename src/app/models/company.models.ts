@@ -10,3 +10,7 @@ export interface CompanyModelAPI {
     numberEmployees: string,
     updatedAt: string
   }
+
+  export interface CompanyModelData {
+    user: CompanyModelAPI;
+  }

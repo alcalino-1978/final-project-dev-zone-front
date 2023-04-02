@@ -8,4 +8,9 @@ import { CompanyModelAPI } from 'src/app/models/company.models';
 })
 export class CompanyComponent {
   @Input() data!: CompanyModelAPI;
+
+
+  ngOnInit(): void {
+    console.log(this.data);
+  }
 }

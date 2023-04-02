@@ -8,4 +8,9 @@ import { NewLinePipe } from '../../../../pipes/new-line.pipe';
 })
 export class DeveloperComponent {
   @Input() data!: any;
+  @Input() deleteUser!: () => void;
+
+  onDeleteUser(): void {
+    this.deleteUser();
+  }
 }

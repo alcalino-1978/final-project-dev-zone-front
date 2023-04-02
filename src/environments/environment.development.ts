@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  url: 'https://api.thecatapi.com/v1/',
+  urlBase: 'http://localhost:3000/v1/',
   urlImage: 'https://cdn2.thecatapi.com/images/',
   // urlUsers: 'http://localhost:3000/users/',
   urlUsers: 'https://final-project-node-ten.vercel.app/users/',

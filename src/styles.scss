@@ -45,6 +45,7 @@ $headline: mat.define-typography-level(20px, 27px, 400, );
   --textOnPrimary: #3e38f2;
   --textOnPrimary: #5c73f2;
   --backgroundDark: #142642;
+  --backgroundError: #cd2828;
   --white: #ffffff;
   --boxShadowLight: 0px 0px 16px 0px rgba(0,0,0,0.4);
   --boxShadowDark: 0px 0px 16px 0px rgba(255,255,255,0.4);
@@ -268,7 +269,14 @@ a {
     margin: 0 var(--spacingMd) var(--spacingMd) 0;
   }
 }
-
+// SNACKBAR CUSTOM
+.mat-mdc-snack-bar-container {
+  &.error-snackbar {
+    --mdc-snackbar-container-color: var(--backgroundError) !important;
+    --mat-mdc-snack-bar-button-color: #fff !important;
+    --mdc-snackbar-supporting-text-color: #fff !important;
+  }
+}
 // THEMING
 .dark-theme {
   a {

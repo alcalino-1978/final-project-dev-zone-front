@@ -10,6 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { NewLinePipe } from 'src/app/pipes/new-line.pipe';
+import { BooleanPipe } from 'src/app/pipes/boolean.pipe';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NewLinePipe } from 'src/app/pipes/new-line.pipe';
     ProfileComponent,
     DeveloperComponent,
     CompanyComponent,
-    NewLinePipe
+    NewLinePipe,
+    BooleanPipe
   ],
   imports: [
     CommonModule,

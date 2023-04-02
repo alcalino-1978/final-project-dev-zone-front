@@ -101,6 +101,8 @@
     "LANGUAGES": "Idiomas",
     "EDUCATION": "Educación",
     "MOBILITY": "Movilidad geográfica",
-    "TYPEJOB": "Tipo de trabajo"
+    "TYPEJOB": "Tipo de trabajo",
+    "COMMON.YES": "Si",
+    "COMMON.NO": "No"
   }
 }

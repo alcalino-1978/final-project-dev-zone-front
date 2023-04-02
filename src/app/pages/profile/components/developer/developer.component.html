@@ -35,7 +35,9 @@
           <span class="list-icons__icon"><mat-icon>euro_symbol</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.SALARY' | translate }}:</span> {{ data.salaryRangeMin }} - {{ data.salaryRangeMax }}
         </li>
         <li class="list-icons__item">
-          <span class="list-icons__icon"><mat-icon> location_on</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.MOBILITY' | translate }}:</span> {{ data.movility }}
+          <span class="list-icons__icon"><mat-icon> location_on</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.MOBILITY' | translate }}:</span> <mat-icon *ngIf="data.movility" color="{{ data.movility ? 'primary' : 'warn' }}">check_circle_outline</mat-icon>
+          <mat-icon *ngIf="!data.movility" color="{{ !data.movility ? 'warn' : 'primary' }}">cancel</mat-icon>
+
         </li>
         <li class="list-icons__item">
           <span class="list-icons__icon"><mat-icon>filter_center_focus</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.TYPEJOB' | translate }}:</span> {{ data.typeJob }}

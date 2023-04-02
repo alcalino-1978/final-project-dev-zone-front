@@ -40,7 +40,6 @@
     "FULLNAME": "Nombre completo",
     "AGE": "Edad",
     "PHONE-NUMBER": "Teléfono",
-<<<<<<< HEAD
     "IMAGE":"Elige tu imagen",
     "SALARY-MAX":"Salario maximo",
     "SALARY-MIN":"Salario minimo",
@@ -57,13 +56,9 @@
     "PRESENTIAL":"Presencial",
     "YES": "Si",
     "NO": "No",
-
-
-=======
     "NUMBER-EMPLOYESRS": "Número de empleados",
     "LOGO":"URL logo",
     "DESCRIPTION":"descripción de la compañía",
->>>>>>> 8323d486aeec6673602f4736cf6ae9ef160eae8f
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",
@@ -92,23 +87,6 @@
 
   },
   "PUBLISHED": "Publicado el ",
-  "DETAILS": {
-    "TEMPERAMENT": "Carácter",
-    "ORIGIN": "Origen",
-    "WEIGHT": "Peso",
-    "LIFE-SPAN": "Esperanza de vida",
-    "ADAPTABILITY": "Adaptabilidad",
-    "AFFECTION-LEVEL": "Afectuoso",
-    "CHILD-FRIENDLY": "Amigable con los niños",
-    "DOG-FRIENDLY": "Amigable con los perros",
-    "GROOMING": "Aseo",
-    "HEALTH-ISSUES": "Problemas de salud",
-    "INTELLIGENCE": "Inteligencia",
-    "SHEDDING-LEVEL": "Nivel de muda",
-    "ENERGY-LEVEL": "Nivel de energía",
-    "SOCIAL-NEEDS": "Sociable",
-    "STRANGER-FRIENDLY": "Amigable con los extraños"
-  },
   "CHATBOT": {
     "HEADER": "Hola 👋🤖 , soy tu profesor de código asistente.\n¿En que te puedo ayudar?",
     "BUTTON-CLOSE": "Cerrar",

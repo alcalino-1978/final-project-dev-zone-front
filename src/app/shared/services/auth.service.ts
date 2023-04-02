@@ -52,20 +52,21 @@ export class AuthService {
     );
   }
 
-  // TODO HACER REGISTRO DEVELOPER
-  // registerDeveloper(formData:any): Observable<any> {
-  //   const httpOptionsCustom = {
-  //     headers: new HttpHeaders({
-  //       'Accept': 'application/json',
-  //     }),
-  //   }
-  //   //this.http.post('http://localhost:8001/upload.php', formData)
-  //   return this.http.post<any>(
-  //     environment.urlDeveloper,
-  //     formData,
-  //     httpOptionsCustom
-  //   );
-  // }
+  //TODO HACER REGISTRO DEVELOPER
+  registerDeveloper(formData:any): Observable<any> {
+    console.log(formData);
+    const httpOptionsCustom = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+      }),
+    }
+    //this.http.post('http://localhost:8001/upload.php', formData)
+    return this.http.post<any>(
+      environment.urlDevelopers,
+      formData,
+      httpOptionsCustom
+    );
+  }
 
 
 }

@@ -61,7 +61,6 @@ export class AuthService {
     );
   }
 
-  //TODO HACER REGISTRO DEVELOPER
   registerDeveloper(formData:any): Observable<any> {
     console.log(formData);
     const httpOptionsCustom = {
@@ -77,5 +76,8 @@ export class AuthService {
     );
   }
 
+  //TODO HACER UPDATE DEVELOPER
+  //TODO HACER UPDATE COMPANY
+  //TODO HACER UPDATE JOBOFFER
 
 }

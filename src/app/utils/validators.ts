@@ -1,5 +1,6 @@
 import { FormGroup } from "@angular/forms";
 
+export const CIFPattern = /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/;
 export const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 export const emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 
@@ -21,6 +22,9 @@ export function comparePassword(controlName1: string, controlName2: string) {
 }
 
 export function checkPasswordStrength(password: string): number {
+  if (!password) {
+    return 0; // devolver 0 si el valor es nulo
+  }
   // Initialize variables
   let strength = 0;
   // Check password length

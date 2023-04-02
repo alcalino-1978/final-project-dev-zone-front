@@ -1,3 +1,5 @@
+import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,12 +18,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatPseudoCheckboxModule } from '@angular/material/core';
+import { MatOption, MatOptionModule, MatPseudoCheckboxModule } from '@angular/material/core';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ThemeToggler } from '@shared/services/theme.service';
 import { SharedModule } from '@shared/shared.module';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatChipEditedEvent, MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 
@@ -50,6 +53,12 @@ import { NewLinePipe } from './pipes/new-line.pipe';
     MatInputModule,
     MatDividerModule,
     MatButtonModule,
+    MatRadioModule,
+    MatCardModule,
+    MatOptionModule,
+    MatChipsModule,
+    
+    MatIconModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,
     MatTabsModule,

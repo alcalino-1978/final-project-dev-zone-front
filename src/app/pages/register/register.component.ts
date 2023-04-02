@@ -4,31 +4,62 @@ import { Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
 import { StorageService } from '@shared/services/storage.service';
 import { passwordPattern, emailRegx, comparePassword, checkPasswordStrength } from '@utils/validators';
+import {MatChipInputEvent} from '@angular/material/chips';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
+
+
 export class RegisterComponent {
   public strength = 0;
   public selectFile:any;
-
   public userLoginForm!: FormGroup;
-  public nameFormControl!: FormControl;
-  //public lastNameFormControl!: FormControl;
-  public cifFormControl!: FormControl;
-  public logoFormControl!: FormControl;
-  public fileSourceFormControl!: FormControl;
+  public entity:string="Company";
 
 
-  public descriptionFormControl!: FormControl;
-  public emailFormControl!: FormControl;
-  public numberEmployeesFormControl!: FormControl;
-  //public phoneNumberFormControl!: FormControl;
+/*variavles para el formulario de REGISTRO DE COMPANY */
+public companyRegisterForm!: FormGroup;
+public nameFormControl!: FormControl;
+public cifFormControl!: FormControl;
+public logoFormControl!: FormControl;
 
-  public passwordFormControl!: FormControl;
-  public passwordRepeatFormControl!: FormControl;
+public fileSourceFormControl!: FormControl;
+public fileSourceDevFormControl!: FormControl;
+
+public descriptionFormControl!: FormControl;
+public emailFormControl!: FormControl;
+public numberEmployeesFormControl!: FormControl;
+public passwordFormControl!: FormControl;
+public passwordRepeatFormControl!: FormControl;
+/*variavles para el formulario de REGISTRO DE DEVELOPER */
+public developerRegisterForm!: FormGroup;
+public fullNameFormControl!: FormControl;
+public phoneNumberFormControl!: FormControl;
+public ageFormControl!: FormControl;
+public emailDevFormControl!: FormControl;
+//public passwordDevFormControl!: FormControl;
+//public passwordRepeatDevFormControl !: FormControl;
+public imageFormControl !: FormControl;
+public cvFormControl!: FormControl;
+public salaryRangeMaxFormControl!: FormControl;
+public salaryRangeMinFormControl!: FormControl;
+public languagesFormControl!: FormControl;
+public portfolioFormControl !:FormControl;
+public experienceFormControl!: FormControl;
+public hardSkillsFormControl!: FormControl;
+public softSkillsFormControl!: FormControl;
+public educationFormControl!: FormControl;
+public typeJobFormControl!: FormControl;
+public movilityFormControl!: FormControl;
+
+
+
+
 
   public isSubmitted: boolean = false;
   public isLoading: boolean = false;
@@ -38,6 +69,58 @@ export class RegisterComponent {
   public isLoggedIn = false;
   public isLoginFailed = false;
   public errorMessage = '';
+
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  public chipsCtrl = new FormControl('');
+
+  public languages:[string] = [""]; 
+  public portfolios:[string] = [""];
+  public hardSkills:[string] = [""]; 
+  public softSkills:[string] = [""];
+  public education:[string] = [""];
+ 
+  //public chips:string[] = [];
+  //chipCtrl = new FormControl('');
+
+  add(event: MatChipInputEvent,chips:[string]): void {
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      chips.push(value);
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+    this.chipsCtrl.setValue(null);
+  }
+
+  remove(chip: string,chips:string[]): void {
+    const index = chips.indexOf(chip);
+
+    if (index >= 0) {
+      chips.splice(index, 1);
+    }
+  }
+
+  onFileSelected(event:any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.companyRegisterForm.patchValue({
+        fileSource: file
+      });     
+    }
+  }
+  onFileSelectedDev(event:any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log(file);
+      this.developerRegisterForm.patchValue({
+        fileSourceDev: file
+      });        
+    }
+  }
+
 
 	constructor(
     private formBuilder: FormBuilder,
@@ -49,84 +132,222 @@ export class RegisterComponent {
 
 
 	ngOnInit() {
-    this.initForm();
+    this.initFormCompany();
+    this.initFormDeveloper();
   }
 
-  private initForm(): void {
+  private initFormCompany(): void {
 
-    //FormGroup
+    this.companyRegisterForm = this.formBuilder.group(
+      {
+        name: ['', [Validators.required, Validators.maxLength(20)]],
+        cif: ['', [Validators.required, Validators.maxLength(10)]],
+        description: ['', [Validators.required, Validators.maxLength(200)]],
+        email: ['', [Validators.required, Validators.pattern(emailRegx)]],
+        password: ['',[Validators.required, Validators.pattern(passwordPattern)],],
+        fileSource: ['', [Validators.required, ]],
+        passwordRepeat: ['', [Validators.required]],
+        numberEmployees: ['', [Validators.required, Validators.maxLength(9)]],
+        //type: ['Company', [Validators.required]]
+      },
+      {
+        validator: comparePassword('password', 'passwordRepeat'),
+      }
+    );
 
-    this.userLoginForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.maxLength(20)]],
-      cif: ['', [Validators.required, Validators.maxLength(10)]],
-      description: ['', [Validators.required, Validators.maxLength(200)]],
-      email: ['', [Validators.required, Validators.pattern(emailRegx)]],
-      password: ['', [Validators.required, Validators.pattern(passwordPattern)]],
-      fileSource: ['', [Validators.required, ]],
-      passwordRepeat: ['', [Validators.required, ]],
-      numberEmployees: ['', [Validators.required, Validators.maxLength(9)]],
-    }
-    ,
-    {
-      validator: comparePassword('password', 'passwordRepeat')
-    });
+    // FormControls company
 
-    // FormControls
-
-    this.nameFormControl = this.userLoginForm.get('name') as FormControl;
-    this.cifFormControl = this.userLoginForm.get('cif') as FormControl;
-    this.fileSourceFormControl = this.userLoginForm.get('fileSource') as FormControl;
-    this.descriptionFormControl = this.userLoginForm.get('description') as FormControl;
-    this.emailFormControl = this.userLoginForm.get('email') as FormControl;
-    this.passwordFormControl = this.userLoginForm.get('password') as FormControl;
-    this.passwordRepeatFormControl = this.userLoginForm.get('passwordRepeat') as FormControl;
-    this.numberEmployeesFormControl = this.userLoginForm.get('numberEmployees') as FormControl;
-
+    this.nameFormControl = this.companyRegisterForm.get('name') as FormControl;
+    this.cifFormControl = this.companyRegisterForm.get('cif') as FormControl;
+    //this.logoFormControl = this.userLoginForm.get('logo') as FormControl;
+    this.fileSourceFormControl = this.companyRegisterForm.get('fileSource') as FormControl;
+    this.descriptionFormControl = this.companyRegisterForm.get('description') as FormControl;
+    this.emailFormControl = this.companyRegisterForm.get('email') as FormControl;
+    this.passwordFormControl = this.companyRegisterForm.get('password') as FormControl;
+    this.passwordRepeatFormControl = this.companyRegisterForm.get('passwordRepeat') as FormControl;
+    this.numberEmployeesFormControl = this.companyRegisterForm.get('numberEmployees') as FormControl;
     // Reactive control (RxJS)
     this.passwordFormControl.valueChanges.subscribe((change) => {
-      this.strength = checkPasswordStrength(change);
+      this.strength = checkPasswordStrength(change);   
     });
-
+    
   }
-
-  onFileSelected(event:any) {
+    
+  /*onFileSelected(event:any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.userLoginForm.patchValue({
+      this.companyRegisterForm.patchValue({
         fileSource: file
-      });
-  }
+      });     
+    }
+  }*/
 
+private initFormDeveloper(): void {
+
+  //FormGroup
+
+  this.developerRegisterForm = this.formBuilder.group(
+    {
+      fullName: ['', [Validators.required, Validators.maxLength(20)]],
+      age: ['', [Validators.required, Validators.maxLength(20)]],
+      phoneNumber: ['', [Validators.required, Validators.maxLength(20)]],
+      emailDev: ['', [Validators.required, Validators.pattern(emailRegx)]],
+      password: ['',[Validators.required, Validators.pattern(passwordPattern)],],
+      passwordRepeat: ['', [Validators.required]],
+      //image: ['', [Validators.required, Validators.maxLength(200)]],
+      fileSourceDev: ['', [Validators.required]],
+      //cv: ['', [Validators.required, Validators.maxLength(200)]],
+      salaryRangeMax: ['', [Validators.required, Validators.maxLength(9)]],
+      salaryRangeMin: ['', [Validators.required, Validators.maxLength(9)]],
+      languages: ['', [Validators.required, Validators.maxLength(200)]],
+      portfolio: ['', [Validators.required, Validators.maxLength(200)]],
+      experience: ['', [Validators.required, Validators.maxLength(200)]],
+      hardSkills: ['', [Validators.required, Validators.maxLength(200)]],
+      softSkills: ['', [Validators.required, Validators.maxLength(200)]],
+      education: ['', [Validators.required, Validators.maxLength(200)]],
+      typeJob: ['', [Validators.required, Validators.maxLength(200)]],
+      movility: ['', [Validators.required]],
+      //type: ['Developer', [Validators.required]]
+    },
+    {
+      validator: comparePassword('password', 'passwordRepeat'),
+    }
+  );
+
+  
+
+    // FormControls developer
+  this.fullNameFormControl = this.developerRegisterForm.get('fullName') as FormControl;
+  this.ageFormControl = this.developerRegisterForm.get('age') as FormControl;
+  this.phoneNumberFormControl = this.developerRegisterForm.get('phoneNumber') as FormControl;
+  this.emailDevFormControl = this.developerRegisterForm.get('emailDev') as FormControl;
+  this.fileSourceDevFormControl = this.developerRegisterForm.get('fileSourceDev') as FormControl;
+  //this.imageFormControl = this.developerRegisterForm.get('image') as FormControl;
+  //this.passwordDevFormControl = this.developerRegisterForm.get('passwordDev') as FormControl;
+ // this.passwordRepeatDevFormControl = this.developerRegisterForm.get('passwordRepeatDev') as FormControl;
+  //this.cvFormControl = this.developerRegisterForm.get('cv') as FormControl;
+  this.salaryRangeMaxFormControl = this.developerRegisterForm.get('salaryRangeMax') as FormControl;
+  this.salaryRangeMinFormControl = this.developerRegisterForm.get('salaryRangeMin') as FormControl;
+  this.languagesFormControl = this.developerRegisterForm.get('languages') as FormControl;
+  this.portfolioFormControl = this.developerRegisterForm.get('portfolio') as FormControl;
+  this.experienceFormControl = this.developerRegisterForm.get('experience') as FormControl;
+  this.hardSkillsFormControl = this.developerRegisterForm.get('hardSkills') as FormControl;
+  this.softSkillsFormControl = this.developerRegisterForm.get('softSkills') as FormControl;
+  this.educationFormControl = this.developerRegisterForm.get('education') as FormControl;
+  /*this.languagesFormControl=this.languages; 
+  this.portfolioFormControl= this.portfolios;
+  this.hardSkillsFormControl=this.hardSkills;
+  this.softSkillsFormControl=this.softSkills;
+  this.educationFormControl=this.education;*/
+  this.typeJobFormControl = this.developerRegisterForm.get('typeJob') as FormControl;
+  this.movilityFormControl = this.developerRegisterForm.get('movility') as FormControl;
+  // Reactive control (RxJS)
+  this.passwordFormControl.valueChanges.subscribe((change) => {
+    this.strength = checkPasswordStrength(change);   
+  });
 }
+  
 
-  onSubmit() {
+
+
+    /*onFileSelectedDev(event:any) {
+      if (event.target.files.length > 0) {
+        const file = event.target.files[0];
+        console.log(file);
+        this.developerRegisterForm.patchValue({
+          fileSourceDev: file
+        });        
+      }
+    }*/
+
+  onSubmitCompany() {
+    //debugger;
     this.isSubmitted = true;
-    console.log(this.userLoginForm);
+    this.entity="Company";
 
-    if (this.userLoginForm.valid) {
+    if (this.companyRegisterForm.valid) {
       this.isLoading = true;
 
 
       const formData = new FormData();
       formData.append('name', this.nameFormControl.value);
       formData.append('cif', this.cifFormControl.value);
-      formData.append('logo', this.fileSourceFormControl.value);
+      formData.append('logo', this.fileSourceFormControl.value);      
       formData.append('description', this.descriptionFormControl.value);
       formData.append('email', this.emailFormControl.value);
       formData.append('password', this.passwordFormControl.value);
       formData.append('numberEmployees', this.numberEmployeesFormControl.value);
+
+      
 
       this.authService.registerCompany(formData).subscribe({
         next: response => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
           // this.storageService.saveUser(response.data.userDb);
+          this.storageService.saveUser(response.data.createdCompany, this.entity);
+          //debugger;
+          this.storageService.saveToken(response.data);
+          console.log(response.data);
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          // console.log(response)
+          this.companyRegisterForm.reset();
+          this.isLoading = false;
+          this.router.navigate(['/profile']);
+        },
+        error: err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+        }
+      });
+    }
+  }
+
+  onSubmitDeveloper() {
+    debugger;
+    
+    this.isSubmitted = true;
+    this.entity="Developer";
+    console.log(this.developerRegisterForm);
+    if (this.developerRegisterForm.valid) {
+      this.isLoading = true;
+
+      //console.log(this.fileSourceDevFormControl.value);
+      
+      //console.log("formData in");
+      const formDataDev = new FormData();
+      formDataDev.append('fullName', this.fullNameFormControl.value);
+      formDataDev.append('age', this.ageFormControl.value);
+      formDataDev.append('phoneNumber', this.phoneNumberFormControl.value);
+      formDataDev.append('emailDev', this.emailDevFormControl.value);
+      formDataDev.append('image', this.fileSourceDevFormControl.value);
+      formDataDev.append('salaryRangeMax', this.salaryRangeMaxFormControl.value);
+      formDataDev.append('salaryRangeMin', this.salaryRangeMinFormControl.value);
+      formDataDev.append('languages', this.languagesFormControl.value);
+      formDataDev.append('portfolio', this.portfolioFormControl.value);
+      formDataDev.append('experience', this.experienceFormControl.value);
+      formDataDev.append('hardSkills', this.hardSkillsFormControl.value);
+      formDataDev.append('softSkills', this.softSkillsFormControl.value);
+      formDataDev.append('education', this.educationFormControl.value);      
+      formDataDev.append('typeJob', this.typeJobFormControl.value);
+      formDataDev.append('movility', this.movilityFormControl.value);
+      console.log(formDataDev);
+      
+
+      this.authService.registerDeveloper(formDataDev).subscribe({
+        next: response => {
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+          // this.storageService.saveUser(response.data.userDb);
+          this.storageService.saveUser(response.data.createdDeveloper, this.entity);
+          //debugger;
           this.storageService.saveToken(response.data);
 
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          // console.log(response)
-          this.userLoginForm.reset();
+           console.log(response)
+          this.developerRegisterForm.reset();
           this.isLoading = false;
           this.router.navigate(['/profile']);
         },

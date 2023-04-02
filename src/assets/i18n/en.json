@@ -30,13 +30,33 @@
     "NAME": "Name",
     "LASTNAME": "Last Name",
     "CIF": "CIF",
+    "LOGO":"Ghoose a logo",
+    "DESCRIPTION":"description company",
+    "NUMBER-EMPLOYESRS": "NumberEmployees",
     "EMAIL": "Email",
     "PASSWORD": "Password",
     "REPASSWORD": "Repeat password",
+
+    "FULLNAME": "fullname",
+    "AGE": "Age",
     "PHONE-NUMBER": "Phone Number",
-    "NUMBER-EMPLOYESRS": "NumberEmployees",
-    "LOGO":"URL logo",
-    "DESCRIPTION":"description company",
+    "IMAGE":"Ghoose a image",
+    "SALARY-MAX":"maximum salary",
+    "SALARY-MIN":"minimum salary",
+    "EXPERIENCE":"Experince",
+    "PORTFOLIO":"porfolio",
+    "HARDSKILLS":"hardSkill´s",
+    "SOFTSKILLS":"softSkill´s",
+    "EDUCATION":"Education",
+    "LANGUAGES":"languages",
+    "MOVILITY":"You accept geographic mobility",
+    "FULL-REMOTE-LAVEL":"Type job",
+    "FULL-REMOTE":"Remote",
+    "HYBRID":"Hybrid",
+    "PRESENTIAL":"Presential",
+    "YES": "Yes",
+    "NO": "No",
+
     "UPDATE": "Update user",
     "DELETE": "Delete user",
     "SUBMIT": "Submit",
@@ -88,5 +108,14 @@
     "INPUT-PLACEHOLDER": "Type your message here...",
     "INPUT-SUBMIT": "Send"
   },
-  "DESCRIPTION": "Description"
+  "DESCRIPTION": "Description",
+  "DEVELOPER": {
+    "AGE": "Age",
+    "SALARY": "Salary",
+    "EXPERIENCE": "Experience",
+    "LANGUAGES": "Languages",
+    "EDUCATION": "Education",
+    "MOBILITY": "Geographical mobility",
+    "TYPEJOB": "Type of job"
+  }
 }

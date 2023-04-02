@@ -26,8 +26,7 @@ export class ProfileComponent implements OnInit {
   }
   // Delete User
   deleteUser(): void {
-    console.log(this.currentUser)
-    this.authService.deleteUserService(this.currentUser.email).subscribe(
+    this.authService.deleteUserService(this.currentUser.user._id,this.currentUser.entityType).subscribe(
       response => {
         console.log(response); // Handle successful response
       },
@@ -36,6 +35,6 @@ export class ProfileComponent implements OnInit {
       }
     );
     this.storageService.clean();
-    this.router.navigate(['/register'])
+    this.router.navigate(['/'])
   }
 }

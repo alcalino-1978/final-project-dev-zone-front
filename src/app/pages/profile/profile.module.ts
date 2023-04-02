@@ -9,13 +9,15 @@ import { ProfileComponent } from './profile.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { NewLinePipe } from 'src/app/pipes/new-line.pipe';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
     DeveloperComponent,
-    CompanyComponent
+    CompanyComponent,
+    NewLinePipe
   ],
   imports: [
     CommonModule,

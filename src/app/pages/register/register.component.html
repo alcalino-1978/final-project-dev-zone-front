@@ -1,14 +1,283 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
   <div class="col-12 col-md-4 offset-md-4">
-    <h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.REGISTER' | translate }}</h2>
+    <h2 class="mat-headline-3 cat-title">{{ 'FORMS.TITLE.REGISTER' | translate }}</h2>
 
     <mat-tab-group>
       <mat-tab label="Developer">
-        Developer
+        
+        <!--*******-->
+        <!--FORMULARIO DE REGISTRO DEVELOPERS-->  
+        <!--*******-->
+        <form novalidate (ngSubmit)="onSubmitDeveloper()" [formGroup]="developerRegisterForm" enctype="multipart/form-data" class="form-container">
+          
+          
+          
+
+
+          <!--FULNAME-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="fullname">{{ 'FORMS.FULLNAME' | translate }}:</mat-label>
+            <input matInput type="text" id="fullName" formControlName="fullName" placeholder="{{ 'FORMS.FULLNAME' | translate }}"/>
+            <mat-error *ngIf="!fullNameFormControl?.valid && fullNameFormControl?.dirty || isSubmitted">
+              <p *ngIf="fullNameFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>  
+            </mat-error>
+          </mat-form-field>
+          <!--AGE-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="age">{{ 'FORMS.AGE' | translate }}:</mat-label>
+            <input matInput type="text" id="age" formControlName="age" placeholder="{{ 'FORMS.AGE' | translate }}"/>
+            <mat-error *ngIf="!ageFormControl?.valid && ageFormControl?.dirty || isSubmitted">
+              <p *ngIf="ageFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+              
+            </mat-error>
+          </mat-form-field>
+          <!--FONE NUMBER-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="phoneNumber">{{ 'FORMS.PHONE-NUMBER' | translate }}:</mat-label>
+            <input matInput type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="{{ 'FORMS.PHONE-NUMBER' | translate }}"/>
+            <mat-error *ngIf="!phoneNumberFormControl?.valid && phoneNumberFormControl?.dirty || isSubmitted">
+              <p *ngIf="phoneNumberFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+              
+            </mat-error>
+          </mat-form-field>
+          <!--EMAIL-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="emailDev">{{ 'FORMS.EMAIL' | translate }}:</mat-label>
+            <input matInput type="text" id="emailDev" formControlName="emailDev" placeholder="{{ 'FORMS.EMAIL' | translate }}"/>
+            <mat-error *ngIf="!emailDevFormControl?.valid && emailDevFormControl?.dirty || isSubmitted">
+              <p *ngIf="emailDevFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>              
+            </mat-error>
+          </mat-form-field>
+          <!--IMAGE-->
+          <div class="form-control">
+            <label for="image" class="form-label">{{ 'FORMS.IMAGE' | translate }}:</label>
+            <input
+              class="form-control form-control-lg "
+              id="image"
+              type="file"
+              placeholder="{{ 'FORMS.IMAGE' | translate }}"
+              accept=".jpeg,.jpg,.png"
+              (change)="onFileSelectedDev($event)"
+            />
+          </div>
+          
+
+          <!--PASSWORD-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="password">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="password" formControlName="password" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
+            <mat-error *ngIf="!passwordFormControl?.valid && passwordFormControl?.dirty || isSubmitted">
+              <p *ngIf="passwordFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+              <p *ngIf="passwordFormControl?.errors?.['pattern']">
+                {{ 'FORMS.FIELD-PASSWORD' | translate }}
+              </p>
+              <p *ngIf="passwordFormControl?.errors?.['minlength']">
+                {{ 'FORMS.FIELD-PASSWORD-MIN' | translate: { value1: '8'} }}
+              </p>
+              <p *ngIf="passwordFormControl?.errors?.['maxlength']">
+                {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '14'} }}
+              </p>
+            </mat-error>
+            <ng-container *ngIf="passwordFormControl.value">
+              <p>{{ 'FORMS.FIELD-PASSWORD-STRENGTH' | translate }}:</p>
+              <div class="strength" [ngClass]="{'low': strength > 1, 'mid': strength > 2, 'hight': strength > 3}">
+                <span class="level" *ngIf="strength > 0"></span>
+                <span class="level" *ngIf="strength > 1"></span>
+                <span class="level" *ngIf="strength > 2"></span>
+                <span class="level" *ngIf="strength > 3"></span>
+              </div>
+            </ng-container>
+          </mat-form-field>
+        
+          <!--PASSWORD REPEAT-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="password">{{ 'FORMS.REPASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="passwordRepeat" formControlName="passwordRepeat" placeholder="{{ 'FORMS.REPASSWORD' | translate }}"/>
+            <mat-error *ngIf="!passwordRepeatFormControl?.valid && passwordRepeatFormControl?.dirty || isSubmitted">
+              <p *ngIf="passwordRepeatFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+              <p *ngIf="passwordRepeatFormControl?.errors?.['pattern']">
+                {{ 'FORMS.FIELD-PASSWORD' | translate }}
+              </p>
+              <p *ngIf="passwordRepeatFormControl?.errors?.['minlength']">
+                {{ 'FORMS.FIELD-PASSWORD-MIN' | translate: { value1: '8'} }}
+              </p>
+              <p *ngIf="passwordRepeatFormControl?.errors?.['minlength']">
+                {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '14'} }}
+              </p>
+            </mat-error>
+          </mat-form-field>
+          <!--SALARI MAX-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="salaryRangeMax">{{ 'FORMS.SALARY-MAX' | translate }}:</mat-label>
+            <input matInput type="text" id="salaryRangeMax" formControlName="salaryRangeMax" placeholder="{{ 'FORMS.SALARY-MAX' | translate }}"/>
+            <mat-error *ngIf="!salaryRangeMaxFormControl?.valid && salaryRangeMaxFormControl?.dirty || isSubmitted">
+              <p *ngIf="salaryRangeMaxFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+              <p *ngIf="salaryRangeMaxFormControl?.errors?.['maxlength']">
+                {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '20'} }}
+              </p>
+            </mat-error>
+          </mat-form-field>
+          <!--SALARI MIN-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="salaryRangeMin">{{ 'FORMS.SALARY-MIN' | translate }}:</mat-label>
+            <input matInput type="text" id="salaryRangeMin" formControlName="salaryRangeMin" placeholder="{{ 'FORMS.SALARY-MIN' | translate }}"/>
+            <mat-error *ngIf="!salaryRangeMinFormControl?.valid && salaryRangeMinFormControl?.dirty || isSubmitted">
+              <p *ngIf="salaryRangeMinFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+              <p *ngIf="salaryRangeMinFormControl?.errors?.['maxlength']">
+                {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '20'} }}
+              </p>
+            </mat-error>
+          </mat-form-field>
+          <!--EXPERIENCE-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="experience">{{ 'FORMS.EXPERIENCE' | translate }}:</mat-label>            
+            <textarea  matInput type="text" id="experience" formControlName="experience" placeholder="{{ 'FORMS.EXPERIENCE' | translate }}"></textarea>
+            <mat-error *ngIf="!experienceFormControl?.valid && experienceFormControl?.dirty || isSubmitted">
+              <p *ngIf="experienceFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+            </mat-error>
+          </mat-form-field>
+          <!--LANGUAGES-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="languages">{{ 'FORMS.LANGUAGES' | translate }}</mat-label>
+            <mat-chip-grid #languageDev aria-label="languages"formControlName="languages" >
+              <mat-chip-row *ngFor="let item of languages" (removed)="remove(item,languages)">
+                {{item}}
+                <button matChipRemove [attr.aria-label]="'remove ' + item">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder=" {{ 'FORMS.LANGUAGES' | translate }}..."
+              #keywordInput [formControl]="chipsCtrl"
+              [matChipInputFor]="languageDev" 
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event,languages)"/>            
+          </mat-form-field>   
+          <!--PORTFOLIO-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="portfolio">{{ 'FORMS.PORTFOLIO' | translate }}</mat-label>
+            <mat-chip-grid #portfolioDev aria-label="portfolio" formControlName="portfolio">
+              <mat-chip-row *ngFor="let item of portfolios" (removed)="remove(item,portfolios)">
+                {{item}}
+                <button matChipRemove [attr.aria-label]="'remove ' + item">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder=" {{ 'FORMS.PORTFOLIO' | translate }}..." 
+              #keywordInput [formControl]="chipsCtrl"
+              [matChipInputFor]="portfolioDev" 
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event,portfolios)"/>            
+          </mat-form-field>
+          
+          <!--HARDSKILLS-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="hardSkills">{{ 'FORMS.HARDSKILLS' | translate }}</mat-label>
+            <mat-chip-grid #hardSkillsDev aria-label="hardSkills" formControlName="hardSkills">
+              <mat-chip-row *ngFor="let item of hardSkills" (removed)="remove(item,hardSkills)">
+                {{item}}
+                <button matChipRemove [attr.aria-label]="'remove ' + item">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder=" {{ 'FORMS.HARDSKILLS' | translate }}..." 
+              #keywordInput [formControl]="chipsCtrl"
+              [matChipInputFor]="hardSkillsDev" 
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event,hardSkills)"/>            
+          </mat-form-field>
+
+          
+          <!--SOFTSKILLS-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="softSkills">{{ 'FORMS.SOFTSKILLS' | translate }}</mat-label>
+            <mat-chip-grid #softSkillsDev aria-label="softSkills" formControlName="softSkills">
+              <mat-chip-row *ngFor="let item of softSkills" (removed)="remove(item,softSkills)">
+                {{item}}
+                <button matChipRemove [attr.aria-label]="'remove ' + item">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder=" {{ 'FORMS.SOFTSKILLS' | translate }}..." 
+            #keywordInput [formControl]="chipsCtrl"
+              [matChipInputFor]="softSkillsDev" 
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event,softSkills)"/>            
+          </mat-form-field>
+
+          
+          <!--EDUCANTION-->
+          <!--<mat-form-field class="form-field" appearance="outline">
+            <mat-label for="education">{{ 'FORMS.EDUCATION' | translate }}</mat-label>
+            <mat-chip-grid #educationDev aria-label="chip selection">
+              <mat-chip-row *ngFor="let item of education" (removed)="remove(item,education)">
+                {{item}}
+                <button matChipRemove [attr.aria-label]="'remove ' + item">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder=" {{ 'FORMS.EDUCATION' | translate }}..." formControlName="education"
+              [matChipInputFor]="educationDev" 
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event,education)"/>            
+          </mat-form-field>
+          PORTFOLIO-->
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="education">{{ 'FORMS.EDUCATION' | translate }}:</mat-label>            
+            <textarea  matInput type="text" id="education" formControlName="education" placeholder="{{ 'FORMS.EDUCATION' | translate }}"></textarea>
+            <mat-error *ngIf="!educationFormControl?.valid && educationFormControl?.dirty || isSubmitted">
+              <p *ngIf="educationFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+            </mat-error>
+          </mat-form-field>
+         <!--MOVILITY-->        
+        <mat-radio-group mat-label="Select an option" for="movility" id="movility" formControlName="movility">
+          <mat-label for="movility">{{ 'FORMS.MOVILITY' | translate }}:</mat-label>
+          <mat-radio-button value="true">{{ 'FORMS.YES' | translate }}</mat-radio-button> 
+          <mat-radio-button value="false">{{ 'FORMS.NO' | translate }}</mat-radio-button>  
+        </mat-radio-group>
+        <!--TYPEJOB-->
+        
+        <mat-radio-group mat-label="Select an option" for="typeJob" id="typeJob" formControlName="typeJob">
+          <mat-label for="typeJob">{{ 'FORMS.FULL-REMOTE-LAVEL' | translate }}:</mat-label>  
+          <mat-radio-button value="Full Remote">{{ 'FORMS.FULL-REMOTE' | translate }}</mat-radio-button>  
+          <mat-radio-button value="Hybrid">{{ 'FORMS.HYBRID' | translate }}</mat-radio-button> 
+          <mat-radio-button value="Presential">{{ 'FORMS.PRESENTIAL' | translate }}</mat-radio-button> 
+        </mat-radio-group>
+      
+      
+          <button mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.SUBMIT' | translate }}</button>
+        </form> 
       </mat-tab>
       <mat-tab label="Company">
-        <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm" enctype="multipart/form-data" class="form-container mt-5">
+        <!--*******-->
+        <!--FORMULARIO DE REGISTRO COMPANY-->  
+        <!--*******-->
+        <form novalidate (ngSubmit)="onSubmitCompany()" [formGroup]="companyRegisterForm" enctype="multipart/form-data" class="form-container">
           <mat-form-field class="form-field" appearance="outline">
             <mat-label for="name">{{ 'FORMS.NAME' | translate }}:</mat-label>
             <input matInput type="text" id="name" formControlName="name" placeholder="{{ 'FORMS.NAME' | translate }}"/>

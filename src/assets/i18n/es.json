@@ -1,16 +1,24 @@
 {
   "HELLO": "Hola!",
+  "SEARCH": "Buscar...",
   "BANNER-HERO": "¡Encuentra tu nuevo empleo!",
   "PREVIOUS-PAGE": "Atrás",
   "PREVIOUS-PAGE-HOME": "Inicio",
-  "CHARACTER-LIST": {
-    "TITLE": "Listado de characters"
+  "ENTITIES": {
+    "DEVELOPER": "Desarrollador",
+    "COMPANY": "Empresa",
+    "JOBOFFERS": "Oferta de trabajo"
   },
   "MAIN-MENU": {
     "PROFILE": "Perfil",
     "REGISTER": "Crear usuario",
     "LOGIN": "Iniciar Sesión",
     "LOGOUT": "Cerrar Sesión"
+  },
+  "SECONDARY-MENU": {
+    "EDIT": "Editar",
+    "REGISTER": "Crear",
+    "DELETE": "Borrar"
   },
   "FORMS": {
     "TITLE": {
@@ -32,6 +40,7 @@
     "FULLNAME": "Nombre completo",
     "AGE": "Edad",
     "PHONE-NUMBER": "Teléfono",
+<<<<<<< HEAD
     "IMAGE":"Elige tu imagen",
     "SALARY-MAX":"Salario maximo",
     "SALARY-MIN":"Salario minimo",
@@ -50,6 +59,11 @@
     "NO": "No",
 
 
+=======
+    "NUMBER-EMPLOYESRS": "Número de empleados",
+    "LOGO":"URL logo",
+    "DESCRIPTION":"descripción de la compañía",
+>>>>>>> 8323d486aeec6673602f4736cf6ae9ef160eae8f
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",
@@ -58,9 +72,26 @@
     "FIELD-PASSWORD-MIN": "Este campo tiene que tener al menos {{ value1 }} caracteres",
     "FIELD-PASSWORD-MAX": "Este campo tiene que tener como mucho {{ value1 }} caracteres",
     "FIELD-PASSWORD-STRENGTH": "Resistencia de contraseña",
-    "FIELD-PASSWORD-NOT-MATCH": "Las contraseñas no coinciden"
+    "FIELD-PASSWORD-NOT-MATCH": "Las contraseñas no coinciden",
+    "CREATED": "Fecha de creación"
   },
-  "LIST": "Listado de ofertas",
+  "OFFER-LIST": "Últimas ofertas",
+  "OFFER-DETAIL": {
+    "TITLE": "Título",
+    "SHIFT": "Jornada",
+    "CONTRACT": "Contrato",
+    "MODALITY": "Modalidad",
+    "SALARY": "Salario",
+    "VACANCIES": "Vacantes",
+    "DESCRIPTION": "Descripción",
+    "APPLICANTS": "Developers se han inscrito en esta oferta",
+    "APPLY": "INSCRIBIRME",
+    "APPLIED": "YA INSCRITO",
+    "EMPLOYEES": "Empleados",
+    "STATUS": "Esta oferta ya no está disponible!"
+
+  },
+  "PUBLISHED": "Publicado el ",
   "DETAILS": {
     "TEMPERAMENT": "Carácter",
     "ORIGIN": "Origen",
@@ -83,5 +114,15 @@
     "BUTTON-CLOSE": "Cerrar",
     "INPUT-PLACEHOLDER": "Pon tu consulta aquí...",
     "INPUT-SUBMIT": "Consultar"
+  },
+  "DESCRIPTION": "Descripción",
+  "DEVELOPER": {
+    "AGE": "Edad",
+    "SALARY": "Salario",
+    "EXPERIENCE": "Experiencia",
+    "LANGUAGES": "Idiomas",
+    "EDUCATION": "Educación",
+    "MOBILITY": "Movilidad geográfica",
+    "TYPEJOB": "Tipo de trabajo"
   }
 }

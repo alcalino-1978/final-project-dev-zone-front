@@ -1,4 +1,85 @@
-<div>
-  <h3>Developer Component</h3>
-  <p>User ID: {{ data }}</p>
+<div class="row mb-5 pb-4 -border-bottom">
+  <div class="col-11">
+    <h2 class="mat-headline-3 mb-0 cat-title">{{ 'FORMS.TITLE.PROFILE' | translate }} {{ 'ENTITIES.DEVELOPER' | translate }}</h2>
+  </div>
+  <div class="col-1 secondary-menu">
+  <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #Menu="matMenu">
+    <button mat-menu-item [routerLink]="['/profile']">
+      <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
+    </button>
+    <button mat-menu-item routerLink="/register-company">
+      <span>{{ 'SECONDARY-MENU.REGISTER' | translate }}</span>
+    </button>
+    <button mat-menu-item routerLink="/">
+      <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
+    </button>
+  </mat-menu></div>
 </div>
+<div class="row mb-5">
+  <div class="col-md-4">
+    <img src="{{ data.image }}" class="border-rounded img-fluid" alt="{{ data.fullName | titlecase }}">
+  </div>
+  <div class="col-md-8 pt-5 pt-md-0 ps-md-5">
+      <h3 class="mat-headline-4 cat-title mb-4">{{ data.fullName | titlecase }}</h3>
+      <ul class="list-icons">
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon> email</mat-icon></span><span class="list-icons__text">{{ 'FORMS.EMAIL' | translate }}:</span> <a href="mailto:{{ data.email }}">{{ data.email }}</a>
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon> phone</mat-icon></span><span class="list-icons__text">{{ 'FORMS.PHONE-NUMBER' | translate }}:</span> {{ data.phoneNumber }}
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon>timelapse</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.AGE' | translate }}: </span>{{ data.age }}
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon>euro_symbol</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.SALARY' | translate }}:</span> {{ data.salaryRangeMin }} - {{ data.salaryRangeMax }}
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon> location_on</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.MOBILITY' | translate }}:</span> {{ data.movility }}
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon>filter_center_focus</mat-icon></span><span class="list-icons__text">{{ 'DEVELOPER.TYPEJOB' | translate }}:</span> {{ data.typeJob }}
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon>date_range</mat-icon></span>
+          <span class="list-icons__text">{{ 'FORMS.CREATED' | translate }}: </span>{{ data.updatedAt | date: 'dd/MM/yyyy' }}
+        </li>
+      </ul>
+    </div>
+</div>
+<div class="row">
+  <h3 class="mat-headline-4 cat-title mb-2">{{ 'DEVELOPER.EXPERIENCE' | translate }}</h3>
+  <p [innerHTML]="data.experience | lineBreak"></p>
+</div>
+<div class="row mt-5">
+  <h3 class="mat-headline-4 cat-title mb-2">{{ 'DEVELOPER.EDUCATION' | translate }}</h3>
+  <p [innerHTML]="data.education | lineBreak"></p>
+</div>
+<div class="row mt-5">
+  <h3 class="mat-headline-4 cat-title mb-2">{{ 'DEVELOPER.LANGUAGES' | translate }}</h3>
+  <ul>
+    <li *ngFor="let language of data.languages">{{ language }}</li>
+  </ul>
+</div>
+<div class="row mt-5">
+  <h3 class="mat-headline-4 cat-title mb-2">Hard Skills</h3>
+  <ul>
+    <li *ngFor="let skill of data.hardSkills">{{ skill }}</li>
+  </ul>
+</div>
+<div class="row mt-5">
+  <h3 class="mat-headline-4 cat-title mb-2">Soft Skills</h3>
+  <ul>
+    <li *ngFor="let skill of data.softSkills">{{ skill }}</li>
+  </ul>
+</div>
+<div class="row mt-5">
+  <h3 class="mat-headline-4 cat-title mb-2">Portfolio</h3>
+  <ul>
+    <li *ngFor="let url of data.portfolio"><a href="{{ url }}" target="_blank">{{ url }}</a></li>
+  </ul>
+</div>
+

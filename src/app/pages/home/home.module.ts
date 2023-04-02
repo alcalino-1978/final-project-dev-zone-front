@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SharedModule } from '@shared/shared.module';
-import { ListCatComponent } from './components/list-cat/list-cat.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -13,14 +12,22 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { BannerHeroComponent } from './components/banner-hero/banner-hero.component';
 import { ListOffersComponent } from './components/list-offers/list-offers.component';
+import { CarrucelComponent } from './components/carrucel/carrucel.component';
+
+
+
+
+
+
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ListCatComponent,
     BannerHeroComponent,
-    ListOffersComponent
+    ListOffersComponent,
+    CarrucelComponent,
+
   ],
   imports: [
     CommonModule,

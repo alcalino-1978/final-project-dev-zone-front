@@ -1,11 +1,53 @@
-<h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.PROFILE' | translate }} {{ data.name }}</h2>
-<div>
-  <h3>Company Component</h3>
-  <p>Company ID: {{ data._id }}</p>
-  <p>Company Cif: {{ data.cif }}</p>
-  <p>Company email: {{ data.email }}</p>
-  <p>Company description: {{ data.description }}</p>
-  <img src="{{ data.logo }}" alt="{{ data.name }}"/>
-  <p>Company numberEmployees: {{ data.numberEmployees }}</p>
-  <p>Company Date created: {{ data.updatedAt }}</p>
+<div class="row mb-5 pb-4 -border-bottom">
+  <div class="col-11">
+    <h2 class="mat-headline-3 mb-0 cat-title">{{ 'FORMS.TITLE.PROFILE' | translate }} {{ 'ENTITIES.COMPANY' | translate }}</h2>
+  </div>
+  <div class="col-1 secondary-menu">
+  <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #Menu="matMenu">
+    <button mat-menu-item [routerLink]="['/profile']">
+      <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
+    </button>
+    <button mat-menu-item routerLink="/register-company">
+      <span>{{ 'SECONDARY-MENU.REGISTER' | translate }}</span>
+    </button>
+    <button mat-menu-item routerLink="/">
+      <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
+    </button>
+  </mat-menu></div>
 </div>
+<div class="row mb-5">
+  <div class="col-md-4">
+    <img src="{{ data.logo }}" class="border-rounded img-fluid" alt="{{ data.name }}">
+  </div>
+  <div class="col-md-8 pt-5 pt-md-0 ps-md-5">
+      <h3 class="mat-headline-4 cat-title mb-4">{{ data.name | titlecase }}</h3>
+      <ul class="list-icons">
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon> email</mat-icon></span><span class="list-icons__text">{{ 'FORMS.EMAIL' | translate }}:</span> <a href="mailto:{{ data.email }}">{{ data.email }}</a>
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon> business</mat-icon></span><span class="list-icons__text">{{ 'FORMS.CIF' | translate }}:</span> {{ data.cif }}
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon>supervised_user_circle</mat-icon></span><span class="list-icons__text">{{ 'FORMS.NUMBER-EMPLOYESRS' | translate }}: </span>{{ data.numberEmployees }}
+        </li>
+        <li class="list-icons__item">
+          <span class="list-icons__icon"><mat-icon>date_range</mat-icon></span>
+          <span class="list-icons__text">{{ 'FORMS.CREATED' | translate }}: </span>{{ data.updatedAt | date: 'dd/MM/yyyy' }}
+        </li>
+      </ul>
+    </div>
+</div>
+<div class="row">
+  <h3 class="mat-headline-4 cat-title">{{ 'DESCRIPTION' | translate }}</h3>
+  <p>{{ data.description }}</p>
+</div>
+<!-- TODO  Listado de ofertas de company -->
+<!-- <div class="row">
+  <h3 class="mat-headline-4 cat-title">Ofertas publicadas:</h3>
+  <p>{{ data.description }}</p>
+</div> -->
+<!-- <ng-container *ngFor="let offer of data.Offers"></ng-container> -->

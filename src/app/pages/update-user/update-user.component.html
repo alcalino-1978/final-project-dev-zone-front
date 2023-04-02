@@ -1,7 +1,7 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
   <div class="col-12 col-md-4 offset-md-4">
-    <h2 class="mat-headline-3 cat-title -gradient">{{ 'FORMS.TITLE.UPDATE-USER' | translate }}</h2>
+    <h2 class="mat-headline-3 cat-title">{{ 'FORMS.TITLE.UPDATE-USER' | translate }}</h2>
     <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userLoginForm" class="form-container">
       <mat-form-field class="form-field" appearance="outline">
         <mat-label for="email">{{ 'FORMS.EMAIL' | translate }}:</mat-label>

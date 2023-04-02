@@ -1,30 +1,40 @@
+@import '../../../../styles/mixins.scss';
+
 .main-footer {
-  border-top: 1px solid rgba(#fff, 0.2);
+  border-top: 1px solid rgba(#000, 0.2);
   margin-top: var(--spacingXl);
   padding-top: var(--spacingSm);
   padding-bottom: var(--spacingSm);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
 }
 
 .pages-footer {
   &__item {
-    border-right: 1px solid rgba(#fff, 0.2);
+    border-right: 1px solid rgba(#000, 0.2);
     margin-right: var(--spacingSm);
     padding-right: var(--spacingSm);
     &:last-child {
       margin-right: 0;
-      padding-right: 0;
+      border-right: 0;
     }
   }
   &__link {
-    color: var(--white);
+    color: rgba(0, 0, 0, 0.87);
     text-decoration: none;
   }
 }
 .social-footer {
-  margin-left: auto;
+  margin-top: var(--spacingMd);
+  @include media-breakpoint-up(md) {
+    margin-top: 0;
+    margin-left: auto;
+  }
   &__item {
     padding: 0 var(--spacingXs) 0;
     &:last-child {
@@ -34,6 +44,6 @@
   &__img {
     width: var(--spacingLg);
     height: var(--spacingLg);
-    filter: invert(1);
+    filter: invert(0);
   }
 }

@@ -7,5 +7,10 @@ import { CompanyModelAPI } from 'src/app/models/company.models';
   styleUrls: ['./company.component.scss']
 })
 export class CompanyComponent {
-  @Input() data!: CompanyModelAPI;
+  @Input() data!: any;
+  @Input() deleteUser!: () => void;
+
+  onDeleteUser(): void {
+    this.deleteUser();
+  }
 }

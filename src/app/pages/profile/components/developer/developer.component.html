@@ -10,10 +10,7 @@
     <button mat-menu-item [routerLink]="['/profile']">
       <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
     </button>
-    <button mat-menu-item routerLink="/register-company">
-      <span>{{ 'SECONDARY-MENU.REGISTER' | translate }}</span>
-    </button>
-    <button mat-menu-item routerLink="/">
+    <button mat-menu-item (click)="deleteUser()">
       <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
     </button>
   </mat-menu></div>

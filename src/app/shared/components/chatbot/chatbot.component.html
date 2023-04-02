@@ -30,9 +30,8 @@
     <form id="helpdesk-popup-footer" class="skynet-assistant__footer" [formGroup]="chatForm">
       <input formControlName="message" type="text" id="helpdesk-popup-input" class="skynet-assistant__footer-input"
         placeholder="{{ 'CHATBOT.INPUT-PLACEHOLDER' | translate }}" />
-      <button id="helpdesk-popup-submit-button" class="skynet-assistant__submit-button" [disabled]="!chatForm.valid"
-        (click)="sendMessage()">
-        {{ 'CHATBOT.INPUT-SUBMIT' | translate }}
+      <button id="helpdesk-popup-submit-button" class="skynet-assistant__submit-button" mat-fab matTooltip="Primary" color="primary" aria-label="Example fab with a heart icon" [disabled]="!chatForm.valid" (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
       </button>
     </form>
   </div>

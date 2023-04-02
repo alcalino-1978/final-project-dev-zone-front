@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
 import { StorageService } from '@shared/services/storage.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { passwordPattern, emailRegx } from '@utils/validators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,6 @@ export class LoginComponent implements OnInit {
   public emailFormControl!: FormControl;
   public passwordFormControl!: FormControl;
   public passwordRepeatFormControl!: FormControl;
-
   public isSubmitted: boolean = false;
   public isLoading: boolean = false;
 
@@ -29,7 +30,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private location: Location
     ) {}
 
   // Método para cambiar el nombre del formulario
@@ -85,7 +88,21 @@ export class LoginComponent implements OnInit {
           // this.reloadPage();
         },
         error: err => {
-          this.errorMessage = err.error.message;
+          if (err.status === 500) {
+            this.snackBar.open('The email or password field is incorrect', 'X', {
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+              panelClass: ['error-snackbar']
+            });
+          } else {
+            //this.errorMessage = err.error.message;
+          }
+          this.isSubmitted = false;
+          this.userLoginForm.reset();
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/login']);
           // console.log(err.error.message)
           this.isLoginFailed = true;
         }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { LoginRoutingModule } from './login-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -10,7 +11,8 @@ import { LoginRoutingModule } from './login-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    MatSnackBarModule,
   ]
 })
 export class LoginModule { }

@@ -8,7 +8,6 @@
     right: var(--spacingMd);
     height: 50vh;
     min-height: 450px;
-    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: var(--spacingSm);
     z-index: 1000;
@@ -56,7 +55,7 @@
   &__header {
     display: flex;
     align-items: flex-start;
-    background-color: #333;
+    background-image: linear-gradient(136deg, rgb(0 7 113 / 100%) 0%, rgb(48 190 226) 100%);
     color: white;
     font-size: 18px;
     padding: var(--spacingSm) 0 var(--spacingSm) var(--spacingSm);
@@ -72,15 +71,17 @@
     font-size: var(--spacingMd);
     cursor: pointer;
     margin-right: var(--spacingXs);
-    opacity: .3;
   }
   &__body {
+    background-color: #fff;
     height: calc(100% - 133px);
     padding: var(--spacingSm);
   }
 
   &__footer {
-    background-color: #333;
+    display: flex;
+    background-color: #ccc;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3019607843);
     color: white;
     font-size: 14px;
     padding: var(--spacingSm);
@@ -93,21 +94,28 @@
       width: 100%;
       padding: var(--spacingSm);
       border: 1px solid #fff;
-      border-radius: var(--spacingSm) var(--spacingSm) 0 0;
+      border-radius: var(--spacingSm) var(--spacingSm) var(--spacingSm) var(--spacingSm);
       box-sizing: border-box;
       font-size: 14px;
     }
 
   }
   &__submit-button {
-    width: 100%;
-    padding: var(--spacingSm);
-    background-color: #2ca1da;
+    border: 0;
+    border-radius: 50px;
+    width: 64px;
+    line-height: 1;
+    background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
     color: #fff;
-    border: none;
-    border-radius: 0 0 var(--spacingSm) var(--spacingSm);
-    cursor: pointer;
-    font-size: 14px;
+    margin-left: var(--spacingSm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   &__messages {
@@ -117,21 +125,21 @@
         display: flow-root;
         width: 100%;
         .client {
-          background-color: #333;
           color: white;
           padding: var(--spacingSm);
-          border-radius: var(--spacingXs);
+          background-color: #3b6a91;
+          border-radius: 0 var(--spacingSm) var(--spacingSm) var(--spacingSm);
           margin-bottom: var(--spacingSm);
           display: inline-block;
           max-width: 80%;
         }
 
         .user {
-          border: 0.5px solid #333;
-          background-color: #fff;
-          color: #333;
+          border-radius: var(--spacingSm) 0 var(--spacingSm) var(--spacingSm);
+          border: 0.5px solid #cbc9c9;
+          color: #0079c8;
+          background-color: #f8f8f8;
           padding: var(--spacingSm);
-          border-radius: var(--spacingXs);
           margin-bottom: var(--spacingSm);
           display: inline-block;
           max-width: 80%;

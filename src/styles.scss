@@ -277,6 +277,30 @@ a {
     --mdc-snackbar-supporting-text-color: #fff !important;
   }
 }
+
+// STYLING INPUT TYPE FILE
+.form-control.-file {
+  background-color: transparent;
+  margin-bottom: var(--spacingMd);
+  color: rgba(0, 0, 0, 0.6);
+  padding: 1.6rem;
+  border-radius: 4px;
+  font-family: 'celebes';
+  border-color: rgba(0, 0, 0, 0.4);
+  label {
+    font-family: 'celebes';
+    font-size: var(--spacingSm);
+  }
+}
+
+// STYLING APP-HEADER
+.-bg-main-header {
+  display: flex;
+  .mat-toolbar {
+    background-color: transparent;
+  }
+}
+
 // THEMING
 .dark-theme {
   a {
@@ -294,7 +318,7 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .mat-toolbar {
+  .-bg-main-header {
     background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.07) 100%);
     box-shadow: 0 2px 5px #0000004d;
   }
@@ -332,6 +356,15 @@ a {
     &__button {
     }
   }
+  .form-control.-file {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255,255,255,0.5);
+  }
+  .-bg-main-header {
+    .mat-toolbar {
+      background-color: transparent;
+    }
+  }
 }
 .dark-theme, .dark-theme .mat-app-background {
   background-color: var(--backgroundDark);
@@ -344,7 +377,7 @@ a {
       text-decoration: none;
     }
   }
-  .mat-toolbar {
+  .-bg-main-header {
     background: linear-gradient(rgba(255, 255, 255, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
     box-shadow: 0 0 10px 0 rgb(0 0 0 / 30%);
   }

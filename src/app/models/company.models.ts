@@ -9,7 +9,8 @@ export interface CompanyModelAPI {
     listOffers: [{
       _id: string,
       title: string,
-      createdAt: string
+      createdAt: string,
+      offerStatus: boolean
     }],
     numberEmployees: string,
     updatedAt: string

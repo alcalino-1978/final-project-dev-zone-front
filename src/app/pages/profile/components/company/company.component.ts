@@ -1,3 +1,4 @@
+import { AuthService } from '@shared/services/auth.service';
 import { Router } from '@angular/router';
 import { JobofferService } from './../../../../shared/services/joboffer.service';
 import { Component, Input } from '@angular/core';
@@ -19,7 +20,8 @@ export class CompanyComponent {
 
   constructor (
     private jobOfferService: JobofferService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   public onDeleteUser(): void {
@@ -32,10 +34,27 @@ export class CompanyComponent {
 
   }
 
-  public getOfferDetail(id: any): void {
+  public getOfferDetail(id: string): void {
     console.log(id);
     this.router.navigateByUrl(`/offers/${id}`)
+  }
 
+  public updateOfferDetail(id: string): void {
+    console.log(id);
+    this.router.navigateByUrl(`/update-offer/${id}`)
+  }
+
+  public changeOfferStatus(offerId: string, status: boolean): void {
+    this.jobOfferService.updateOfferStatus(offerId, status).subscribe((data) => {
+      return console.log(data)
+    })
+  }
+
+  public deleteOffer(offerId: string): void {
+    this.authService.deleteOfferService(offerId).subscribe((response) => {
+      console.log(response);
+      });
+    this.router.navigate(['/'])
   }
 
   private getCompanyByID(dataId: string): void {
@@ -44,7 +63,6 @@ export class CompanyComponent {
       console.log(res);
       this.companyData = res;
       this.isLoading = false
-      // const applicantsLength = res.listOffers.applicants.length;
     }
     )
   }

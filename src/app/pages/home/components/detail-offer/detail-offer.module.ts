@@ -1,3 +1,4 @@
+import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '@shared/shared.module';
@@ -18,7 +19,8 @@ import { DetailOfferComponent } from './detail-offer.component';
     SharedModule,
     DetailOfferRoutingModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatChipsModule
   ]
 })
 export class DetailOfferModule { }

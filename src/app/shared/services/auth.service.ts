@@ -82,6 +82,11 @@ export class AuthService {
     return this.http.delete<JobOfferModelAPI>(url)
   }
 
+  public getDevelopers(): any {
+    const url = environment.urlDevelopers;
+    return this.http.get<any>(url);
+  }
+
   //TODO HACER UPDATE DEVELOPER
   //TODO HACER UPDATE COMPANY
   //TODO HACER UPDATE JOBOFFER

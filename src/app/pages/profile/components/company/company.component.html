@@ -10,7 +10,7 @@
     <button mat-menu-item [routerLink]="['/profile']">
       <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
     </button>
-    <button mat-menu-item routerLink="/register-company">
+    <button mat-menu-item routerLink="/register-offer">
       <span>{{ 'SECONDARY-MENU.REGISTER' | translate }}</span>
     </button>
     <button mat-menu-item (click)="deleteUser()">
@@ -46,9 +46,8 @@
   <h3 class="mat-headline-4 cat-title">{{ 'DESCRIPTION' | translate }}</h3>
   <p>{{ data.description }}</p>
 </div>
-<!-- TODO  Listado de ofertas de company -->
 <div class="row">
-  <h3 class="mat-headline-4 cat-title">Ofertas publicadas:</h3>
+  <h3 class="mat-headline-4 cat-title">{{ "PUBLISHED-OFFERS" | translate }}</h3>
 
   <div *ngFor="let offers of companyData.listOffers">
     <ul class="my-4 d-flex flex-wrap" *ngIf="!isLoading">
@@ -61,6 +60,7 @@
             <div class="col-7">
               <div class="card-body">
                 <h3 class="card-title h4 offer__title" (click)="getOfferDetail(offers._id)">{{ offers.title }}</h3>
+                <p class="offer-status">status <mat-icon [ngClass]="offers.offerStatus ? 'offer-status__active' : 'offer-status__inactive'">circle</mat-icon></p>
                 <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ offers.createdAt | date: "short" }}</small></p>
               </div>
             </div>
@@ -69,10 +69,13 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #Menu="matMenu">
-                <button mat-menu-item [routerLink]="['/profile']">
+                <button mat-menu-item (click)="updateOfferDetail(offers._id)">
                   <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="changeOfferStatus(offers._id, offers.offerStatus)">
+                  <span>{{ 'SECONDARY-MENU.STATUS' | translate }}</span>
+                </button>
+                <button mat-menu-item (click)="deleteOffer(offers._id)">
                   <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
                 </button>
               </mat-menu>
@@ -83,3 +86,4 @@
     </ul>
   </div>
 </div>
+

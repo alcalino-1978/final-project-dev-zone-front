@@ -1,4 +1,5 @@
-import { JobOfferModelAPI, JobOfferApplicantsModel } from './../../../../models/joboffer.model';
+import { StorageService } from '@shared/services/storage.service';
+import { JobOfferModelAPI, JobOfferApplicantsModel, JobOfferModelPut } from './../../../../models/joboffer.model';
 import { JobofferService } from './../../../../shared/services/joboffer.service';
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
@@ -20,13 +21,17 @@ export class DetailOfferComponent {
   public isDisabled!: boolean;
   public isAvailable!: boolean;
   public buttonApplyName: string = 'OFFER-DETAIL.APPLY';
+  public entity!: string;
+
+  public developers: any[] = [];
 
   constructor(
     private activatedRouter: ActivatedRoute,
     private jobofferService: JobofferService,
     private location: Location,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +40,10 @@ export class DetailOfferComponent {
         this.getOffer(params['id']);
       }
     );
+    console.log(this.offerDetail);
+    const getEntity = this.storageService.getUser().entityType;
+    this.entity = getEntity;
+    this.getDevs();
   }
 
   public deleteOffer(offerId: string): void {
@@ -76,12 +85,31 @@ export class DetailOfferComponent {
     )
   }
 
+  public updateOfferDetail(id: string): void {
+    console.log(id);
+    this.router.navigateByUrl(`/update-offer/${id}`)
+  }
+
+
+  private getDevs(): void {
+    this.authService.getDevelopers()
+    .subscribe((data: any) => {
+    this.developers = data;
+    })
+  }
+
   public formatDescription(): string {
     return this.offerDescription.replace(/\n/g, '<br>');
   }
 
   public backWithLocation() {
     this.location.back();
+  }
+
+  public changeOfferStatus(offerId: string, status: boolean): void {
+    this.jobofferService.updateOfferStatus(offerId, status).subscribe((data) => {
+      return console.log(data)
+    })
   }
 
   public jobOfferRegistration(offerId: string): void {

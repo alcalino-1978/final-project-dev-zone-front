@@ -18,7 +18,8 @@
   "SECONDARY-MENU": {
     "EDIT": "Editar",
     "REGISTER": "Crear",
-    "DELETE": "Borrar"
+    "DELETE": "Borrar",
+    "STATUS": "Cambiar Estado"
   },
   "FORMS": {
     "TITLE": {
@@ -69,6 +70,7 @@
     "CREATED": "Fecha de creación"
   },
   "OFFER-LIST": "Últimas ofertas",
+  "PUBLISHED-OFFERS": "Ofertas publicadas",
   "CREATE": "Crear",
   "OFFER-DETAIL": {
     "CREATE": "Crear Oferta",

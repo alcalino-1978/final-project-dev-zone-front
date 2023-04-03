@@ -1,5 +1,5 @@
 import { CompanyModelAPI } from 'src/app/models/company.models';
-import { JobOfferModelAPI, JobOfferModelPost } from './../../models/joboffer.model';
+import { JobOfferModelAPI, JobOfferModelPost, JobOfferModelPut } from './../../models/joboffer.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
@@ -31,9 +31,15 @@ export class JobofferService {
       map((response: JobOfferModelAPI[]) => {
         return response.sort((a: JobOfferModelAPI, b: JobOfferModelAPI) => {
           return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        }).slice(0, 10); //ultimas 4 ofertas creadas
+        }).slice(0, 4); //ultimas 4 ofertas creadas
       })
     )
+  }
+
+  //PUT OFFER BY ID
+  public updateOfferByID(id: string, offer: JobOfferModelPut): Observable<JobOfferModelAPI> {
+    const url = environment.urlJobOffers + `${id}`;
+    return this.httpClient.put<JobOfferModelAPI>(url, offer)
   }
 
   // GET JOB OFFER BY ID
@@ -52,6 +58,13 @@ export class JobofferService {
     const data = { applicants: [userId]};
     return this.httpClient.patch<JobOfferModelAPI>(url, data)
   }
+
+    // PATCH offerStatus IN JOB OFFER
+    public updateOfferStatus(offerId: string, status: boolean): Observable<JobOfferModelAPI> {
+      const url = environment.urlJobOffers + `${offerId}`;
+      const data = { offerStatus: !status};
+      return this.httpClient.patch<JobOfferModelAPI>(url, data)
+    }
 
 
   // PATCH JOB OFFER IN DEVELOPER

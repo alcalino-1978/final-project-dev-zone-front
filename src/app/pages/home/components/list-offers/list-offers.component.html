@@ -5,13 +5,13 @@
     <li class="list-joboffer__item col-12" (click)="getOfferDetail(offer._id)">
       <div class="card mb-3 h-100">
         <div class="row g-0">
-          <div class="col-4">
-            <img *ngFor="let item of offer.company" [src]="item.logo" class="img-fluid rounded-start">
+          <div class="img-fluid col-4">
+            <img *ngFor="let item of offer.company" [src]="item.logo" class="rounded-start">
           </div>
           <div class="col-8">
             <div class="card-body">
               <h3 class="list-joboffer__title card-title h4">{{ offer.title }}</h3>
-              <p *ngFor="let item of offer.company" class="list-joboffer__definition card-text">{{item.name}}</p>
+              <p *ngFor="let item of offer.company" class="list-joboffer__company card-text">{{item.name}}</p>
               <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ offer.createdAt | date: "short" }}</small></p>
             </div>
           </div>

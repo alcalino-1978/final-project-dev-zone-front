@@ -43,7 +43,7 @@ public phoneNumberFormControl!: FormControl;
 public ageFormControl!: FormControl;
 public emailDevFormControl!: FormControl;
 public passwordDevFormControl!: FormControl;
-public passwordRepeatDevFormControl!: FormControl;
+public passwordRepeatDevFormControl !: FormControl;
 public imageFormControl !: FormControl;
 public cvFormControl!: FormControl;
 public salaryRangeMinFormControl!: FormControl;
@@ -73,16 +73,14 @@ public movilityFormControl!: FormControl;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   public chipsCtrl = new FormControl('');
 
-  public languages:[string] = [""];
-  public portfolios:[string] = [""];
-  public hardSkills:[string] = [""];
-  public softSkills:[string] = [""];
-  public education:[string] = [""];
+  public languages:string[] = [];
+  public portfolios:string[] = [];
+  public hardSkills:string[] = [];
+  public softSkills:string[] = [];
+  public education:string[] = [];
 
-  //public chips:string[] = [];
-  //chipCtrl = new FormControl('');
 
-  add(event: MatChipInputEvent, chips: string[]): void {
+  add(event: MatChipInputEvent,chips:string[]): void {
     const value = (event.value || '').trim();
 
     // Add our fruit
@@ -167,21 +165,9 @@ public movilityFormControl!: FormControl;
     // Reactive control (RxJS)
     this.passwordFormControl.valueChanges.subscribe((change) => {
       this.strength = checkPasswordStrength(change);
-      this.strength = checkPasswordStrength(change);
     });
 
-
   }
-
-  /*onFileSelected(event:any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.companyRegisterForm.patchValue({
-        fileSource: file
-      });
-    }
-  }*/
-
 
 private initFormDeveloper(): void {
 
@@ -193,8 +179,8 @@ private initFormDeveloper(): void {
       age: ['', [Validators.required, Validators.maxLength(20)]],
       phoneNumber: ['', [Validators.required, Validators.maxLength(20)]],
       emailDev: ['', [Validators.required, Validators.pattern(emailRegx)]],
-      passwordDevDev: ['',[Validators.required, Validators.pattern(passwordPattern)],],
-      passwordRepeatDevDev: ['', [Validators.required]],
+      passwordDev: ['',[Validators.required, Validators.pattern(passwordPattern)],],
+      passwordRepeatDev: ['', [Validators.required]],
       fileSourceDev: ['', [Validators.required]],
       salaryRangeMin: ['', [Validators.required, Validators.maxLength(9)]],
       salaryRangeMax: ['', [Validators.required, Validators.maxLength(9)]],
@@ -208,7 +194,7 @@ private initFormDeveloper(): void {
       movility: ['', [Validators.required]],
     },
     {
-      validator: comparePassword('passwordDevDev', 'passwordRepeatDevDev'),
+      validator: comparePassword('passwordDev', 'passwordRepeatDev'),
     }
   );
 
@@ -220,10 +206,6 @@ private initFormDeveloper(): void {
   this.phoneNumberFormControl = this.developerRegisterForm.get('phoneNumber') as FormControl;
   this.emailDevFormControl = this.developerRegisterForm.get('emailDev') as FormControl;
   this.fileSourceDevFormControl = this.developerRegisterForm.get('fileSourceDev') as FormControl;
-  //this.imageFormControl = this.developerRegisterForm.get('image') as FormControl;
-  this.passwordDevFormControl = this.developerRegisterForm.get('passwordDev') as FormControl;
-  this.passwordRepeatDevFormControl = this.developerRegisterForm.get('passwordRepeatDev') as FormControl;
-  //this.cvFormControl = this.developerRegisterForm.get('cv') as FormControl;
   this.passwordDevFormControl = this.developerRegisterForm.get('passwordDev') as FormControl;
   this.passwordRepeatDevFormControl = this.developerRegisterForm.get('passwordRepeatDev') as FormControl;
   this.salaryRangeMinFormControl = this.developerRegisterForm.get('salaryRangeMin') as FormControl;
@@ -234,32 +216,14 @@ private initFormDeveloper(): void {
   this.hardSkillsFormControl = this.developerRegisterForm.get('hardSkills') as FormControl;
   this.softSkillsFormControl = this.developerRegisterForm.get('softSkills') as FormControl;
   this.educationFormControl = this.developerRegisterForm.get('education') as FormControl;
-  /*this.languagesFormControl=this.languages;
-  this.portfolioFormControl= this.portfolios;
-  this.hardSkillsFormControl=this.hardSkills;
-  this.softSkillsFormControl=this.softSkills;
-  this.educationFormControl=this.education;*/
   this.typeJobFormControl = this.developerRegisterForm.get('typeJob') as FormControl;
   this.movilityFormControl = this.developerRegisterForm.get('movility') as FormControl;
 
   // Reactive control (RxJS)
-  this.passwordFormControl.valueChanges.subscribe((change) => {
+  this.passwordDevFormControl.valueChanges.subscribe((change) => {
     this.strength = checkPasswordStrength(change);
   });
 }
-
-
-
-
-    /*onFileSelectedDev(event:any) {
-      if (event.target.files.length > 0) {
-        const file = event.target.files[0];
-        console.log(file);
-        this.developerRegisterForm.patchValue({
-          fileSourceDev: file
-        });
-      }
-    }*/
 
   onSubmitCompany() {
     this.isSubmitted = true;
@@ -276,7 +240,6 @@ private initFormDeveloper(): void {
       formData.append('email', this.emailFormControl.value);
       formData.append('password', this.passwordFormControl.value);
       formData.append('numberEmployees', this.numberEmployeesFormControl.value);
-
 
       // Display the values
       // formData.forEach((value, key) => {
@@ -331,8 +294,11 @@ private initFormDeveloper(): void {
       formDataDev.append('education', this.educationFormControl.value);
       formDataDev.append('typeJob', this.typeJobFormControl.value);
       formDataDev.append('movility', this.movilityFormControl.value);
-      console.log(formDataDev);
 
+      // Display the values
+      // formDataDev.forEach((value, key) => {
+      //   console.log(key, value);
+      // });
 
       this.authService.registerDeveloper(formDataDev).subscribe({
         next: response => {

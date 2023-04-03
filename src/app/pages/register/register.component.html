@@ -1,6 +1,6 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
-  <div class="col-12 col-md-4 offset-md-4">
+  <div class="col-12 col-md-6 offset-md-3">
     <h2 class="mat-headline-3 cat-title">{{ 'FORMS.TITLE.REGISTER' | translate }}</h2>
 
     <mat-tab-group>
@@ -58,7 +58,7 @@
             </mat-error>
           </mat-form-field>
           <!--IMAGE-->
-          <div class="form-control">
+          <div class="form-control -file">
             <label for="image" class="form-label">{{ 'FORMS.IMAGE' | translate }}:</label>
             <input
               class="form-control form-control-lg "
@@ -73,23 +73,23 @@
 
           <!--PASSWORD-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="passwordDev">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
-            <input matInput type="password" id="passwordDev" formControlName="passwordDev" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
+            <mat-label for="password">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="password" formControlName="password" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
             <mat-error *ngIf="!passwordFormControl?.valid && passwordFormControl?.dirty || isSubmitted">
               <p *ngIf="passwordFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
               </p>
-              <p *ngIf="passwordFormControl?.errors?.['pattern']">
+              <p *ngIf="passwordDevFormControl?.errors?.['pattern']">
                 {{ 'FORMS.FIELD-PASSWORD' | translate }}
               </p>
-              <p *ngIf="passwordFormControl?.errors?.['minlength']">
+              <p *ngIf="passwordDevFormControl?.errors?.['minlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MIN' | translate: { value1: '8'} }}
               </p>
-              <p *ngIf="passwordFormControl?.errors?.['maxlength']">
+              <p *ngIf="passwordDevFormControl?.errors?.['maxlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '14'} }}
               </p>
             </mat-error>
-            <ng-container *ngIf="passwordFormControl.value">
+            <ng-container *ngIf="passwordDevFormControl.value">
               <p>{{ 'FORMS.FIELD-PASSWORD-STRENGTH' | translate }}:</p>
               <div class="strength" [ngClass]="{'low': strength > 1, 'mid': strength > 2, 'hight': strength > 3}">
                 <span class="level" *ngIf="strength > 0"></span>
@@ -102,33 +102,20 @@
 
           <!--PASSWORD REPEAT-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="passwordDev">{{ 'FORMS.REPASSWORD' | translate }}:</mat-label>
-            <input matInput type="password" id="passwordRepeatDev" formControlName="passwordRepeatDev" placeholder="{{ 'FORMS.REPASSWORD' | translate }}"/>
+            <mat-label for="password">{{ 'FORMS.REPASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="passwordRepeat" formControlName="passwordRepeat" placeholder="{{ 'FORMS.REPASSWORD' | translate }}"/>
             <mat-error *ngIf="!passwordRepeatFormControl?.valid && passwordRepeatFormControl?.dirty || isSubmitted">
               <p *ngIf="passwordRepeatFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
               </p>
-              <p *ngIf="passwordRepeatFormControl?.errors?.['pattern']">
+              <p *ngIf="passwordRepeatDevFormControl?.errors?.['pattern']">
                 {{ 'FORMS.FIELD-PASSWORD' | translate }}
               </p>
-              <p *ngIf="passwordRepeatFormControl?.errors?.['minlength']">
+              <p *ngIf="passwordRepeatDevFormControl?.errors?.['minlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MIN' | translate: { value1: '8'} }}
               </p>
-              <p *ngIf="passwordRepeatFormControl?.errors?.['minlength']">
+              <p *ngIf="passwordRepeatDevFormControl?.errors?.['minlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '14'} }}
-              </p>
-            </mat-error>
-          </mat-form-field>
-          <!--SALARI MAX-->
-          <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="salaryRangeMax">{{ 'FORMS.SALARY-MAX' | translate }}:</mat-label>
-            <input matInput type="text" id="salaryRangeMax" formControlName="salaryRangeMax" placeholder="{{ 'FORMS.SALARY-MAX' | translate }}"/>
-            <mat-error *ngIf="!salaryRangeMaxFormControl?.valid && salaryRangeMaxFormControl?.dirty || isSubmitted">
-              <p *ngIf="salaryRangeMaxFormControl?.errors?.['required']">
-                {{ 'FORMS.FIELD-REQUIRED' | translate }}
-              </p>
-              <p *ngIf="salaryRangeMaxFormControl?.errors?.['maxlength']">
-                {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '20'} }}
               </p>
             </mat-error>
           </mat-form-field>
@@ -141,6 +128,19 @@
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
               </p>
               <p *ngIf="salaryRangeMinFormControl?.errors?.['maxlength']">
+                {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '20'} }}
+              </p>
+            </mat-error>
+          </mat-form-field>
+           <!--SALARI MAX-->
+           <mat-form-field class="form-field" appearance="outline">
+            <mat-label for="salaryRangeMax">{{ 'FORMS.SALARY-MAX' | translate }}:</mat-label>
+            <input matInput type="text" id="salaryRangeMax" formControlName="salaryRangeMax" placeholder="{{ 'FORMS.SALARY-MAX' | translate }}"/>
+            <mat-error *ngIf="!salaryRangeMaxFormControl?.valid && salaryRangeMaxFormControl?.dirty || isSubmitted">
+              <p *ngIf="salaryRangeMaxFormControl?.errors?.['required']">
+                {{ 'FORMS.FIELD-REQUIRED' | translate }}
+              </p>
+              <p *ngIf="salaryRangeMaxFormControl?.errors?.['maxlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '20'} }}
               </p>
             </mat-error>
@@ -303,7 +303,7 @@
             </mat-error>
           </mat-form-field>
 
-          <div class="form-control">
+          <div class="form-control -file">
             <label for="logo" class="form-label">{{ 'FORMS.LOGO' | translate }}:</label>
             <input
               class="form-control form-control-lg "

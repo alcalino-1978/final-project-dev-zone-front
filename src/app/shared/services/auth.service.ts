@@ -62,7 +62,6 @@ export class AuthService {
     );
   }
 
-  //TODO HACER REGISTRO DEVELOPER
   registerDeveloper(formData:any): Observable<any> {
     console.log(formData);
     const httpOptionsCustom = {
@@ -82,4 +81,9 @@ export class AuthService {
     const url = environment.urlJobOffers + id;
     return this.http.delete<JobOfferModelAPI>(url)
   }
+
+  //TODO HACER UPDATE DEVELOPER
+  //TODO HACER UPDATE COMPANY
+  //TODO HACER UPDATE JOBOFFER
+
 }

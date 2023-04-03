@@ -370,6 +370,9 @@ a {
       background-color: transparent;
     }
   }
+  .list-logo {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
 }
 .dark-theme, .dark-theme .mat-app-background {
   background-color: var(--backgroundDark);

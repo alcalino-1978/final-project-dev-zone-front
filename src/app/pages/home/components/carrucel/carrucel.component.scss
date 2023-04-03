@@ -1,22 +1,29 @@
 @import '../../../../../styles/mixins.scss';
 .list-logo {
   flex-wrap: wrap;
+  border-radius: var(--spacingXs);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   @include media-breakpoint-up(lg){
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    // flex-wrap: nowrap;
+    // justify-content: space-between;
   }
   &__item{
-    width: 50%;
-    padding: var(--spacingSm);
-    @include media-breakpoint-up(md){
-      width: 33.3333%;
-    }
-    @include media-breakpoint-up(lg){
-      width:auto;
-    }
+    padding: var(--spacingLg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // @include media-breakpoint-up(md){
+    //   width: 33.3333%;
+    // }
+    // @include media-breakpoint-up(lg){
+    //   width:auto;
+    // }
   }
   &__img{
-    height: 8vh;
-    width: auto;
+    padding: var(--spacingXs);
+    background: #ffffff;
+    border: 1px solid var(--secondaryLightColor);
+    border-radius: var(--spacingXs);
+    width: 100%;
   }
 }

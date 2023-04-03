@@ -130,5 +130,8 @@
     "TYPEJOB": "Tipo de trabajo",
     "COMMON.YES": "Si",
     "COMMON.NO": "No"
+  },
+  "CAROUSEL": {
+    "TITLE": "Empresas que confían en nosotros"
   }
 }

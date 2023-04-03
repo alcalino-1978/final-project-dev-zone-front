@@ -1,8 +1,11 @@
 
 <div class="row">
-  <ul class="list-logo  d-flex ">      
-      <li class="list-logo__item" *ngFor="let company of listCompany">
+  <h2 class="mat-headline-3 cat-title mb-4">{{ 'CAROUSEL.TITLE' | translate }}</h2>
+</div>
+<div class="row">
+  <ul class="list-logo d-flex">
+      <li class="list-logo__item col-6 col-md-3" *ngFor="let company of listCompany.slice(0, 4)">
         <img class="list-logo__img" [src]="company.logo"[alt]="company">
-      </li>      
+      </li>
   </ul>
 </div>

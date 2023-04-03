@@ -16,10 +16,6 @@ import { ListOffersComponent } from './components/list-offers/list-offers.compon
 import { CarrucelComponent } from './components/carrucel/carrucel.component';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -33,14 +29,11 @@ import { CarrucelComponent } from './components/carrucel/carrucel.component';
     HomeRoutingModule,
     SharedModule,
     FormsModule,
-    // Material
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
-    //BrowserAnimationsModule,
-    ReactiveFormsModule,
-   
+
   ]
 })
 export class HomeModule { }

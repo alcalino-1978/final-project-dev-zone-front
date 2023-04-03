@@ -1,9 +1,9 @@
-.col-sm-6{
+.blockquote{
   margin-bottom: 1rem!important;
-  margin: auto;
+  margin:auto;
   background-color: #b9fe00;
   color: var(--backgroundDark);
-  text-align:justify;
+  text-align: inherit;
 }
 
 .btn {
@@ -17,4 +17,16 @@
 
 .banner-hero{
   margin-bottom: 1rem!important;
+}
+
+.card-header{
+  border-right-color: black;
+  margin-bottom: 1rem!important;
+  margin: auto;
+  background-color: #b9fe00;
+  color: var(--backgroundDark);
+}
+
+.text-tecnico{
+  text-align: center;
 }

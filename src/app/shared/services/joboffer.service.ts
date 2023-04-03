@@ -33,6 +33,17 @@ export class JobofferService {
     )
   }
 
+  // GET SORTED JOB OFFERS
+  public getLastOfferList(): Observable<JobOfferModelAPI[]> {
+    return this.httpClient.get<JobOfferModelAPI[]>(environment.urlJobOffers)
+    .pipe(
+      map((response: JobOfferModelAPI[]) => {
+        return response.sort((a: JobOfferModelAPI, b: JobOfferModelAPI) => {
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        }).slice(0, 3); //ultimas 4 ofertas creadas
+      })
+    )
+  }
   // GET JOB OFFER BY ID
   public getOfferbyID(id: string): Observable<JobOfferModelAPI> {
     return this.httpClient.get<JobOfferModelAPI>(environment.urlJobOffers + `${id}`)

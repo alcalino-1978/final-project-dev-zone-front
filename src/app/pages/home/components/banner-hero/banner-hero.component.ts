@@ -34,6 +34,16 @@ export class BannerHeroComponent {
   ngOnInit(): void {
     this.getPhotoRandom();
   }
+  private getPhotoRandom(): void {
+    this.isLoading = true;
+    this.unsplashService.getPhotoRandom().subscribe(
+      (response: UnsplashModelAPI) => {
+        this.photoRandom= response;
+        this.randomImageUrl= this.photoRandom.urls.regular;
+        // console.log(response.urls.full)
+        this.isLoading = false;
+      }, (error) => {
+      });
   // private getPhotoRandom(): void {
   //   this.isLoading = true;
   //   this.unsplashService.getPhotoRandom().subscribe(

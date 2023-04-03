@@ -26,6 +26,9 @@ import { MatChipsModule} from '@angular/material/chips';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { ProfileModule } from '@pages/profile/profile.module';
+import { ProyectoComponent } from './pages/proyecto/proyecto.component';
+import { ValueComponent } from './pages/value/value.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { ProfileModule } from '@pages/profile/profile.module';
     RegisterComponent,
     UpdateUserComponent,
     QuienesSomosComponent,
+    ProyectoComponent,
+    ValueComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,6 @@ import { ProfileModule } from '@pages/profile/profile.module';
     MatCardModule,
     MatOptionModule,
     MatChipsModule,
-
     MatIconModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,

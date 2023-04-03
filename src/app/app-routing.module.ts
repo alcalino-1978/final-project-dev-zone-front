@@ -32,6 +32,15 @@ const routes: Routes = [
     path: 'register-offer',
     loadChildren: () => import('@pages/register-offer/register-offer.module').then(m => m.RegisterOfferModule)
   },
+  {
+    path: 'value',
+    loadChildren: () => import('@pages/value/value.module').then(m => m.ValueModule),
+  },
+  {
+    path: 'proyecto',
+    loadChildren: () => import('@pages/proyecto/proyecto.module').then(m => m.ProyectoModule),
+  },
+  
  // ...
 ];
 

@@ -1,9 +1,8 @@
 @import '../../../../../styles/mixins.scss';
 .list-logo {
   flex-wrap: wrap;
-  background: #ffffff;
   border-radius: var(--spacingXs);
-  border-color: 1px solid var(--primaryLightColor);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   @include media-breakpoint-up(lg){
     // flex-wrap: nowrap;
     // justify-content: space-between;
@@ -22,6 +21,7 @@
   }
   &__img{
     padding: var(--spacingXs);
+    background: #ffffff;
     border: 1px solid var(--secondaryLightColor);
     border-radius: var(--spacingXs);
     width: 100%;

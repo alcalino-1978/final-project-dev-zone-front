@@ -39,10 +39,7 @@
   &__item {
     margin-bottom: 2.4rem;
     cursor: pointer;
-    padding-right: 1rem;
-    @include media-breakpoint-up(sm) {
-      padding-right: 2.4rem;
-    }
+
   }
   &__title {
     color: var(--backgroundDark);

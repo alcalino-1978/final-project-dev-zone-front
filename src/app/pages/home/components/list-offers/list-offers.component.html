@@ -1,23 +1,26 @@
 <app-loader *ngIf="isLoading"></app-loader>
-<div class="row"><h2 class="mat-headline-3 cat-title mb-2">{{ 'OFFER-LIST' | translate }}</h2></div>
-<ul class="list-joboffer my-4 d-flex flex-wrap" *ngIf="!isLoading">
-  <ng-container *ngFor="let offer of (offerList | filterSearch: filter )">
-    <li class="list-joboffer__item col-12" (click)="getOfferDetail(offer._id)">
-      <div class="card mb-3 h-100">
-        <div class="row g-0">
-          <div class="col-3 col-md-2">
-            <img *ngFor="let item of offer.company" [src]="item.logo" class="img-fluid rounded-start">
-          </div>
-          <div class="col-9 col-md-10">
-            <div class="card-body">
-              <h3 class="list-joboffer__title card-title h4">{{ offer.title }}</h3>
-              <p *ngFor="let item of offer.company" class="list-joboffer__definition card-text">{{item.name}}</p>
-              <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ offer.createdAt | date: "short" }}</small></p>
+
+  <div  class="row">
+    <h2 class="mat-headline-3 cat-title mb-2">{{ (!allOrLast ? 'ALL-OFFER-LIST' : 'OFFER-LIST') | translate }}</h2>
+  </div>
+  <ul class="list-joboffer my-4 d-flex flex-wrap" *ngIf="!isLoading">
+    <ng-container *ngFor="let offer of (!allOrLast ? allOfferList : offerList) | filterSearch: filter">
+      <li class="list-joboffer__item col-12" (click)="getOfferDetail(offer._id)">
+        <div class="card mb-3 h-100">
+          <div class="row g-0">
+            <div class="col-3 col-md-2">
+              <img *ngFor="let item of offer.company" [src]="item.logo" class="img-fluid rounded-start">
+            </div>
+            <div class="col-9 col-md-10">
+              <div class="card-body">
+                <h3 class="list-joboffer__title card-title h4">{{ offer.title }}</h3>
+                <p *ngFor="let item of offer.company" class="list-joboffer__definition card-text">{{item.name}}</p>
+                <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ offer.createdAt | date: "short" }}</small></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ng-container>
-</ul>
+      </li>
+    </ng-container>
+  </ul>
 

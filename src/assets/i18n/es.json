@@ -60,7 +60,7 @@
     "PRESENTIAL":"Presencial",
     "YES": "Sí",
     "NO": "No",
-   
+
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",
@@ -73,6 +73,8 @@
     "CREATED": "Fecha de creación"
   },
   "OFFER-LIST": "Últimas ofertas",
+  "ALL-OFFER-LIST": "Resultados de tu búsqueda",
+
   "PUBLISHED-OFFERS": "Ofertas publicadas",
   "CREATE": "Crear",
   "OFFER-DETAIL": {

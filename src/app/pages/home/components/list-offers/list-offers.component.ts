@@ -14,6 +14,8 @@ export class ListOffersComponent {
   public offerList: JobOfferModel[] = [];
   public isLoading: boolean = false;
   public filter: string = '';
+  public allOfferList: JobOfferModel[] = [];
+  public allOrLast:boolean=true;
 
   private subscription!: Subscription;
 
@@ -25,7 +27,8 @@ export class ListOffersComponent {
 
   ngOnInit(): void {
     this.getOfferList();
-    this.getSearchValue()
+    this.getSearchValue();
+    this.getAllOffer();
   }
 
   private getOfferList(): void {
@@ -33,6 +36,15 @@ export class ListOffersComponent {
     this.jobofferService.getLastOfferList().subscribe(
       (data: JobOfferModelAPI[]) => {
         this.offerList = data;
+        this.isLoading = false;
+      });
+  }
+
+  private getAllOffer(): void {
+    this.isLoading = true;
+    this.jobofferService.getOffer().subscribe(
+      (data: JobOfferModelAPI[]) => {
+        this.allOfferList = data;
         this.isLoading = false;
       });
   }
@@ -47,6 +59,7 @@ export class ListOffersComponent {
     this.subscription = this.searchValueService.sendData().subscribe((data: string) => {
       if (data) {
         this.filter = data;
+        this.allOrLast = false;
       }
     })
   }

@@ -31,10 +31,19 @@ export class AuthService {
     return this.http.post<UserModelAPI>(environment.urlUsers + 'logout', { }, httpOptions);
   }
 
-  deleteUserService(email: string): Observable<any> {
-    // todo`https://dominio/${entity/:id`}
-    const url = environment.urlUsers;
-    return this.http.delete(url);
+  deleteUserService(id: string, entityType: string): Observable<any> {
+    let url: string;
+    const body = { id };
+
+    if (entityType === 'Developer') {
+      url = `${environment.urlBase}developers/${id}`;
+    } else if (entityType === 'Company') {
+      url = `${environment.urlBase}companies/${id}`;
+    } else {
+      throw new Error(`Invalid entityType ${entityType}`);
+    }
+
+    return this.http.delete(url, { body });
   }
 
   // todo Tres tipos de registros según Entidad
@@ -52,20 +61,23 @@ export class AuthService {
     );
   }
 
-  // TODO HACER REGISTRO DEVELOPER
-  // registerDeveloper(formData:any): Observable<any> {
-  //   const httpOptionsCustom = {
-  //     headers: new HttpHeaders({
-  //       'Accept': 'application/json',
-  //     }),
-  //   }
-  //   //this.http.post('http://localhost:8001/upload.php', formData)
-  //   return this.http.post<any>(
-  //     environment.urlDeveloper,
-  //     formData,
-  //     httpOptionsCustom
-  //   );
-  // }
+  registerDeveloper(formData:any): Observable<any> {
+    console.log(formData);
+    const httpOptionsCustom = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+      }),
+    }
+    //this.http.post('http://localhost:8001/upload.php', formData)
+    return this.http.post<any>(
+      environment.urlDevelopers,
+      formData,
+      httpOptionsCustom
+    );
+  }
 
+  //TODO HACER UPDATE DEVELOPER
+  //TODO HACER UPDATE COMPANY
+  //TODO HACER UPDATE JOBOFFER
 
 }

@@ -1,16 +1,24 @@
 {
   "HELLO": "Hola!",
+  "SEARCH": "Buscar...",
   "BANNER-HERO": "¡Encuentra tu nuevo empleo!",
   "PREVIOUS-PAGE": "Atrás",
   "PREVIOUS-PAGE-HOME": "Inicio",
-  "CHARACTER-LIST": {
-    "TITLE": "Listado de characters"
+  "ENTITIES": {
+    "DEVELOPER": "Desarrollador",
+    "COMPANY": "Empresa",
+    "JOBOFFERS": "Oferta de trabajo"
   },
   "MAIN-MENU": {
     "PROFILE": "Perfil",
     "REGISTER": "Crear usuario",
     "LOGIN": "Iniciar Sesión",
     "LOGOUT": "Cerrar Sesión"
+  },
+  "SECONDARY-MENU": {
+    "EDIT": "Editar",
+    "REGISTER": "Crear",
+    "DELETE": "Borrar"
   },
   "FORMS": {
     "TITLE": {
@@ -22,13 +30,33 @@
     "NAME": "Nombre",
     "LASTNAME": "Apellidos",
     "CIF": "CIF",
+    "LOGO":"Elige un logo",
+    "DESCRIPTION":"Descripción de la compañía",
+    "NUMBER-EMPLOYESRS": "Número de empleados",
     "EMAIL": "Correo",
     "PASSWORD": "Contraseña",
     "REPASSWORD": "Repetir contraseña",
+
+    "FULLNAME": "Nombre completo",
+    "AGE": "Edad",
     "PHONE-NUMBER": "Teléfono",
-    "NUMBER-EMPLOYESRS": "Numero de empleados",
+    "IMAGE":"Elige tu imagen",
+    "SALARY-MAX":"Salario máximo",
+    "SALARY-MIN":"Salario mínimo",
+    "EXPERIENCE":"Experiencia",
+    "PORTFOLIO":"Portfolio",
+    "HARDSKILLS":"Hard Skills",
+    "SOFTSKILLS":"Soft Skills",
+    "EDUCATION":"Formación",
+    "LANGUAGES":"Idiomas",
+    "MOVILITY":"Aceptas la movilidad geográfica",
+    "FULL-REMOTE-LAVEL":"Tipo de trabajo",
+    "FULL-REMOTE":"Remoto",
+    "HYBRID":"Híbrido",
+    "PRESENTIAL":"Presencial",
+    "YES": "Sí",
+    "NO": "No",
     "LOGO":"URL logo",
-    "DESCRIPTION":"descripción de la comañía",
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",
@@ -37,30 +65,42 @@
     "FIELD-PASSWORD-MIN": "Este campo tiene que tener al menos {{ value1 }} caracteres",
     "FIELD-PASSWORD-MAX": "Este campo tiene que tener como mucho {{ value1 }} caracteres",
     "FIELD-PASSWORD-STRENGTH": "Resistencia de contraseña",
-    "FIELD-PASSWORD-NOT-MATCH": "Las contraseñas no coinciden"
+    "FIELD-PASSWORD-NOT-MATCH": "Las contraseñas no coinciden",
+    "CREATED": "Fecha de creación"
   },
-  "LIST": "Listado de ofertas",
-  "DETAILS": {
-    "TEMPERAMENT": "Carácter",
-    "ORIGIN": "Origen",
-    "WEIGHT": "Peso",
-    "LIFE-SPAN": "Esperanza de vida",
-    "ADAPTABILITY": "Adaptabilidad",
-    "AFFECTION-LEVEL": "Afectuoso",
-    "CHILD-FRIENDLY": "Amigable con los niños",
-    "DOG-FRIENDLY": "Amigable con los perros",
-    "GROOMING": "Aseo",
-    "HEALTH-ISSUES": "Problemas de salud",
-    "INTELLIGENCE": "Inteligencia",
-    "SHEDDING-LEVEL": "Nivel de muda",
-    "ENERGY-LEVEL": "Nivel de energía",
-    "SOCIAL-NEEDS": "Sociable",
-    "STRANGER-FRIENDLY": "Amigable con los extraños"
+  "OFFER-LIST": "Últimas ofertas",
+  "OFFER-DETAIL": {
+    "TITLE": "Título",
+    "SHIFT": "Jornada",
+    "CONTRACT": "Contrato",
+    "MODALITY": "Modalidad",
+    "SALARY": "Salario",
+    "VACANCIES": "Vacantes",
+    "DESCRIPTION": "Descripción",
+    "APPLICANTS": "Developers se han inscrito en esta oferta",
+    "APPLY": "INSCRIBIRME",
+    "APPLIED": "YA INSCRITO",
+    "EMPLOYEES": "Empleados",
+    "STATUS": "Esta oferta ya no está disponible!"
+
   },
+  "PUBLISHED": "Publicado el ",
   "CHATBOT": {
     "HEADER": "Hola 👋🤖 , soy tu profesor de código asistente.\n¿En que te puedo ayudar?",
     "BUTTON-CLOSE": "Cerrar",
     "INPUT-PLACEHOLDER": "Pon tu consulta aquí...",
     "INPUT-SUBMIT": "Consultar"
+  },
+  "DESCRIPTION": "Descripción",
+  "DEVELOPER": {
+    "AGE": "Edad",
+    "SALARY": "Salario",
+    "EXPERIENCE": "Experiencia",
+    "LANGUAGES": "Idiomas",
+    "EDUCATION": "Educación",
+    "MOBILITY": "Movilidad geográfica",
+    "TYPEJOB": "Tipo de trabajo",
+    "COMMON.YES": "Si",
+    "COMMON.NO": "No"
   }
 }

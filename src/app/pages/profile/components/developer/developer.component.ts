@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NewLinePipe } from '../../../../pipes/new-line.pipe';
 
 @Component({
   selector: 'app-developer',
@@ -6,5 +7,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./developer.component.scss']
 })
 export class DeveloperComponent {
-  @Input() data: string = '';
+  @Input() data!: any;
+  @Input() deleteUser!: () => void;
+
+  onDeleteUser(): void {
+    this.deleteUser();
+  }
 }

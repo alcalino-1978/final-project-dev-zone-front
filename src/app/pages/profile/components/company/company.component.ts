@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CompanyModelAPI } from 'src/app/models/company.models';
 
 @Component({
   selector: 'app-company',
@@ -7,4 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class CompanyComponent {
   @Input() data!: any;
+  @Input() deleteUser!: () => void;
+
+  onDeleteUser(): void {
+    this.deleteUser();
+  }
 }

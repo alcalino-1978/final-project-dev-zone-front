@@ -23,12 +23,29 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('@pages/profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard]
-  }
-  // ...
+  },
+  {
+    path: 'quienes-somos',
+    loadChildren: () => import('@pages/quienes-somos/quienes-somos.module').then(m => m.QuienesSomosModule),
+  },
+  {
+    path: 'register-offer',
+    loadChildren: () => import('@pages/register-offer/register-offer.module').then(m => m.RegisterOfferModule)
+  },
+  {
+    path: 'value',
+    loadChildren: () => import('@pages/value/value.module').then(m => m.ValueModule),
+  },
+  {
+    path: 'proyecto',
+    loadChildren: () => import('@pages/proyecto/proyecto.module').then(m => m.ProyectoModule),
+  },
+  
+ // ...
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

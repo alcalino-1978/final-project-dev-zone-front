@@ -1,16 +1,24 @@
 {
   "HELLO": "Hello!",
+  "SEARCH": "Search...",
   "BANNER-HERO": "Look for your next job!",
   "PREVIOUS-PAGE": "Back",
   "PREVIOUS-PAGE-HOME": "Home",
-  "CHARACTER-LIST": {
-    "TITLE": "Character list"
+  "ENTITIES": {
+    "DEVELOPER": "Developer",
+    "COMPANY": "Company",
+    "JOBOFFERS": "Job Offer"
   },
   "MAIN-MENU": {
     "PROFILE": "Profile",
     "REGISTER": "New User",
     "LOGIN": "Log In",
     "LOGOUT": "Log Out"
+  },
+  "SECONDARY-MENU": {
+    "EDIT": "Edit",
+    "REGISTER": "Create",
+    "DELETE": "Delete"
   },
   "FORMS": {
     "TITLE": {
@@ -22,13 +30,32 @@
     "NAME": "Name",
     "LASTNAME": "Last Name",
     "CIF": "CIF",
+    "LOGO":"Choose a logo",
+    "DESCRIPTION":"Description of the company",
+    "NUMBER-EMPLOYESRS": "Number of Employees",
     "EMAIL": "Email",
     "PASSWORD": "Password",
     "REPASSWORD": "Repeat password",
+    "FULLNAME": "Full Name",
+    "AGE": "Age",
     "PHONE-NUMBER": "Phone Number",
-    "NUMBER-EMPLOYESRS": "NumberEmployees",
-    "LOGO":"URL logo",
-    "DESCRIPTION":"description company",
+    "IMAGE":"Choose an image",
+    "SALARY-MAX":"Maximum salary",
+    "SALARY-MIN":"Minimum salary",
+    "EXPERIENCE":"Experience",
+    "PORTFOLIO":"Portfolio",
+    "HARDSKILLS":"Hard skills",
+    "SOFTSKILLS":"Soft skills",
+    "EDUCATION":"Education",
+    "LANGUAGES":"Languages",
+    "MOVILITY":"Do you accept geographic mobility?",
+    "FULL-REMOTE-LAVEL":"Type of job",
+    "FULL-REMOTE":"Remote",
+    "HYBRID":"Hybrid",
+    "PRESENTIAL":"In-person",
+    "YES": "Yes",
+    "NO": "No",
+
     "UPDATE": "Update user",
     "DELETE": "Delete user",
     "SUBMIT": "Submit",
@@ -37,10 +64,26 @@
     "FIELD-PASSWORD-MIN": "The password must contain at least {{ value1 }} characters long",
     "FIELD-PASSWORD-MAX": "This field must be at most {{ value1 }} characters long",
     "FIELD-PASSWORD-STRENGTH": "Password strength",
-    "FIELD-PASSWORD-NOT-MATCH": "Passwords do not match"
+    "FIELD-PASSWORD-NOT-MATCH": "Passwords do not match",
+    "CREATED": "Created at"
   }
   ,
-  "LIST": "Offer List",
+  "OFFER-LIST": "Last offers",
+  "OFFER-DETAIL": {
+    "TITLE": "Title",
+    "SHIFT": "Workday",
+    "CONTRACT": "Contract",
+    "MODALITY": "Work model",
+    "SALARY": "Salary",
+    "VACANCIES": "Vacancies",
+    "DESCRIPTION": "Description",
+    "APPLICANTS": "Developers have signed up for this offer",
+    "APPLY": "APPLY",
+    "APPLIED": "ALREADY APPLIED",
+    "EMPLOYEES": "Employees",
+    "STATUS": "This offer is no longer available!"
+  },
+  "PUBLISHED": "Published on ",
   "DETAILS": {
     "TEMPERAMENT": "Temperament",
     "ORIGIN": "Origin",
@@ -63,5 +106,17 @@
     "BUTTON-CLOSE": "Close",
     "INPUT-PLACEHOLDER": "Type your message here...",
     "INPUT-SUBMIT": "Send"
+  },
+  "DESCRIPTION": "Description",
+  "DEVELOPER": {
+    "AGE": "Age",
+    "SALARY": "Salary",
+    "EXPERIENCE": "Experience",
+    "LANGUAGES": "Languages",
+    "EDUCATION": "Education",
+    "MOBILITY": "Geographical mobility",
+    "TYPEJOB": "Type of job",
+    "COMMON.YES": "Yes",
+    "COMMON.NO": "No"
   }
 }

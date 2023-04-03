@@ -1,21 +1,9 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
-  <div class="col-12 col-md-4 offset-md-4">
-    <div class="container" *ngIf="currentUser; else loggedOut">
       <ng-container *ngIf="currentUser.entityType === 'Company'">
-        <app-company [data]="currentUser.user"></app-company>
+        <app-company [data]="currentUser.user" [deleteUser]="deleteUser.bind(this)"></app-company>
       </ng-container>
       <ng-container *ngIf="currentUser.entityType === 'Developer'">
-        <app-developer [data]="currentUser"></app-developer>
+        <app-developer [data]="currentUser.user" [deleteUser]="deleteUser.bind(this)"></app-developer>
       </ng-container>
-    <mat-divider></mat-divider>
-    <div class="my-5 d-flex justify-content-between">
-      <!-- <button mat-raised-button color="primary" routerLink="/update-user">{{ 'FORMS.UPDATE' | translate }}</button> -->
-      <button mat-raised-button color="warn" (click)="deleteUser()">{{ 'FORMS.DELETE' | translate }}</button>
-    </div>
-  </div>
 </div>
-
-<ng-template #loggedOut>
-  Please login.
-</ng-template>

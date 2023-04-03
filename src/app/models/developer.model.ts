@@ -1,3 +1,26 @@
+export interface DeveloperModelAPI {
+  fullName: string,
+  age: number,
+  phoneNumber: string,
+  email: string,
+  password: string,
+  image: string,
+  cv: string,
+  salaryRangeMax: number,
+  salaryRangeMin: number,
+  languages: [string],
+  portfolio: [string],
+  experience: string,
+  hardSkills:[string],
+  softSkills:[string],
+  education: string,
+  typeJob: [string],
+  movility: boolean,
+  jobOffers: [string]
+  }
+
+
+
 export interface CatModelAPI {
   id: string,
   name: string,

@@ -73,23 +73,23 @@
 
           <!--PASSWORD-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="password">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
-            <input matInput type="password" id="password" formControlName="password" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
-            <mat-error *ngIf="!passwordFormControl?.valid && passwordFormControl?.dirty || isSubmitted">
-              <p *ngIf="passwordFormControl?.errors?.['required']">
+            <mat-label for="passwordDev">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="password" formControlName="passwordDev" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
+            <mat-error *ngIf="!passwordDevFormControl?.valid && passwordDevFormControl?.dirty || isSubmitted">
+              <p *ngIf="passwordDevFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
               </p>
-              <p *ngIf="passwordFormControl?.errors?.['pattern']">
+              <p *ngIf="passwordDevFormControl?.errors?.['pattern']">
                 {{ 'FORMS.FIELD-PASSWORD' | translate }}
               </p>
-              <p *ngIf="passwordFormControl?.errors?.['minlength']">
+              <p *ngIf="passwordDevFormControl?.errors?.['minlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MIN' | translate: { value1: '8'} }}
               </p>
-              <p *ngIf="passwordFormControl?.errors?.['maxlength']">
+              <p *ngIf="passwordDevFormControl?.errors?.['maxlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '14'} }}
               </p>
             </mat-error>
-            <ng-container *ngIf="passwordFormControl.value">
+            <ng-container *ngIf="passwordDevFormControl.value">
               <p>{{ 'FORMS.FIELD-PASSWORD-STRENGTH' | translate }}:</p>
               <div class="strength" [ngClass]="{'low': strength > 1, 'mid': strength > 2, 'hight': strength > 3}">
                 <span class="level" *ngIf="strength > 0"></span>
@@ -100,21 +100,21 @@
             </ng-container>
           </mat-form-field>
         
-          <!--PASSWORD REPEAT-->
+          <!--PASSWORD REPEAT passwordDev-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="password">{{ 'FORMS.REPASSWORD' | translate }}:</mat-label>
-            <input matInput type="password" id="passwordRepeat" formControlName="passwordRepeat" placeholder="{{ 'FORMS.REPASSWORD' | translate }}"/>
-            <mat-error *ngIf="!passwordRepeatFormControl?.valid && passwordRepeatFormControl?.dirty || isSubmitted">
-              <p *ngIf="passwordRepeatFormControl?.errors?.['required']">
+            <mat-label for="passwordRepeatDev">{{ 'FORMS.REPASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="passwordRepeatDev" formControlName="passwordRepeatDev" placeholder="{{ 'FORMS.REPASSWORD' | translate }}"/>
+            <mat-error *ngIf="!passwordRepeatDevFormControl?.valid && passwordRepeatDevFormControl?.dirty || isSubmitted">
+              <p *ngIf="passwordRepeatDevFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
               </p>
-              <p *ngIf="passwordRepeatFormControl?.errors?.['pattern']">
+              <p *ngIf="passwordRepeatDevFormControl?.errors?.['pattern']">
                 {{ 'FORMS.FIELD-PASSWORD' | translate }}
               </p>
-              <p *ngIf="passwordRepeatFormControl?.errors?.['minlength']">
+              <p *ngIf="passwordRepeatDevFormControl?.errors?.['minlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MIN' | translate: { value1: '8'} }}
               </p>
-              <p *ngIf="passwordRepeatFormControl?.errors?.['minlength']">
+              <p *ngIf="passwordRepeatDevFormControl?.errors?.['minlength']">
                 {{ 'FORMS.FIELD-PASSWORD-MAX' | translate: { value1: '14'} }}
               </p>
             </mat-error>

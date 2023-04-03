@@ -33,6 +33,7 @@ import { DeveloperComponent } from '@pages/profile/components/developer/develope
 import { CompanyComponent } from '@pages/profile/components/company/company.component';
 import { ProfileModule } from '@pages/profile/profile.module';
 import { NewLinePipe } from './pipes/new-line.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -57,12 +58,13 @@ import { NewLinePipe } from './pipes/new-line.pipe';
     MatCardModule,
     MatOptionModule,
     MatChipsModule,
-    
+   
     MatIconModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,
     MatTabsModule,
-    ProfileModule
+    ProfileModule,
+    NgbModule
   ],
   providers: [ThemeToggler],
   bootstrap: [AppComponent]

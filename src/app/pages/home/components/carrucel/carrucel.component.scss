@@ -1,4 +1,22 @@
-.carrusel{
-  margin: 60px;
+@import '../../../../../styles/mixins.scss';
+.list-logo {
+  flex-wrap: wrap;
+  @include media-breakpoint-up(lg){
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  &__item{
+    width: 50%;
+    padding: var(--spacingSm);
+    @include media-breakpoint-up(md){
+      width: 33.3333%;
+    }
+    @include media-breakpoint-up(lg){
+      width:auto;
+    }
+  }
+  &__img{
+    height: 8vh;
+    width: auto;
+  }
 }
-

@@ -121,5 +121,8 @@
     "TYPEJOB": "Type of job",
     "COMMON.YES": "Yes",
     "COMMON.NO": "No"
+  },
+  "CAROUSEL": {
+    "TITLE": "Companies with trust in us"
   }
 }

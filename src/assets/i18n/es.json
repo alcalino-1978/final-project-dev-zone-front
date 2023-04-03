@@ -59,7 +59,7 @@
     "PRESENTIAL":"Presencial",
     "YES": "Sí",
     "NO": "No",
-   
+
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",
@@ -105,5 +105,8 @@
     "TYPEJOB": "Tipo de trabajo",
     "COMMON.YES": "Si",
     "COMMON.NO": "No"
+  },
+  "CAROUSEL": {
+    "TITLE": "Empresas que confían en nosotros"
   }
 }

@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
@@ -5,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -18,22 +18,16 @@ import { LoginComponent } from './pages/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatOption, MatOptionModule, MatPseudoCheckboxModule } from '@angular/material/core';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { MatOptionModule, MatPseudoCheckboxModule } from '@angular/material/core';
 import { RegisterComponent } from './pages/register/register.component';
 import { ThemeToggler } from '@shared/services/theme.service';
 import { SharedModule } from '@shared/shared.module';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatChipEditedEvent, MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule} from '@angular/material/chips';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
-
-
-import { DeveloperComponent } from '@pages/profile/components/developer/developer.component';
-import { CompanyComponent } from '@pages/profile/components/company/company.component';
 import { ProfileModule } from '@pages/profile/profile.module';
 import { NewLinePipe } from './pipes/new-line.pipe';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -58,7 +52,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MatOptionModule,
     MatChipsModule,
-   
+    
     MatIconModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,

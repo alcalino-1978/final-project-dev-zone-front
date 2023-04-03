@@ -1,6 +1,6 @@
 <div [ngClass]="{'dark-theme': isDarkTheme | async}">
   <div class="mat-app-background">
-    <app-header (changeLanguage)="setLang($event)"></app-header>
+    <app-header (changeLanguage)="setLang($event)" class="-bg-main-header" [ngClass]="'-bg-main-header'"></app-header>
     <!--TODO CREAR UN LAYOUT Y CARGARLOS SEGÚN LAS RUTAS-->
     <div [ngClass]="url === '' ? 'home': 'container pt-4 px-4 my-5'">
       <router-outlet></router-outlet>

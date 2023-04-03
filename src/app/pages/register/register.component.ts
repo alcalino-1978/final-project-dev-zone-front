@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
 import { StorageService } from '@shared/services/storage.service';
-import { passwordPattern, emailRegx, comparePassword, checkPasswordStrength } from '@utils/validators';
+import { passwordPattern, emailRegx, comparePassword, checkPasswordStrength, CIFPattern } from '@utils/validators';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
@@ -46,8 +46,8 @@ public passwordDevFormControl!: FormControl;
 public passwordRepeatDevFormControl !: FormControl;
 public imageFormControl !: FormControl;
 public cvFormControl!: FormControl;
-public salaryRangeMaxFormControl!: FormControl;
 public salaryRangeMinFormControl!: FormControl;
+public salaryRangeMaxFormControl!: FormControl;
 public languagesFormControl!: FormControl;
 public portfolioFormControl !:FormControl;
 public experienceFormControl!: FormControl;
@@ -73,14 +73,12 @@ public movilityFormControl!: FormControl;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   public chipsCtrl = new FormControl('');
 
-  public languages:string[] = []; 
+  public languages:string[] = [];
   public portfolios:string[] = [];
-  public hardSkills:string[] = []; 
+  public hardSkills:string[] = [];
   public softSkills:string[] = [];
   public education:string[] = [];
- 
-  //public chips:string[] = [];
-  //chipCtrl = new FormControl('');
+
 
   add(event: MatChipInputEvent,chips:string[]): void {
     const value = (event.value || '').trim();
@@ -108,7 +106,7 @@ public movilityFormControl!: FormControl;
       const file = event.target.files[0];
       this.companyRegisterForm.patchValue({
         fileSource: file
-      });     
+      });
     }
   }
   onFileSelectedDev(event:any) {
@@ -117,7 +115,7 @@ public movilityFormControl!: FormControl;
       console.log(file);
       this.developerRegisterForm.patchValue({
         fileSourceDev: file
-      });        
+      });
     }
   }
 
@@ -134,6 +132,8 @@ public movilityFormControl!: FormControl;
 	ngOnInit() {
     this.initFormCompany();
     this.initFormDeveloper();
+    //TODO UPDATE
+    // isLoggedIn()
   }
 
   private initFormCompany(): void {
@@ -141,17 +141,13 @@ public movilityFormControl!: FormControl;
     this.companyRegisterForm = this.formBuilder.group(
       {
         name: ['', [Validators.required, Validators.maxLength(20)]],
-        cif: ['', [Validators.required, Validators.maxLength(10)]],
+        cif: ['', [Validators.required, Validators.pattern(CIFPattern)]],
         description: ['', [Validators.required, Validators.maxLength(200)]],
         email: ['', [Validators.required, Validators.pattern(emailRegx)]],
         password: ['',[Validators.required, Validators.pattern(passwordPattern)],],
         fileSource: ['', [Validators.required, ]],
         passwordRepeat: ['', [Validators.required]],
         numberEmployees: ['', [Validators.required, Validators.maxLength(9)]],
-        //type: ['Company', [Validators.required]]
-      },
-      {
-        validator: comparePassword('password', 'passwordRepeat'),
       }
     );
 
@@ -159,28 +155,19 @@ public movilityFormControl!: FormControl;
 
     this.nameFormControl = this.companyRegisterForm.get('name') as FormControl;
     this.cifFormControl = this.companyRegisterForm.get('cif') as FormControl;
-    //this.logoFormControl = this.userLoginForm.get('logo') as FormControl;
     this.fileSourceFormControl = this.companyRegisterForm.get('fileSource') as FormControl;
     this.descriptionFormControl = this.companyRegisterForm.get('description') as FormControl;
     this.emailFormControl = this.companyRegisterForm.get('email') as FormControl;
     this.passwordFormControl = this.companyRegisterForm.get('password') as FormControl;
     this.passwordRepeatFormControl = this.companyRegisterForm.get('passwordRepeat') as FormControl;
     this.numberEmployeesFormControl = this.companyRegisterForm.get('numberEmployees') as FormControl;
+
     // Reactive control (RxJS)
     this.passwordFormControl.valueChanges.subscribe((change) => {
-      this.strength = checkPasswordStrength(change);   
+      this.strength = checkPasswordStrength(change);
     });
-    
+
   }
-    
-  /*onFileSelected(event:any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.companyRegisterForm.patchValue({
-        fileSource: file
-      });     
-    }
-  }*/
 
 private initFormDeveloper(): void {
 
@@ -188,33 +175,30 @@ private initFormDeveloper(): void {
 
   this.developerRegisterForm = this.formBuilder.group(
     {
-      fullName: ['', [Validators.required, Validators.maxLength(20)]],
+      fullName: ['', [Validators.required, Validators.maxLength(50)]],
       age: ['', [Validators.required, Validators.maxLength(20)]],
       phoneNumber: ['', [Validators.required, Validators.maxLength(20)]],
       emailDev: ['', [Validators.required, Validators.pattern(emailRegx)]],
       passwordDev: ['',[Validators.required, Validators.pattern(passwordPattern)],],
       passwordRepeatDev: ['', [Validators.required]],
-      //image: ['', [Validators.required, Validators.maxLength(200)]],
       fileSourceDev: ['', [Validators.required]],
-      //cv: ['', [Validators.required, Validators.maxLength(200)]],
-      salaryRangeMax: ['', [Validators.required, Validators.maxLength(9)]],
       salaryRangeMin: ['', [Validators.required, Validators.maxLength(9)]],
+      salaryRangeMax: ['', [Validators.required, Validators.maxLength(9)]],
       languages: ['', [Validators.required, Validators.maxLength(200)]],
       portfolio: ['', [Validators.required, Validators.maxLength(200)]],
-      experience: ['', [Validators.required, Validators.maxLength(200)]],
+      experience: ['', [Validators.required, Validators.maxLength(1000)]],
       hardSkills: ['', [Validators.required, Validators.maxLength(200)]],
       softSkills: ['', [Validators.required, Validators.maxLength(200)]],
-      education: ['', [Validators.required, Validators.maxLength(200)]],
+      education: ['', [Validators.required, Validators.maxLength(1000)]],
       typeJob: ['', [Validators.required, Validators.maxLength(200)]],
       movility: ['', [Validators.required]],
-      //type: ['Developer', [Validators.required]]
     },
     {
       validator: comparePassword('passwordDev', 'passwordRepeatDev'),
     }
   );
 
-  
+
 
     // FormControls developer
   this.fullNameFormControl = this.developerRegisterForm.get('fullName') as FormControl;
@@ -222,12 +206,10 @@ private initFormDeveloper(): void {
   this.phoneNumberFormControl = this.developerRegisterForm.get('phoneNumber') as FormControl;
   this.emailDevFormControl = this.developerRegisterForm.get('emailDev') as FormControl;
   this.fileSourceDevFormControl = this.developerRegisterForm.get('fileSourceDev') as FormControl;
-  //this.imageFormControl = this.developerRegisterForm.get('image') as FormControl;
   this.passwordDevFormControl = this.developerRegisterForm.get('passwordDev') as FormControl;
   this.passwordRepeatDevFormControl = this.developerRegisterForm.get('passwordRepeatDev') as FormControl;
-  //this.cvFormControl = this.developerRegisterForm.get('cv') as FormControl;
-  this.salaryRangeMaxFormControl = this.developerRegisterForm.get('salaryRangeMax') as FormControl;
   this.salaryRangeMinFormControl = this.developerRegisterForm.get('salaryRangeMin') as FormControl;
+  this.salaryRangeMaxFormControl = this.developerRegisterForm.get('salaryRangeMax') as FormControl;
   this.languagesFormControl = this.developerRegisterForm.get('languages') as FormControl;
   this.portfolioFormControl = this.developerRegisterForm.get('portfolio') as FormControl;
   this.experienceFormControl = this.developerRegisterForm.get('experience') as FormControl;
@@ -236,57 +218,46 @@ private initFormDeveloper(): void {
   this.educationFormControl = this.developerRegisterForm.get('education') as FormControl;
   this.typeJobFormControl = this.developerRegisterForm.get('typeJob') as FormControl;
   this.movilityFormControl = this.developerRegisterForm.get('movility') as FormControl;
+
   // Reactive control (RxJS)
   this.passwordDevFormControl.valueChanges.subscribe((change) => {
-    this.strength = checkPasswordStrength(change);   
+    this.strength = checkPasswordStrength(change);
   });
 }
-  
-
-
-
-    /*onFileSelectedDev(event:any) {
-      if (event.target.files.length > 0) {
-        const file = event.target.files[0];
-        console.log(file);
-        this.developerRegisterForm.patchValue({
-          fileSourceDev: file
-        });        
-      }
-    }*/
 
   onSubmitCompany() {
-    //debugger;
     this.isSubmitted = true;
     this.entity="Company";
 
     if (this.companyRegisterForm.valid) {
       this.isLoading = true;
 
-
       const formData = new FormData();
       formData.append('name', this.nameFormControl.value);
       formData.append('cif', this.cifFormControl.value);
-      formData.append('logo', this.fileSourceFormControl.value);      
+      formData.append('logo', this.fileSourceFormControl.value);
       formData.append('description', this.descriptionFormControl.value);
       formData.append('email', this.emailFormControl.value);
       formData.append('password', this.passwordFormControl.value);
       formData.append('numberEmployees', this.numberEmployeesFormControl.value);
 
-      
+      // Display the values
+      // formData.forEach((value, key) => {
+      //   console.log(key, value);
+      // });
+
+      //TODO if isLoggedIn = true
+
 
       this.authService.registerCompany(formData).subscribe({
         next: response => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          // this.storageService.saveUser(response.data.userDb);
           this.storageService.saveUser(response.data.createdCompany, this.entity);
-          //debugger;
           this.storageService.saveToken(response.data);
           console.log(response.data);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          // console.log(response)
           this.companyRegisterForm.reset();
           this.isLoading = false;
           this.router.navigate(['/profile']);
@@ -300,47 +271,42 @@ private initFormDeveloper(): void {
   }
 
   onSubmitDeveloper() {
-    //debugger;
+    debugger;
     
     this.isSubmitted = true;
     this.entity="Developer";
-    console.log(this.developerRegisterForm);
+
     if (this.developerRegisterForm.valid) {
       this.isLoading = true;
 
-      //console.log(this.fileSourceDevFormControl.value);
-      
-      //console.log("formData in");
-      const formData = new FormData();
-      formData.append('fullName', this.fullNameFormControl.value);
-      formData.append('age', this.ageFormControl.value);
-      formData.append('phoneNumber', this.phoneNumberFormControl.value);
-      formData.append('emailDev', this.emailDevFormControl.value);
-      formData.append('image', this.fileSourceDevFormControl.value);
-      formData.append('salaryRangeMax', this.salaryRangeMaxFormControl.value);
-      formData.append('salaryRangeMin', this.salaryRangeMinFormControl.value);
-      formData.append('languages', this.languagesFormControl.value);
-      formData.append('portfolio', this.portfolioFormControl.value);
-      formData.append('experience', this.experienceFormControl.value);
-      formData.append('hardSkills', this.hardSkillsFormControl.value);
-      formData.append('softSkills', this.softSkillsFormControl.value);
-      formData.append('password', this.passwordDevFormControl.value);
-      formData.append('education', this.educationFormControl.value);      
-      formData.append('typeJob', this.typeJobFormControl.value);
-      formData.append('movility', this.movilityFormControl.value);
-      console.log(formData);
-      formData.forEach((value, key) => {
-        console.log(key + ": " + value);
-      });
-      
+      const formDataDev = new FormData();
+      formDataDev.append('fullName', this.fullNameFormControl.value);
+      formDataDev.append('age', this.ageFormControl.value);
+      formDataDev.append('phoneNumber', this.phoneNumberFormControl.value);
+      formDataDev.append('email', this.emailDevFormControl.value);
+      formDataDev.append('password', this.passwordDevFormControl.value);
+      formDataDev.append('image', this.fileSourceDevFormControl.value);
+      formDataDev.append('salaryRangeMin', this.salaryRangeMinFormControl.value);
+      formDataDev.append('salaryRangeMax', this.salaryRangeMaxFormControl.value);
+      formDataDev.append('languages', this.languagesFormControl.value);
+      formDataDev.append('portfolio', this.portfolioFormControl.value);
+      formDataDev.append('experience', this.experienceFormControl.value);
+      formDataDev.append('hardSkills', this.hardSkillsFormControl.value);
+      formDataDev.append('softSkills', this.softSkillsFormControl.value);
+      formDataDev.append('education', this.educationFormControl.value);
+      formDataDev.append('typeJob', this.typeJobFormControl.value);
+      formDataDev.append('movility', this.movilityFormControl.value);
 
-      this.authService.registerDeveloper(formData).subscribe({
+      // Display the values
+      // formDataDev.forEach((value, key) => {
+      //   console.log(key, value);
+      // });
+
+      this.authService.registerDeveloper(formDataDev).subscribe({
         next: response => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          // this.storageService.saveUser(response.data.userDb);
           this.storageService.saveUser(response.data.createdDeveloper, this.entity);
-          //debugger;
           this.storageService.saveToken(response.data);
 
           this.isLoginFailed = false;

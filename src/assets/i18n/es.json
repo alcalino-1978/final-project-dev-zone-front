@@ -1,7 +1,10 @@
 {
   "HELLO": "Hola!",
   "SEARCH": "Buscar...",
-  "BANNER-HERO": "¡Encuentra tu nuevo empleo!",
+  "BANNER-HERO": {
+    "TEXT":"¡Encuentra tu",
+    "CLAIM":"nuevo empleo!"
+  },
   "PREVIOUS-PAGE": "Atrás",
   "PREVIOUS-PAGE-HOME": "Inicio",
   "ENTITIES": {
@@ -31,8 +34,8 @@
     "LASTNAME": "Apellidos",
     "CIF": "CIF",
     "LOGO":"Elige un logo",
-    "DESCRIPTION":"descripción de la comañía",
-    "NUMBER-EMPLOYESRS": "Numero de empleados",
+    "DESCRIPTION":"Descripción de la compañía",
+    "NUMBER-EMPLOYESRS": "Número de empleados",
     "EMAIL": "Correo",
     "PASSWORD": "Contraseña",
     "REPASSWORD": "Repetir contraseña",
@@ -41,22 +44,22 @@
     "AGE": "Edad",
     "PHONE-NUMBER": "Teléfono",
     "IMAGE":"Elige tu imagen",
-    "SALARY-MAX":"Salario maximo",
-    "SALARY-MIN":"Salario minimo",
+    "SALARY-MAX":"Salario máximo",
+    "SALARY-MIN":"Salario mínimo",
     "EXPERIENCE":"Experiencia",
-    "PORTFOLIO":"porfolio",
-    "HARDSKILLS":"hardSkills",
-    "SOFTSKILLS":"softSkill",
-    "EDUCATION":"Formacion",
-    "LANGUAGES":"idiomas",
-    "MOVILITY":"Aceptas la movilidad geografica",
+    "PORTFOLIO":"Portfolio",
+    "HARDSKILLS":"Hard Skills",
+    "SOFTSKILLS":"Soft Skills",
+    "EDUCATION":"Formación",
+    "LANGUAGES":"Idiomas",
+    "MOVILITY":"Aceptas la movilidad geográfica",
     "FULL-REMOTE-LAVEL":"Tipo de trabajo",
     "FULL-REMOTE":"Remoto",
-    "HYBRID":"Hibrido",
+    "HYBRID":"Híbrido",
     "PRESENTIAL":"Presencial",
-    "YES": "Si",
+    "YES": "Sí",
     "NO": "No",
-    
+   
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",
@@ -99,6 +102,8 @@
     "LANGUAGES": "Idiomas",
     "EDUCATION": "Educación",
     "MOBILITY": "Movilidad geográfica",
-    "TYPEJOB": "Tipo de trabajo"
+    "TYPEJOB": "Tipo de trabajo",
+    "COMMON.YES": "Si",
+    "COMMON.NO": "No"
   }
 }

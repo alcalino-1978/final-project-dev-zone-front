@@ -75,7 +75,28 @@ export class AuthService {
       httpOptionsCustom
     );
   }
-
+  updateEntity(formData:any, entityType: string, id: string): Observable<any> {
+    debugger
+    let url: string;
+    if (entityType === 'Developer') {
+      url = `${environment.urlBase}developers/${id}`;
+    } else if (entityType === 'Company') {
+      url = `${environment.urlBase}companies/${id}`;
+    } else {
+      throw new Error(`Invalid entityType ${entityType}`);
+    }
+    console.log(formData);
+    const httpOptionsCustom = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+      }),
+    }
+    return this.http.put<any>(
+      url,
+      formData,
+      httpOptionsCustom
+    );
+  }
   //TODO HACER UPDATE DEVELOPER
   //TODO HACER UPDATE COMPANY
   //TODO HACER UPDATE JOBOFFER

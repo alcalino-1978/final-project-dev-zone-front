@@ -50,6 +50,9 @@
   &__definition {
     color: var(--textOnPrimary);
   }
+  .card {
+    border-radius: var(--spacingXs)
+  }
 }
 
 .img-fluid {

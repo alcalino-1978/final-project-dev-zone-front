@@ -2,7 +2,7 @@
 .list-logo {
   flex-wrap: wrap;
   background: #ffffff;
-  border-radius: var(--spacingSm);
+  border-radius: var(--spacingXs);
   border-color: 1px solid var(--primaryLightColor);
   @include media-breakpoint-up(lg){
     // flex-wrap: nowrap;

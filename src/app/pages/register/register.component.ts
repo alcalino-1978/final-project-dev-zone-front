@@ -130,7 +130,7 @@ public movilityFormControl!: FormControl;
 
 
 	ngOnInit() {
-    this.initFormCompany();
+    this.initFormCompany()
     this.initFormDeveloper();
     //TODO UPDATE
     // isLoggedIn()
@@ -271,7 +271,6 @@ private initFormDeveloper(): void {
   }
 
   onSubmitDeveloper() {
-    debugger;
     
     this.isSubmitted = true;
     this.entity="Developer";

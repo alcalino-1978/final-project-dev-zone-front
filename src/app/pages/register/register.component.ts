@@ -290,6 +290,7 @@ private initFormDeveloper(): void {
   }
 
   onSubmitDeveloper() {
+
     this.isSubmitted = true;
     this.entity="Developer";
 

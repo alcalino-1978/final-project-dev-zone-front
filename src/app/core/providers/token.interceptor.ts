@@ -23,7 +23,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (token || token === "") {
       request = req.clone({
         setHeaders: {
-          'X-Api-Key': environment.CATS_API_KEY as string,
+          
           authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "*",
           'Access-Control-Allow-Headers': 'Accept',

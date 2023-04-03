@@ -1,3 +1,4 @@
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,12 +16,6 @@ import { ListOffersComponent } from './components/list-offers/list-offers.compon
 import { CarrucelComponent } from './components/carrucel/carrucel.component';
 
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -34,11 +29,11 @@ import { CarrucelComponent } from './components/carrucel/carrucel.component';
     HomeRoutingModule,
     SharedModule,
     FormsModule,
-    // Material
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
+
   ]
 })
 export class HomeModule { }

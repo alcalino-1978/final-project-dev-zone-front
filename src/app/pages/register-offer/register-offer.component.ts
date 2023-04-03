@@ -1,5 +1,3 @@
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
 import { CompanyModelAPI } from './../../models/company.models';
 import { JobOfferModelPost } from './../../models/joboffer.model';
 import { JobofferService } from './../../shared/services/joboffer.service';
@@ -10,7 +8,6 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Component } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { salaryRangeValidator } from '@utils/validators';
 
 @Component({
   selector: 'app-register-offer',
@@ -18,9 +15,8 @@ import { salaryRangeValidator } from '@utils/validators';
   styleUrls: ['./register-offer.component.scss']
 })
 export class RegisterOfferComponent {
-  public isSubmitted: boolean = false;
-  public separatorKeysCodes: number[] = [ENTER, COMMA];
-  public offerRoute: string = '';
+
+  separatorKeysCodes: number[] = [ENTER, COMMA];
 
   public company: any = window.sessionStorage.getItem('auth-user');
   public userJSON = window.sessionStorage.getItem('auth-user') as string;
@@ -43,8 +39,7 @@ export class RegisterOfferComponent {
 
   constructor (
     private formBuilder: FormBuilder,
-    private jobofferService: JobofferService,
-    private router: Router
+    private jobofferService: JobofferService
   ) { }
 
   ngOnInit(): void {
@@ -56,22 +51,17 @@ export class RegisterOfferComponent {
 
   private initForm(): void {
     // FormGroup
-    this.registerOfferForm = this.formBuilder.group(
-      {
-      title: ['', [Validators.required, Validators.minLength(10)]],
-      description: ['', [Validators.required, Validators.maxLength(2000)]],
-      salaryMin: [0, [Validators.required]],
-      salaryMax: [0, [Validators.required]],
-      shift: ['', [Validators.required]],
-      contract: ['', [Validators.required]],
-      typejob: ['', [Validators.required]],
-      vacancies: ['', [Validators.required]],
+    this.registerOfferForm = this.formBuilder.group({
+      title: [''],
+      description: [''],
+      salaryMin: [''],
+      salaryMax: [''],
+      shift: [''],
+      contract: [''],
+      typejob: [''],
+      vacancies: [''],
       keywords: ['']
-    },
-    {
-      validator: salaryRangeValidator
-    }
-  );
+    })
 
     // FormControls
     this.titleFormControl = this.registerOfferForm.get('title') as FormControl;
@@ -104,11 +94,6 @@ export class RegisterOfferComponent {
   }
 
   public onSubmit(): void {
-    console.log(this.salaryMinFormControl);
-    console.log(this.salaryMaxFormControl);
-    console.log(this.registerOfferForm);
-    console.log(this.registerOfferForm.valid);
-    this.isSubmitted = true;
     if(this.registerOfferForm.valid) {
 
       const userPARSED = JSON.parse(this.userJSON);
@@ -138,10 +123,12 @@ export class RegisterOfferComponent {
       ((dataOffer) => {
         const offerId = dataOffer._id as string;
         console.log(offerId);
-        this.offerRoute = offerId;
-
-        this.router.navigateByUrl(`/offers/${offerId}`)
+        this.jobofferService.postOfferOnCompany(userPARSED.user._id, offerId).subscribe
+        ((dataCompany: CompanyModelAPI) => {
+          console.log(dataCompany);
+        })
       })
+
     } else {
       console.log('por aqui no es :/');
 

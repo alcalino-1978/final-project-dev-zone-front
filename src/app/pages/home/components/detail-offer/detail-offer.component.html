@@ -1,97 +1,50 @@
 <ng-container *ngIf="offerDetail">
-  <div>
-    <a (click)="backWithLocation()" class="mb-5 d-flex">{{ 'PREVIOUS-PAGE' | translate }}</a>
-    <div *ngIf="isAvailable" class="not-available">{{ 'OFFER-DETAIL.STATUS' | translate }}</div>
-  </div>
-  <div class="row mb-5 pb-4 -border-bottom">
-    <div class="col-11">
-      <h2 class="mat-headline-3 mb-0 cat-title">{{ offerDetail.title }}</h2>
-    </div>
-    <div *ngIf="entity === 'Company'" class="col-1 secondary-menu">
-      <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #Menu="matMenu">
-        <button mat-menu-item (click)="updateOfferDetail(offerDetail._id)">
-          <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
-        </button>
-        <button mat-menu-item (click)="changeOfferStatus(offerDetail._id, offerDetail.offerStatus)">
-          <span>{{ 'SECONDARY-MENU.STATUS' | translate }}</span>
-        </button>
-        <button mat-menu-item (click)="deleteOffer(offerDetail._id)">
-          <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
-        </button>
-      </mat-menu>
-    </div>
-  </div>
+  <a (click)="backWithLocation()" class="mb-5 d-flex">{{ 'PREVIOUS-PAGE' | translate }}</a>
+  <div *ngIf="isAvailable" class="not-available">{{ 'OFFER-DETAIL.STATUS' | translate }}</div>
 <div class="offer-detail">
-  <!-- <div *ngIf="entity === 'Company'" class="row mb-5 pb-4 -border-bottom">
-    <div *ngFor="let dev of developers">
-      <ul class="my-4 d-flex flex-wrap" *ngIf="!isLoading">
-        <li class="offer col-12">
-          <div class="card mb-3 h-100">
-            <div class="row g-0">
-              <div class="col-4">
-                <img [src]="dev.image" class="img-fluid rounded-start">
-              </div>
-              <div class="col-7">
-                <div class="card-body">
-                  <h3 class="card-title h4 offer__title">{{ dev.fullName }}</h3>
-                  <div class="holaa">
-                    <mat-chip-set *ngFor="let skillissue of dev.hardSkills" aria-label="hard-skills">
-                      <mat-chip class="holaa__font" >{{skillissue}}</mat-chip>
-                    </mat-chip-set>
-                  </div>
-                  <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ dev.createdAt | date: "short" }}</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div> -->
   <div>
-      <ul class="list-icons">
-        <li class="list-icons__item">
-          <span class="list-icons__icon"><mat-icon> work_history </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.CONTRACT.TYPE' | translate }}:
-            {{ offerDetail.hiring.shift }}, {{ offerDetail.hiring.contract }}
-          </span>
-        </li>
-        <li class="list-icons__item">
-          <span class="list-icons__icon"><mat-icon> desktop_mac </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.MODALITY.TYPE' | translate }}:</span>
-        </li>
-        <li class="list-icons__item">
-          <span class="list-icons__icon"><mat-icon> group </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.VACANCIES' | translate }}: </span>
-        </li>
-        <li class="list-icons__item">
-          <span class="list-icons__icon"><mat-icon> payments </mat-icon></span>
-          <span class="list-icons__text">{{ 'OFFER-DETAIL.SALARY' | translate }}:
-            {{ offerDetail.salaryRange.min | currency:'EUR':'symbol':'1.0-0' }} - {{ offerDetail.salaryRange.max | currency:'EUR':'symbol':'1.0-0' }}
-          </span>
-        </li>
-      </ul>
-      <div>
-        <ng-container *ngIf="entity === 'Developer'">
-          <p>{{ applicantsCount }} {{ 'OFFER-DETAIL.APPLICANTS' | translate }}</p>
-          <button type="submit" class="btn btn-primary col-4" (click)="jobOfferRegistration(offerDetail._id)" [disabled]="isDisabled">
-            {{ buttonApplyName | translate }}
-          </button>
-        </ng-container>
-        <div class="col-12 col-md-6 order-1 order-md-0 detail-data">
-          <h3>{{ 'OFFER-DETAIL.DESCRIPTION' | translate }}</h3>
-          <p [innerHTML]="formatDescription()" class="offer-detail__description pb-5 -border-bottom"></p>
-        </div>
+    <div class="row">
+      <h2 class="mat-headline-3 cat-title">{{ offerDetail.title }}</h2>
+    </div>
+    <div class="offer-detail__contract-detail">
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.SHIFT' | translate }}</h4>
+        <p>{{ offerDetail.hiring.shift }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.CONTRACT' | translate }}</h4>
+        <p>{{ offerDetail.hiring.contract }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.MODALITY' | translate }}</h4>
+        <p>{{ offerDetail.typeJob }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.VACANCIES' | translate }}</h4>
+        <p>{{ offerDetail.vacancies }}</p>
+      </div>
+      <div class="col-3">
+        <h4>{{ 'OFFER-DETAIL.SALARY' | translate }}</h4>
+        <p>{{ offerDetail.salaryRange.min | currency:'EUR':'symbol':'1.0-0' }}  {{ offerDetail.salaryRange.max | currency:'EUR':'symbol':'1.0-0' }}</p>
+      </div>
+    </div>
+    <div class="">
+      <p>{{ applicantsCount }} {{ 'OFFER-DETAIL.APPLICANTS' | translate }}</p>
+      <button type="submit" class="btn btn-primary col-4" (click)="jobOfferRegistration(offerDetail._id)" [disabled]="isDisabled">
+        {{ buttonApplyName | translate }}
+      </button>
+      <div class="col-12 col-md-6 order-1 order-md-0 detail-data">
+        <h3>{{ 'OFFER-DETAIL.DESCRIPTION' | translate }}</h3>
+        <p [innerHTML]="formatDescription()" class="offer-detail__description"></p>
+      </div>
     </div>
   </div>
-  <div *ngFor="let company of offerDetail.company" class="offer-detail__company">
-    <picture class="col-6">
+  <div *ngFor="let company of offerDetail.company" class="col-12 col-md-6 order-0 order-md-1 mb-5">
+    <picture>
       <img [src]="company.logo">
     </picture>
-    <div class="col-6">
-      <div>{{ company.name }}</div>
-      <div>{{ company.numberEmployees }} {{ 'OFFER-DETAIL.EMPLOYEES' | translate }}</div>
-    </div>
+    <div>{{ company.name }}</div>
+    <div>{{ company.numberEmployees }} {{ 'OFFER-DETAIL.EMPLOYEES' | translate }}</div>
   </div>
 </div>
 </ng-container>

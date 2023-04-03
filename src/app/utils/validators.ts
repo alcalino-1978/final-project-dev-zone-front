@@ -1,19 +1,15 @@
-import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { FormGroup } from "@angular/forms";
 
 export const CIFPattern = /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/;
 export const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-export const emailRegx =
-  /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
+export const emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 
 export function comparePassword(controlName1: string, controlName2: string) {
   return (formGroup: FormGroup) => {
     const passwordFormControl = formGroup.controls[controlName1];
     const passwordRepeatFormControl = formGroup.controls[controlName2];
 
-    if (
-      passwordRepeatFormControl.errors &&
-      !passwordRepeatFormControl.errors?.['mustMatch']
-    ) {
+    if (passwordRepeatFormControl.errors && !passwordRepeatFormControl.errors?.['mustMatch']) {
       return;
     }
 
@@ -50,33 +46,6 @@ export function checkPasswordStrength(password: string): number {
   return strength;
 }
 
-// export function salaryRangeValidator(formGroup: FormGroup): ValidationErrors | void {
-//   const salaryMin = formGroup.get('salaryMin')?.value as number;
-//   const salaryMax = formGroup.get('salaryMax')?.value as number;
-
-//   if (salaryMax && salaryMin && salaryMax < salaryMin) {
-//     const a = console.log(formGroup);
-//     const b = console.log();
-
-//     return a;
-//   }
-
-//   return  console.log();
-//}
-
-export function salaryRangeValidator(min: number, max: number) {
-return (formGroup: FormGroup) => {
-  const salaryMinFormControl = formGroup.controls[min];
-  const salaryMaxFormControl = formGroup.controls[max];
-  if (salaryMaxFormControl.value < salaryMinFormControl.value) {
-    return salaryMaxFormControl.setErrors({maxValue: true});
-  } else {
-
-    return salaryMaxFormControl.setErrors(null);
-  }
-}
-}
-
 export function validateCIF(cif: string): boolean {
   // Comprobar que la longitud es 9 caracteres
   if (cif.length !== 9) {
@@ -94,14 +63,7 @@ export function validateCIF(cif: string): boolean {
   }
 
   // Comprobar si el primer número es válido
-  if (
-    firstNumber < 1 ||
-    firstNumber > 23 ||
-    firstNumber === 9 ||
-    firstNumber === 15 ||
-    firstNumber === 16 ||
-    firstNumber === 20
-  ) {
+  if (firstNumber < 1 || firstNumber > 23 || firstNumber === 9 || firstNumber === 15 || firstNumber === 16 || firstNumber === 20) {
     return false;
   }
 

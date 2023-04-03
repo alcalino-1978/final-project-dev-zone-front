@@ -21,8 +21,7 @@
   "SECONDARY-MENU": {
     "EDIT": "Editar",
     "REGISTER": "Crear",
-    "DELETE": "Borrar",
-    "STATUS": "Cambiar Estado"
+    "DELETE": "Borrar"
   },
   "FORMS": {
     "TITLE": {
@@ -74,43 +73,21 @@
   },
   "OFFER-LIST": "Últimas ofertas",
   "ALL-OFFER-LIST": "Resultados de tu búsqueda",
-
-  "PUBLISHED-OFFERS": "Ofertas publicadas",
-  "CREATE": "Crear",
+  
   "OFFER-DETAIL": {
-    "CREATE": "Crear Oferta",
-    "MINSALARY": "Salario Mínimo",
-    "MAXSALARY": "Salario Máximo",
     "TITLE": "Título",
-    "SHIFT":{
-      "TYPE": "Jornada",
-      "PARTTIME": "Parcial",
-      "REDUCED": "Reducida",
-      "SPLITDAY": "Partida",
-      "ROTATING": "Rotativa",
-      "FULLTIME": "Tiempo Completo"
-    },
-    "CONTRACT":{
-      "TYPE": "Contrato",
-      "INDEFINITE": "Indefinido",
-      "FIXED": "Temporal",
-      "TRAINING": "Prácticas"
-    },
-    "MODALITY":{
-      "TYPE": "Modalidad",
-      "FULLREMOTE": "Remoto",
-      "HYBRID": "Híbrida",
-      "PRESENTIAL": "Presencial"
-    },
+    "SHIFT": "Jornada",
+    "CONTRACT": "Contrato",
+    "MODALITY": "Modalidad",
     "SALARY": "Salario",
     "VACANCIES": "Vacantes",
     "DESCRIPTION": "Descripción",
-    "KEYWORDS": "Palabras claves",
-    "APPLICANTS": "Developers se han inscrito a la oferta",
+    "APPLICANTS": "Developers se han inscrito en esta oferta",
     "APPLY": "INSCRIBIRME",
     "APPLIED": "YA INSCRITO",
-    "EMPLOYEES": "Número de Empleados",
-    "STATUS": "¡Esta oferta ya no está disponible!"
+    "EMPLOYEES": "Empleados",
+    "STATUS": "Esta oferta ya no está disponible!"
+
   },
   "PUBLISHED": "Publicado el ",
   "CHATBOT": {

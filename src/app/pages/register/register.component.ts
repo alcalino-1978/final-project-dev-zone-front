@@ -134,12 +134,10 @@ public movilityFormControl!: FormControl;
     this.initFormCompany()
     this.initFormDeveloper();
     //TODO UPDATE
-    if (this.storageService.isLoggedIn() === true) {
+    if (this.storageService.isLoggedIn()) {
       this.currentUser = this.storageService.getUser();
       this.isLoggedIn = true;
     }
-
-    console.log(this.storageService.isLoggedIn())
   }
 
   private initFormCompany(): void {
@@ -252,7 +250,7 @@ private initFormDeveloper(): void {
         console.log(key, value);
       });
 
-      if (this.isLoggedIn === true) {
+      if (this.isLoggedIn = true) {
         const id = this.currentUser.user._id;
         this.authService.updateEntity(formData, this.entity, id).subscribe({
           next: response => {
@@ -321,7 +319,7 @@ private initFormDeveloper(): void {
       // formDataDev.forEach((value, key) => {
       //   console.log(key, value);
       // });
-      if (this.isLoggedIn === true) {
+      if (this.isLoggedIn = true) {
         debugger
         const id = this.currentUser.user._id;
         this.authService.updateEntity(formDataDev, this.entity, id).subscribe({

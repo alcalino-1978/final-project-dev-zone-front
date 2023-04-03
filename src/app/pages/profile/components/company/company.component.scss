@@ -1,0 +1,11 @@
+.offer{
+  cursor: pointer;
+  &__title {
+    color: var(--backgroundDark);
+  }
+}
+
+.options-btn {
+  color: var(--backgroundDark);
+  margin-top: 1rem;
+}

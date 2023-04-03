@@ -1,8 +1,10 @@
-import { JobOfferModel, JobOfferModelAPI, JobOfferApplicantsModel } from './../../../../models/joboffer.model';
+import { JobOfferModelAPI, JobOfferApplicantsModel } from './../../../../models/joboffer.model';
 import { JobofferService } from './../../../../shared/services/joboffer.service';
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '@shared/services/auth.service';
+
 
 @Component({
   selector: 'app-detail-offer',
@@ -22,7 +24,9 @@ export class DetailOfferComponent {
   constructor(
     private activatedRouter: ActivatedRoute,
     private jobofferService: JobofferService,
-    private location: Location
+    private location: Location,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +35,13 @@ export class DetailOfferComponent {
         this.getOffer(params['id']);
       }
     );
+  }
+
+  public deleteOffer(offerId: string): void {
+    this.authService.deleteOfferService(offerId).subscribe((response) => {
+      console.log(response); // Handle successful response
+      });
+    this.router.navigate(['/'])
   }
 
   private getOffer(id: string): void {

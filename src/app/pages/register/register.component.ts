@@ -42,8 +42,8 @@ public fullNameFormControl!: FormControl;
 public phoneNumberFormControl!: FormControl;
 public ageFormControl!: FormControl;
 public emailDevFormControl!: FormControl;
-//public passwordDevFormControl!: FormControl;
-//public passwordRepeatDevFormControl !: FormControl;
+public passwordDevFormControl!: FormControl;
+public passwordRepeatDevFormControl!: FormControl;
 public imageFormControl !: FormControl;
 public cvFormControl!: FormControl;
 public salaryRangeMaxFormControl!: FormControl;
@@ -73,16 +73,16 @@ public movilityFormControl!: FormControl;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   public chipsCtrl = new FormControl('');
 
-  public languages:[string] = [""]; 
-  public portfolios:[string] = [""];
-  public hardSkills:[string] = [""]; 
-  public softSkills:[string] = [""];
-  public education:[string] = [""];
- 
+  public languages: string[] = [""];
+  public portfolios: string[] = [""];
+  public hardSkills: string[] = [""];
+  public softSkills: string[] = [""];
+  public education: string[] = [""];
+
   //public chips:string[] = [];
   //chipCtrl = new FormControl('');
 
-  add(event: MatChipInputEvent,chips:[string]): void {
+  add(event: MatChipInputEvent, chips: string[]): void {
     const value = (event.value || '').trim();
 
     // Add our fruit
@@ -108,7 +108,7 @@ public movilityFormControl!: FormControl;
       const file = event.target.files[0];
       this.companyRegisterForm.patchValue({
         fileSource: file
-      });     
+      });
     }
   }
   onFileSelectedDev(event:any) {
@@ -117,7 +117,7 @@ public movilityFormControl!: FormControl;
       console.log(file);
       this.developerRegisterForm.patchValue({
         fileSourceDev: file
-      });        
+      });
     }
   }
 
@@ -168,17 +168,17 @@ public movilityFormControl!: FormControl;
     this.numberEmployeesFormControl = this.companyRegisterForm.get('numberEmployees') as FormControl;
     // Reactive control (RxJS)
     this.passwordFormControl.valueChanges.subscribe((change) => {
-      this.strength = checkPasswordStrength(change);   
+      this.strength = checkPasswordStrength(change);
     });
-    
+
   }
-    
+
   /*onFileSelected(event:any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.companyRegisterForm.patchValue({
         fileSource: file
-      });     
+      });
     }
   }*/
 
@@ -192,8 +192,8 @@ private initFormDeveloper(): void {
       age: ['', [Validators.required, Validators.maxLength(20)]],
       phoneNumber: ['', [Validators.required, Validators.maxLength(20)]],
       emailDev: ['', [Validators.required, Validators.pattern(emailRegx)]],
-      password: ['',[Validators.required, Validators.pattern(passwordPattern)],],
-      passwordRepeat: ['', [Validators.required]],
+      passwordDev: ['',[Validators.required, Validators.pattern(passwordPattern)],],
+      passwordRepeatDev: ['', [Validators.required]],
       //image: ['', [Validators.required, Validators.maxLength(200)]],
       fileSourceDev: ['', [Validators.required]],
       //cv: ['', [Validators.required, Validators.maxLength(200)]],
@@ -210,11 +210,11 @@ private initFormDeveloper(): void {
       //type: ['Developer', [Validators.required]]
     },
     {
-      validator: comparePassword('password', 'passwordRepeat'),
+      validator: comparePassword('passwordDev', 'passwordRepeatDev'),
     }
   );
 
-  
+
 
     // FormControls developer
   this.fullNameFormControl = this.developerRegisterForm.get('fullName') as FormControl;
@@ -223,8 +223,8 @@ private initFormDeveloper(): void {
   this.emailDevFormControl = this.developerRegisterForm.get('emailDev') as FormControl;
   this.fileSourceDevFormControl = this.developerRegisterForm.get('fileSourceDev') as FormControl;
   //this.imageFormControl = this.developerRegisterForm.get('image') as FormControl;
-  //this.passwordDevFormControl = this.developerRegisterForm.get('passwordDev') as FormControl;
- // this.passwordRepeatDevFormControl = this.developerRegisterForm.get('passwordRepeatDev') as FormControl;
+  this.passwordDevFormControl = this.developerRegisterForm.get('passwordDev') as FormControl;
+  this.passwordRepeatDevFormControl = this.developerRegisterForm.get('passwordRepeatDev') as FormControl;
   //this.cvFormControl = this.developerRegisterForm.get('cv') as FormControl;
   this.salaryRangeMaxFormControl = this.developerRegisterForm.get('salaryRangeMax') as FormControl;
   this.salaryRangeMinFormControl = this.developerRegisterForm.get('salaryRangeMin') as FormControl;
@@ -234,7 +234,7 @@ private initFormDeveloper(): void {
   this.hardSkillsFormControl = this.developerRegisterForm.get('hardSkills') as FormControl;
   this.softSkillsFormControl = this.developerRegisterForm.get('softSkills') as FormControl;
   this.educationFormControl = this.developerRegisterForm.get('education') as FormControl;
-  /*this.languagesFormControl=this.languages; 
+  /*this.languagesFormControl=this.languages;
   this.portfolioFormControl= this.portfolios;
   this.hardSkillsFormControl=this.hardSkills;
   this.softSkillsFormControl=this.softSkills;
@@ -243,10 +243,10 @@ private initFormDeveloper(): void {
   this.movilityFormControl = this.developerRegisterForm.get('movility') as FormControl;
   // Reactive control (RxJS)
   this.passwordFormControl.valueChanges.subscribe((change) => {
-    this.strength = checkPasswordStrength(change);   
+    this.strength = checkPasswordStrength(change);
   });
 }
-  
+
 
 
 
@@ -256,7 +256,7 @@ private initFormDeveloper(): void {
         console.log(file);
         this.developerRegisterForm.patchValue({
           fileSourceDev: file
-        });        
+        });
       }
     }*/
 
@@ -272,13 +272,13 @@ private initFormDeveloper(): void {
       const formData = new FormData();
       formData.append('name', this.nameFormControl.value);
       formData.append('cif', this.cifFormControl.value);
-      formData.append('logo', this.fileSourceFormControl.value);      
+      formData.append('logo', this.fileSourceFormControl.value);
       formData.append('description', this.descriptionFormControl.value);
       formData.append('email', this.emailFormControl.value);
       formData.append('password', this.passwordFormControl.value);
       formData.append('numberEmployees', this.numberEmployeesFormControl.value);
 
-      
+
 
       this.authService.registerCompany(formData).subscribe({
         next: response => {
@@ -306,7 +306,7 @@ private initFormDeveloper(): void {
 
   onSubmitDeveloper() {
     debugger;
-    
+
     this.isSubmitted = true;
     this.entity="Developer";
     console.log(this.developerRegisterForm);
@@ -314,7 +314,7 @@ private initFormDeveloper(): void {
       this.isLoading = true;
 
       //console.log(this.fileSourceDevFormControl.value);
-      
+
       //console.log("formData in");
       const formDataDev = new FormData();
       formDataDev.append('fullName', this.fullNameFormControl.value);
@@ -329,11 +329,11 @@ private initFormDeveloper(): void {
       formDataDev.append('experience', this.experienceFormControl.value);
       formDataDev.append('hardSkills', this.hardSkillsFormControl.value);
       formDataDev.append('softSkills', this.softSkillsFormControl.value);
-      formDataDev.append('education', this.educationFormControl.value);      
+      formDataDev.append('education', this.educationFormControl.value);
       formDataDev.append('typeJob', this.typeJobFormControl.value);
       formDataDev.append('movility', this.movilityFormControl.value);
       console.log(formDataDev);
-      
+
 
       this.authService.registerDeveloper(formDataDev).subscribe({
         next: response => {

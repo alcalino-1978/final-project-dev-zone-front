@@ -123,7 +123,7 @@ export class RegisterOfferComponent {
       ((dataOffer) => {
         const offerId = dataOffer._id as string;
         console.log(offerId);
-        this.jobofferService.postOfferOnCompany(userPARSED.user._id, offerId).subscribe
+        // this.jobofferService.(userPARSED.user._id, offerId).subscribe
         ((dataCompany: CompanyModelAPI) => {
           console.log(dataCompany);
         })

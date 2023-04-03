@@ -3,9 +3,9 @@
     <h2 class="mat-headline-3 mb-0 cat-title">{{ 'FORMS.TITLE.PROFILE' | translate }} {{ 'ENTITIES.COMPANY' | translate }}</h2>
   </div>
   <div class="col-1 secondary-menu">
-  <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
+    <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
   <mat-menu #Menu="matMenu">
     <button mat-menu-item [routerLink]="['/profile']">
       <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
@@ -16,7 +16,8 @@
     <button mat-menu-item (click)="deleteUser()">
       <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
     </button>
-  </mat-menu></div>
+  </mat-menu>
+</div>
 </div>
 <div class="row mb-5">
   <div class="col-md-4">
@@ -49,7 +50,36 @@
 <div class="row">
   <h3 class="mat-headline-4 cat-title">Ofertas publicadas:</h3>
 
-  <div *ngFor="let item of data.listOfferts">
-    <!-- <h1>{{ item.title }}</h1> -->
+  <div *ngFor="let offers of companyData.listOffers">
+    <ul class="my-4 d-flex flex-wrap" *ngIf="!isLoading">
+      <li class="offer col-12">
+        <div class="card mb-3 h-100">
+          <div class="row g-0">
+            <div class="col-4" (click)="getOfferDetail(offers._id)">
+              <img [src]="companyData.logo" class="img-fluid rounded-start">
+            </div>
+            <div class="col-7">
+              <div class="card-body">
+                <h3 class="card-title h4 offer__title" (click)="getOfferDetail(offers._id)">{{ offers.title }}</h3>
+                <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ offers.createdAt | date: "short" }}</small></p>
+              </div>
+            </div>
+            <div class="col-1 options-btn">
+              <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #Menu="matMenu">
+                <button mat-menu-item [routerLink]="['/profile']">
+                  <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
+                </button>
+                <button mat-menu-item>
+                  <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

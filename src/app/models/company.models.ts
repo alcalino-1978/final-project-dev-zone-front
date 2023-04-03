@@ -6,9 +6,14 @@ export interface CompanyModelAPI {
     description:string,
     logo: string,
     cif: string,
-    listOfferts: [string],
+    listOffers: [{
+      _id: string,
+      title: string,
+      createdAt: string
+    }],
     numberEmployees: string,
     updatedAt: string
+    createdAt: string
   }
 
   export interface CompanyModelData {

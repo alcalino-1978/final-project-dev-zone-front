@@ -1,22 +1,39 @@
 <ng-container *ngIf="offerDetail">
-  <a (click)="backWithLocation()" class="mb-5 d-flex">{{ 'PREVIOUS-PAGE' | translate }}</a>
-  <div *ngIf="isAvailable" class="not-available">{{ 'OFFER-DETAIL.STATUS' | translate }}</div>
+  <div>
+    <a (click)="backWithLocation()" class="mb-5 d-flex">{{ 'PREVIOUS-PAGE' | translate }}</a>
+    <div *ngIf="isAvailable" class="not-available">{{ 'OFFER-DETAIL.STATUS' | translate }}</div>
+  </div>
 <div class="offer-detail">
   <div>
-    <div class="row">
-      <h2 class="mat-headline-3 cat-title">{{ offerDetail.title }}</h2>
+  <div class="row mb-5 pb-4 -border-bottom">
+    <div class="col-11">
+      <h2 class="mat-headline-3 mb-0 cat-title">{{ offerDetail.title }}</h2>
     </div>
-    <div class="offer-detail__contract-detail">
+    <div class="col-1 secondary-menu">
+      <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #Menu="matMenu">
+        <button mat-menu-item [routerLink]="['/profile']">
+          <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="deleteOffer(offerDetail._id)">
+          <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+    <!-- <div class="offer-detail__contract-detail">
       <div class="col-3">
-        <h4>{{ 'OFFER-DETAIL.SHIFT' | translate }}</h4>
+        <h4>{{ 'OFFER-DETAIL.SHIFT.TYPE' | translate }}</h4>
         <p>{{ offerDetail.hiring.shift }}</p>
       </div>
       <div class="col-3">
-        <h4>{{ 'OFFER-DETAIL.CONTRACT' | translate }}</h4>
+        <h4>{{ 'OFFER-DETAIL.CONTRACT.TYPE' | translate }}</h4>
         <p>{{ offerDetail.hiring.contract }}</p>
       </div>
       <div class="col-3">
-        <h4>{{ 'OFFER-DETAIL.MODALITY' | translate }}</h4>
+        <h4>{{ 'OFFER-DETAIL.MODALITY.TYPE' | translate }}</h4>
         <p>{{ offerDetail.typeJob }}</p>
       </div>
       <div class="col-3">
@@ -27,8 +44,27 @@
         <h4>{{ 'OFFER-DETAIL.SALARY' | translate }}</h4>
         <p>{{ offerDetail.salaryRange.min | currency:'EUR':'symbol':'1.0-0' }}  {{ offerDetail.salaryRange.max | currency:'EUR':'symbol':'1.0-0' }}</p>
       </div>
-    </div>
-    <div class="">
+    </div> -->
+    <ul class="list-icons">
+      <li class="list-icons__item">
+        <span class="list-icons__icon"><mat-icon> work_history </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.CONTRACT.TYPE' | translate }}:
+          {{ offerDetail.hiring.shift }}, {{ offerDetail.hiring.contract }}
+        </span>
+      </li>
+      <li class="list-icons__item">
+        <span class="list-icons__icon"><mat-icon> desktop_mac </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.MODALITY.TYPE' | translate }}:</span>
+      </li>
+      <li class="list-icons__item">
+        <span class="list-icons__icon"><mat-icon> group </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.VACANCIES' | translate }}: </span>
+      </li>
+      <li class="list-icons__item">
+        <span class="list-icons__icon"><mat-icon> payments </mat-icon></span>
+        <span class="list-icons__text">{{ 'OFFER-DETAIL.SALARY' | translate }}:
+          {{ offerDetail.salaryRange.min | currency:'EUR':'symbol':'1.0-0' }} - {{ offerDetail.salaryRange.max | currency:'EUR':'symbol':'1.0-0' }}
+        </span>
+      </li>
+    </ul>
+    <div>
       <p>{{ applicantsCount }} {{ 'OFFER-DETAIL.APPLICANTS' | translate }}</p>
       <button type="submit" class="btn btn-primary col-4" (click)="jobOfferRegistration(offerDetail._id)" [disabled]="isDisabled">
         {{ buttonApplyName | translate }}

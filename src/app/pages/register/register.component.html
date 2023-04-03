@@ -5,14 +5,14 @@
 
     <mat-tab-group>
       <mat-tab label="Developer">
-        
+
         <!--*******-->
-        <!--FORMULARIO DE REGISTRO DEVELOPERS-->  
+        <!--FORMULARIO DE REGISTRO DEVELOPERS-->
         <!--*******-->
         <form novalidate (ngSubmit)="onSubmitDeveloper()" [formGroup]="developerRegisterForm" enctype="multipart/form-data" class="form-container">
-          
-          
-          
+
+
+
 
 
           <!--FULNAME-->
@@ -22,7 +22,7 @@
             <mat-error *ngIf="!fullNameFormControl?.valid && fullNameFormControl?.dirty || isSubmitted">
               <p *ngIf="fullNameFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
-              </p>  
+              </p>
             </mat-error>
           </mat-form-field>
           <!--AGE-->
@@ -33,7 +33,7 @@
               <p *ngIf="ageFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
               </p>
-              
+
             </mat-error>
           </mat-form-field>
           <!--FONE NUMBER-->
@@ -44,7 +44,7 @@
               <p *ngIf="phoneNumberFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
               </p>
-              
+
             </mat-error>
           </mat-form-field>
           <!--EMAIL-->
@@ -54,7 +54,7 @@
             <mat-error *ngIf="!emailDevFormControl?.valid && emailDevFormControl?.dirty || isSubmitted">
               <p *ngIf="emailDevFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
-              </p>              
+              </p>
             </mat-error>
           </mat-form-field>
           <!--IMAGE-->
@@ -69,12 +69,12 @@
               (change)="onFileSelectedDev($event)"
             />
           </div>
-          
+
 
           <!--PASSWORD-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="password">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
-            <input matInput type="password" id="password" formControlName="password" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
+            <mat-label for="passwordDev">{{ 'FORMS.PASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="passwordDev" formControlName="passwordDev" placeholder="{{ 'FORMS.PASSWORD' | translate }}"/>
             <mat-error *ngIf="!passwordFormControl?.valid && passwordFormControl?.dirty || isSubmitted">
               <p *ngIf="passwordFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
@@ -99,11 +99,11 @@
               </div>
             </ng-container>
           </mat-form-field>
-        
+
           <!--PASSWORD REPEAT-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="password">{{ 'FORMS.REPASSWORD' | translate }}:</mat-label>
-            <input matInput type="password" id="passwordRepeat" formControlName="passwordRepeat" placeholder="{{ 'FORMS.REPASSWORD' | translate }}"/>
+            <mat-label for="passwordDev">{{ 'FORMS.REPASSWORD' | translate }}:</mat-label>
+            <input matInput type="password" id="passwordRepeatDev" formControlName="passwordRepeatDev" placeholder="{{ 'FORMS.REPASSWORD' | translate }}"/>
             <mat-error *ngIf="!passwordRepeatFormControl?.valid && passwordRepeatFormControl?.dirty || isSubmitted">
               <p *ngIf="passwordRepeatFormControl?.errors?.['required']">
                 {{ 'FORMS.FIELD-REQUIRED' | translate }}
@@ -147,7 +147,7 @@
           </mat-form-field>
           <!--EXPERIENCE-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="experience">{{ 'FORMS.EXPERIENCE' | translate }}:</mat-label>            
+            <mat-label for="experience">{{ 'FORMS.EXPERIENCE' | translate }}:</mat-label>
             <textarea  matInput type="text" id="experience" formControlName="experience" placeholder="{{ 'FORMS.EXPERIENCE' | translate }}"></textarea>
             <mat-error *ngIf="!experienceFormControl?.valid && experienceFormControl?.dirty || isSubmitted">
               <p *ngIf="experienceFormControl?.errors?.['required']">
@@ -168,10 +168,10 @@
             </mat-chip-grid>
             <input placeholder=" {{ 'FORMS.LANGUAGES' | translate }}..."
               #keywordInput [formControl]="chipsCtrl"
-              [matChipInputFor]="languageDev" 
+              [matChipInputFor]="languageDev"
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event,languages)"/>            
-          </mat-form-field>   
+              (matChipInputTokenEnd)="add($event,languages)"/>
+          </mat-form-field>
           <!--PORTFOLIO-->
           <mat-form-field class="form-field" appearance="outline">
             <mat-label for="portfolio">{{ 'FORMS.PORTFOLIO' | translate }}</mat-label>
@@ -183,13 +183,13 @@
                 </button>
               </mat-chip-row>
             </mat-chip-grid>
-            <input placeholder=" {{ 'FORMS.PORTFOLIO' | translate }}..." 
+            <input placeholder=" {{ 'FORMS.PORTFOLIO' | translate }}..."
               #keywordInput [formControl]="chipsCtrl"
-              [matChipInputFor]="portfolioDev" 
+              [matChipInputFor]="portfolioDev"
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event,portfolios)"/>            
+              (matChipInputTokenEnd)="add($event,portfolios)"/>
           </mat-form-field>
-          
+
           <!--HARDSKILLS-->
           <mat-form-field class="form-field" appearance="outline">
             <mat-label for="hardSkills">{{ 'FORMS.HARDSKILLS' | translate }}</mat-label>
@@ -201,14 +201,14 @@
                 </button>
               </mat-chip-row>
             </mat-chip-grid>
-            <input placeholder=" {{ 'FORMS.HARDSKILLS' | translate }}..." 
+            <input placeholder=" {{ 'FORMS.HARDSKILLS' | translate }}..."
               #keywordInput [formControl]="chipsCtrl"
-              [matChipInputFor]="hardSkillsDev" 
+              [matChipInputFor]="hardSkillsDev"
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event,hardSkills)"/>            
+              (matChipInputTokenEnd)="add($event,hardSkills)"/>
           </mat-form-field>
 
-          
+
           <!--SOFTSKILLS-->
           <mat-form-field class="form-field" appearance="outline">
             <mat-label for="softSkills">{{ 'FORMS.SOFTSKILLS' | translate }}</mat-label>
@@ -220,14 +220,14 @@
                 </button>
               </mat-chip-row>
             </mat-chip-grid>
-            <input placeholder=" {{ 'FORMS.SOFTSKILLS' | translate }}..." 
+            <input placeholder=" {{ 'FORMS.SOFTSKILLS' | translate }}..."
             #keywordInput [formControl]="chipsCtrl"
-              [matChipInputFor]="softSkillsDev" 
+              [matChipInputFor]="softSkillsDev"
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event,softSkills)"/>            
+              (matChipInputTokenEnd)="add($event,softSkills)"/>
           </mat-form-field>
 
-          
+
           <!--EDUCANTION-->
           <!--<mat-form-field class="form-field" appearance="outline">
             <mat-label for="education">{{ 'FORMS.EDUCATION' | translate }}</mat-label>
@@ -240,13 +240,13 @@
               </mat-chip-row>
             </mat-chip-grid>
             <input placeholder=" {{ 'FORMS.EDUCATION' | translate }}..." formControlName="education"
-              [matChipInputFor]="educationDev" 
+              [matChipInputFor]="educationDev"
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event,education)"/>            
+              (matChipInputTokenEnd)="add($event,education)"/>
           </mat-form-field>
           PORTFOLIO-->
           <mat-form-field class="form-field" appearance="outline">
-            <mat-label for="education">{{ 'FORMS.EDUCATION' | translate }}:</mat-label>            
+            <mat-label for="education">{{ 'FORMS.EDUCATION' | translate }}:</mat-label>
             <textarea  matInput type="text" id="education" formControlName="education" placeholder="{{ 'FORMS.EDUCATION' | translate }}"></textarea>
             <mat-error *ngIf="!educationFormControl?.valid && educationFormControl?.dirty || isSubmitted">
               <p *ngIf="educationFormControl?.errors?.['required']">
@@ -254,28 +254,28 @@
               </p>
             </mat-error>
           </mat-form-field>
-         <!--MOVILITY-->        
+         <!--MOVILITY-->
         <mat-radio-group mat-label="Select an option" for="movility" id="movility" formControlName="movility">
           <mat-label for="movility">{{ 'FORMS.MOVILITY' | translate }}:</mat-label>
-          <mat-radio-button value="true">{{ 'FORMS.YES' | translate }}</mat-radio-button> 
-          <mat-radio-button value="false">{{ 'FORMS.NO' | translate }}</mat-radio-button>  
+          <mat-radio-button value="true">{{ 'FORMS.YES' | translate }}</mat-radio-button>
+          <mat-radio-button value="false">{{ 'FORMS.NO' | translate }}</mat-radio-button>
         </mat-radio-group>
         <!--TYPEJOB-->
-        
+
         <mat-radio-group mat-label="Select an option" for="typeJob" id="typeJob" formControlName="typeJob">
-          <mat-label for="typeJob">{{ 'FORMS.FULL-REMOTE-LAVEL' | translate }}:</mat-label>  
-          <mat-radio-button value="Full Remote">{{ 'FORMS.FULL-REMOTE' | translate }}</mat-radio-button>  
-          <mat-radio-button value="Hybrid">{{ 'FORMS.HYBRID' | translate }}</mat-radio-button> 
-          <mat-radio-button value="Presential">{{ 'FORMS.PRESENTIAL' | translate }}</mat-radio-button> 
+          <mat-label for="typeJob">{{ 'FORMS.FULL-REMOTE-LAVEL' | translate }}:</mat-label>
+          <mat-radio-button value="Full Remote">{{ 'FORMS.FULL-REMOTE' | translate }}</mat-radio-button>
+          <mat-radio-button value="Hybrid">{{ 'FORMS.HYBRID' | translate }}</mat-radio-button>
+          <mat-radio-button value="Presential">{{ 'FORMS.PRESENTIAL' | translate }}</mat-radio-button>
         </mat-radio-group>
-      
-      
+
+
           <button mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.SUBMIT' | translate }}</button>
-        </form> 
+        </form>
       </mat-tab>
       <mat-tab label="Company">
         <!--*******-->
-        <!--FORMULARIO DE REGISTRO COMPANY-->  
+        <!--FORMULARIO DE REGISTRO COMPANY-->
         <!--*******-->
         <form novalidate (ngSubmit)="onSubmitCompany()" [formGroup]="companyRegisterForm" enctype="multipart/form-data" class="form-container">
           <mat-form-field class="form-field" appearance="outline">

@@ -71,20 +71,41 @@
     "CREATED": "Fecha de creación"
   },
   "OFFER-LIST": "Últimas ofertas",
+  "CREATE": "Crear",
   "OFFER-DETAIL": {
+    "CREATE": "Crear Oferta",
+    "MINSALARY": "Salario Mínimo",
+    "MAXSALARY": "Salario Máximo",
     "TITLE": "Título",
-    "SHIFT": "Jornada",
-    "CONTRACT": "Contrato",
-    "MODALITY": "Modalidad",
+    "SHIFT":{
+      "TYPE": "Jornada",
+      "PARTTIME": "Parcial",
+      "REDUCED": "Reducida",
+      "SPLITDAY": "Partida",
+      "ROTATING": "Rotativa",
+      "FULLTIME": "Tiempo Completo"
+    },
+    "CONTRACT":{
+      "TYPE": "Contrato",
+      "INDEFINITE": "Indefinido",
+      "FIXED": "Temporal",
+      "TRAINING": "Prácticas"
+    },
+    "MODALITY":{
+      "TYPE": "Modalidad",
+      "FULLREMOTE": "Remoto",
+      "HYBRID": "Híbrida",
+      "PRESENTIAL": "Presencial"
+    },
     "SALARY": "Salario",
     "VACANCIES": "Vacantes",
     "DESCRIPTION": "Descripción",
-    "APPLICANTS": "Developers se han inscrito en esta oferta",
+    "KEYWORDS": "Palabras claves",
+    "APPLICANTS": "Developers se han inscrito a la oferta",
     "APPLY": "INSCRIBIRME",
     "APPLIED": "YA INSCRITO",
-    "EMPLOYEES": "Empleados",
-    "STATUS": "Esta oferta ya no está disponible!"
-
+    "EMPLOYEES": "Número de Empleados",
+    "STATUS": "¡Esta oferta ya no está disponible!"
   },
   "PUBLISHED": "Publicado el ",
   "CHATBOT": {

@@ -18,7 +18,6 @@
   @media only screen and (max-aspect-ratio: 3/4) {
     aspect-ratio: 3 / 2;
   }
-  &__title {
   &:before {
     content: "";
     position: absolute;
@@ -72,11 +71,6 @@
       width: 100%;
     }
     &__search {
-      width: 39rem;
-      height: 4rem;
-      font-size: 20px;
-      border: none;
-      border-radius: 0.6rem;
       width: 100%;
       height: 4.8rem;
       font-size: 20px;

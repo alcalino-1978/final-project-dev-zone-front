@@ -3,7 +3,6 @@
 <div class="banner-hero" [ngStyle]="{'background-image': 'url(' + imagenFondo + ')'}">
   <div class="container">
     <div class="row position-relative">
-      <h1 class="banner-hero__title dz-title">{{ 'BANNER-HERO' | translate }}</h1>
       <div class="col-12 col-md-6 offset-md-3">
         <h1 class="banner-hero__title mb-3 mb-md-5">{{ 'BANNER-HERO.TEXT' | translate }} <strong>{{ 'BANNER-HERO.CLAIM' | translate }}</strong></h1>
         <form (ngSubmit)="OnSubmit()">
@@ -11,9 +10,6 @@
         </form>
       </div>
     </div>
-    <form (ngSubmit)="OnSubmit()">
-      <input id="search" type="text" class="container__search" placeholder=" {{'SEARCH' | translate}} " [(ngModel)]="filter" name="filter">
-    </form>
   </div>
 </div>
 

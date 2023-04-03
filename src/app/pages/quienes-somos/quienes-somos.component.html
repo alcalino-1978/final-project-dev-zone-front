@@ -1,75 +1,66 @@
-<a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
-<div class="row">
-  <div class="col-12 col-md-6 offset-md-3">
-    <h2 class="mat-headline-3 cat-title">{{ 'QUIENES SOMOS' | translate }}</h2>
-  <div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Alberto</h4>
-          <p class="card-text">Si buscas un perfil de desarrollador de software senior debe de confiar en Alberto, su amplia experiencia en el desarrollo de software y su capacidad de resolver problemas complejos de forma creativa te ayudara, esta dotado habilidades y un gran nivel de liderazgo.</p>
-          <a href="./7138716.png" class="btn btn-primary">linkedin</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Rafael</h4>
-          <p class="card-text">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años.</p>
-          <a href="#" class="btn btn-primary">linkedin</a>
-        </div>
-      </div>
-    </div>
-    <div _ngcontent-nfc-c179="" class="banner-hero ng-star-inserted" ng-reflect-ng-style="[object Object]" style="background-image: url(&quot;https://images.unsplash.com/photo-1617529520608-42a0fe601be2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzODA3MTd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODA0OTQ4MDE&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&quot;);">
-      <div _ngcontent-nfc-c179="" class="container">
-        <div _ngcontent-nfc-c179="" class="row position-relative">
-          <h1 class="banner-hero__title dz-title">{{ 'BANNER-HERO' | translate }}</h1>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 mb-3 mb-sm-0" >
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Jose</h4>
-          <p class="card-text">si buscar una persona dedicada  a mantener y solucionar problemas en sistemas informáticos, teniendo grandes habilidades para trabajar con múltiples plataformas y aplicaciones, encontraras una persona desdecada y con mucho compromiso al momento de ejecutar su trabajo</p>
-          <a href="" class="btn btn-primary">linkedine</a>
-        </div>
-      </div>
-    </div>
-    <div ide="color-text"class="col-sm-6 mb-3 mb-sm-0">
-      <div class="card">
-        <div class="card-body" >
-          <h4 class="card-title">Carlos</h4>
-          <p class="card-text">Nuestro programador Carlos tiene comprensión de las vulnerabilidades y amenazas, cuenta con una gran creatividad, siendo capaz de identificar y mitigar riesgos de seguridad y diseño, su brusquedad de emprender nuevas lenguajes de programación te impresionara..</p>
-          <a href="#" class="btn btn-primary">linkedin</a>
-        </div>
-      </div>
-    </div>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Logo de la empresa">
+    <h1>Nuestra Empresa</h1>
   </div>
-
-
-  <div role="tablist" class="mat-mdc-tab-list" style="transform: translateX(0px);">
-    <div class="mat-mdc-tab-labels">
-      <div role="tab" mattablabelwrapper="" cdkmonitorelementfocus="" class="mdc-tab mat-mdc-tab mat-mdc-focus-indicator mdc-tab--active ng-star-inserted mdc-tab-indicator--active" >
-        <span class="mdc-tab__ripple"></span>
-        <div mat-ripple="" class="mat-ripple mat-mdc-tab-ripple" ></div>
-      <span class="mdc-tab__content">
-        <span class="mdc-tab__text-label" [routerLink]="['Value']">Nuestros Valores</span>
-      </span>
-      <span class="mdc-tab-indicator">
-        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" ></span>
-      </span>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Quiénes somos</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="quienes-somos">
+    <div class="container">
+      <h2>Quiénes somos</h2>
+      <p>Somos una empresa dedicada a...</p>
     </div>
-  <div role="tab" mattablabelwrapper="" cdkmonitorelementfocus="" class="mdc-tab mat-mdc-tab mat-mdc-focus-indicator ng-star-inserted">
-    <span class="mdc-tab__ripple"></span>
-    <div mat-ripple="" class="mat-ripple mat-mdc-tab-ripple"></div>
-    <span class="mdc-tab__content">
-      <span class="mdc-tab__text-label" [routerLink]="['Proyecto']">Proxima Etapa</span>
-    </span>
-    <span class="mdc-tab-indicator">
-      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-    </span>
-  </div>
-</div>
-</div>
+  </section>
+  <section class="valores">
+    <div class="container">
+      <h2>Nuestros valores</h2>
+      <div class="valores-grid">
+        <div class="valor-item">
+          <img src="valor1.png" alt="Valor 1">
+          <h3>Valor 1</h3>
+          <p>Descripción del valor 1</p>
+        </div>
+        <div class="valor-item">
+          <img src="valor2.png" alt="Valor 2">
+          <h3>Valor 2</h3>
+          <p>Descripción del valor 2</p>
+        </div>
+        <div class="valor-item">
+          <img src="valor3.png" alt="Valor 3">
+          <h3>Valor 3</h3>
+          <p>Descripción del valor 3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="equipo">
+    <div class="container">
+      <h2>Nuestro equipo</h2>
+      <div class="equipo-grid">
+        <div class="miembro">
+          <img src="miembro1.png" alt="Miembro del equipo 1">
+          <h3>Nombre del miembro 1</h3>
+          <p>Cargo del miembro 1</p>
+        </div>
+        <div class="miembro">
+          <img src="miembro2.png" alt="Miembro del equipo 2">
+          <h3>Nombre del miembro 2</h3>
+          <p>Cargo del miembro 2</p>
+        </div>
+        <div class="miembro">
+          <img src="miembro3.png" alt="Miembro del equipo 3">
+          <h3>Nombre del miembro 3</h3>
+          <p>Cargo del miembro 3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,6 +1,7 @@
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -13,8 +14,6 @@ import { MatButtonModule } from "@angular/material/button";
 import { BannerHeroComponent } from './components/banner-hero/banner-hero.component';
 import { ListOffersComponent } from './components/list-offers/list-offers.component';
 import { CarrucelComponent } from './components/carrucel/carrucel.component';
-
-
 
 
 
@@ -34,11 +33,11 @@ import { CarrucelComponent } from './components/carrucel/carrucel.component';
     HomeRoutingModule,
     SharedModule,
     FormsModule,
-    // Material
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
+   
   ]
 })
 export class HomeModule { }

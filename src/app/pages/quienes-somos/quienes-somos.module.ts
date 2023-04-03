@@ -5,11 +5,12 @@ import { QuienesSomosRoutingModule } from './quienes-somos-routing.module';
 import { SharedModule } from '@shared/shared.module';
 
 
-
 @NgModule({
   declarations: [
   
   ],
+@NgModule({
+  declarations: [],
   imports: [
     CommonModule,
     SharedModule,

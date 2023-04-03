@@ -30,7 +30,6 @@ import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 import { ValueComponent } from './pages/value/value.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +38,7 @@ import { ValueComponent } from './pages/value/value.component';
     UpdateUserComponent,
     QuienesSomosComponent,
     ProyectoComponent,
-    ValueComponent,
-    
+    ValueComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +55,6 @@ import { ValueComponent } from './pages/value/value.component';
     MatCardModule,
     MatOptionModule,
     MatChipsModule,
-    
-
     MatIconModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,

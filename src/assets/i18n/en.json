@@ -2,6 +2,10 @@
   "HELLO": "Hello!",
   "SEARCH": "Search...",
   "BANNER-HERO": "Look for your next job!",
+  "BANNER-HERO": {
+    "TEXT":"Look for your",
+    "CLAIM":" next job!"
+  },
   "PREVIOUS-PAGE": "Back",
   "PREVIOUS-PAGE-HOME": "Home",
   "ENTITIES": {

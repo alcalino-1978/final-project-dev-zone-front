@@ -1,15 +1,15 @@
-import { JobOfferModelAPI } from './../../models/joboffer.model';
+import { CompanyModelAPI } from './../../models/company.models';
+import { JobOfferModelAPI, JobOfferModelPost } from './../../models/joboffer.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-// import { environment } from 'src/environments/environment';
+import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JobofferService {
 
-  public API_URL: string = 'http://localhost:3000/v1/joboffers/';
   constructor(
     private httpClient: HttpClient
   ) { }
@@ -18,7 +18,7 @@ export class JobofferService {
 
   // GET ALL JOB OFFERS
   public getOffer(): Observable<JobOfferModelAPI[]> {
-    return this.httpClient.get<JobOfferModelAPI[]>(this.API_URL)
+    return this.httpClient.get<JobOfferModelAPI[]>(environment.urlJobOffers)
   }
 
   // GET SORTED JOB OFFERS
@@ -33,6 +33,17 @@ export class JobofferService {
     )
   }
 
+  // GET SORTED JOB OFFERS
+  public getLastOfferList(): Observable<JobOfferModelAPI[]> {
+    return this.httpClient.get<JobOfferModelAPI[]>(environment.urlJobOffers)
+    .pipe(
+      map((response: JobOfferModelAPI[]) => {
+        return response.sort((a: JobOfferModelAPI, b: JobOfferModelAPI) => {
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        }).slice(0, 3); //ultimas 4 ofertas creadas
+      })
+    )
+  }
   // GET JOB OFFER BY ID
   public getOfferbyID(id: string): Observable<JobOfferModelAPI> {
     return this.httpClient.get<JobOfferModelAPI>(environment.urlJobOffers + `${id}`)

@@ -1,7 +1,10 @@
 {
   "HELLO": "Hola!",
   "SEARCH": "Buscar...",
-  "BANNER-HERO": "¡Encuentra tu nuevo empleo!",
+  "BANNER-HERO": {
+    "TEXT":"¡Encuentra tu",
+    "CLAIM":"nuevo empleo!"
+  },
   "PREVIOUS-PAGE": "Atrás",
   "PREVIOUS-PAGE-HOME": "Inicio",
   "ENTITIES": {
@@ -57,7 +60,7 @@
     "PRESENTIAL":"Presencial",
     "YES": "Sí",
     "NO": "No",
-    "LOGO":"URL logo",
+   
     "UPDATE": "Modificar usuario",
     "DELETE": "Borrar usuario",
     "SUBMIT": "Enviar",

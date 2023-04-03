@@ -310,6 +310,11 @@ a {
   .main-header__title {
     color: #ffffbdff !important;
   }
+  .banner-hero__title {
+      strong {
+        // color: var(--primaryDarkColor) !important;
+      }
+    }
   .main-header__logo-img {
     margin-top: -53px;
   }

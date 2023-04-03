@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
@@ -26,6 +27,7 @@ import { MatChipsModule} from '@angular/material/chips';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { ProfileModule } from '@pages/profile/profile.module';
+import { NewLinePipe } from './pipes/new-line.pipe';
 
 @NgModule({
   declarations: [
@@ -50,12 +52,13 @@ import { ProfileModule } from '@pages/profile/profile.module';
     MatCardModule,
     MatOptionModule,
     MatChipsModule,
-
+    
     MatIconModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,
     MatTabsModule,
-    ProfileModule
+    ProfileModule,
+    NgbModule
   ],
   providers: [ThemeToggler],
   bootstrap: [AppComponent]

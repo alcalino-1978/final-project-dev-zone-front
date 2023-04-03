@@ -131,7 +131,7 @@ public movilityFormControl!: FormControl;
 
 
 	ngOnInit() {
-    this.initFormCompany();
+    this.initFormCompany()
     this.initFormDeveloper();
     //TODO UPDATE
     if (this.storageService.isLoggedIn()) {

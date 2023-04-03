@@ -1,4 +1,3 @@
-
 strong {
   font-weight: bold;
 }
@@ -35,8 +34,13 @@ strong {
 picture {
   position: relative;
   display: flex;
-  border-radius: 1.6rem;
+  border-radius: 1rem;
   overflow: hidden;
+  width: 38%;
+  @media only screen and (min-width: 768px) {
+    width: 70%;
+  }
+
   &::before {
     position: absolute;
     width: 100%;
@@ -83,4 +87,21 @@ picture {
   &__description {
     padding-left: 1rem;
   }
+
+  &__company {
+    display: flex;
+    height: 100%;
+    gap: 1rem;
+  }
+
 }
+
+.holaa{
+  display: flex;
+  flex-direction: row;
+  padding-left: 8px;
+  padding-right: 8px;
+  &__font {
+    font-size: 1rem;
+  }
+ }

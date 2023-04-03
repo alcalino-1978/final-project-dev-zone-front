@@ -1,3 +1,4 @@
+import { JobOfferModelAPI } from './../../models/joboffer.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -97,6 +98,17 @@ export class AuthService {
       httpOptionsCustom
     );
   }
+
+  deleteOfferService(id: string): Observable<JobOfferModelAPI> {
+    const url = environment.urlJobOffers + id;
+    return this.http.delete<JobOfferModelAPI>(url)
+  }
+
+  public getDevelopers(): any {
+    const url = environment.urlDevelopers;
+    return this.http.get<any>(url);
+  }
+
   //TODO HACER UPDATE DEVELOPER
   //TODO HACER UPDATE COMPANY
   //TODO HACER UPDATE JOBOFFER

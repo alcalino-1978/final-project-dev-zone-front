@@ -1,6 +1,3 @@
-import { MatChipsModule } from '@angular/material/chips';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '@shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,16 +8,14 @@ import { DetailOfferComponent } from './detail-offer.component';
 
 @NgModule({
   declarations: [
-    DetailOfferComponent
+    DetailOfferComponent,
   ],
   imports: [
     CommonModule,
     DetailOfferRoutingModule,
     SharedModule,
-    DetailOfferRoutingModule,
-    MatIconModule,
-    MatMenuModule,
-    MatChipsModule
+    DetailOfferRoutingModule
+
   ]
 })
 export class DetailOfferModule { }

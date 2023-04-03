@@ -1,8 +1,7 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
       <ng-container *ngIf="currentUser.entityType === 'Company'">
-        <app-company [data]="currentUser.user" [dataId]="currentUser.user._id"
-        [deleteUser]="deleteUser.bind(this)"></app-company>
+        <app-company [data]="currentUser.user" [deleteUser]="deleteUser.bind(this)"></app-company>
       </ng-container>
       <ng-container *ngIf="currentUser.entityType === 'Developer'">
         <app-developer [data]="currentUser.user" [deleteUser]="deleteUser.bind(this)"></app-developer>

@@ -32,10 +32,6 @@ const routes: Routes = [
     path: 'register-offer',
     loadChildren: () => import('@pages/register-offer/register-offer.module').then(m => m.RegisterOfferModule)
   },
-    {
-    path: 'update-offer/:id',
-    loadChildren: () => import('@pages/update-offer/update-offer.module').then(m => m.UpdateOfferModule)
-  },
  // ...
 ];
 

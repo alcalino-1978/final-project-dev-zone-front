@@ -33,13 +33,10 @@ import { CarrucelComponent } from './components/carrucel/carrucel.component';
     HomeRoutingModule,
     SharedModule,
     FormsModule,
-    // Material
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
-    //BrowserAnimationsModule,
-    ReactiveFormsModule,
    
   ]
 })

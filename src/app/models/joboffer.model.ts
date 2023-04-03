@@ -62,3 +62,21 @@ export interface JobOfferModelPost{
   vacancies: number,
   keywords: string[]
 }
+
+export interface JobOfferModelPut{
+  title: string,
+  description: string,
+  company: string[],
+  salaryRange: {
+    min: number,
+    max: number
+  },
+  hiring: {
+    shift: string,
+    contract: string
+  },
+  offerStatus: boolean,
+  typeJob: string,
+  vacancies: number,
+  keywords: string[]
+}

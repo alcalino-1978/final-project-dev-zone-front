@@ -1,3 +1,4 @@
+import { CompanyModelAPI, CompanyModelData } from './../../models/company.models';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.currentUser = this.storageService.getUser();
+    this.currentUser = this.storageService.getUser() as any;
     console.log('currentUser', this.currentUser);
     console.log('currentUser.user', this.currentUser.user);
   }

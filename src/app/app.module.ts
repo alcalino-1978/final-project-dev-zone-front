@@ -37,7 +37,7 @@ import { ProyectoComponent } from './pages/proyecto/proyecto.component';
     UpdateUserComponent,
     QuienesSomosComponent,
     ValueComponent,
-    ProyectoComponent,
+    ProyectoComponent
   ],
   imports: [
     BrowserModule,

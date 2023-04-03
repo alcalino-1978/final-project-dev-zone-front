@@ -1,4 +1,3 @@
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
@@ -52,13 +51,13 @@ import { NewLinePipe } from './pipes/new-line.pipe';
     MatCardModule,
     MatOptionModule,
     MatChipsModule,
-    
+
     MatIconModule,
     MatPseudoCheckboxModule,
     ReactiveFormsModule,
     MatTabsModule,
     ProfileModule,
-    NgbModule
+
   ],
   providers: [ThemeToggler],
   bootstrap: [AppComponent]

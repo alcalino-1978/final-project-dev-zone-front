@@ -16,7 +16,7 @@ export class DetailOfferComponent {
   public offerDetail!: JobOfferModelAPI;
   public offerDescription!: string;
   public isLoading: boolean = false;
-  public userId: string = this.storageService.getUser().user._id;
+  public userId!: string;
   public applicantsCount!: number;
   public isDisabled!: boolean;
   public isAvailable!: boolean;
@@ -43,6 +43,9 @@ export class DetailOfferComponent {
     const getEntity = this.storageService.getUser().entityType;
     this.entity = getEntity;
     this.getDevs();
+    if(this.storageService.isLoggedIn()) {
+      return this.userId = this.storageService.getUser().user._id;
+    }
   }
 
   public deleteOffer(offerId: string): void {

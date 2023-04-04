@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
+import { DeveloperModelAPI } from 'src/app/models/developer.model';
 
 
 @Component({
@@ -121,7 +122,7 @@ export class DetailOfferComponent {
       console.log(data);
     })
     this.jobofferService.updateUserWithOffer(this.userId, offerId)
-    .subscribe((data: JobOfferModelAPI) => {
+    .subscribe((data: DeveloperModelAPI) => {
       console.log(data);
     })
     this.isDisabled = true;

@@ -50,35 +50,35 @@
   <h3 class="mat-headline-4 cat-title">{{ "PUBLISHED-OFFERS" | translate }}</h3>
 
   <div *ngFor="let offers of companyData.listOffers">
-    <ul class="my-4 d-flex flex-wrap" *ngIf="!isLoading">
-      <li class="offer col-12">
-        <div class="card mb-3 h-100">
+    <ul class="list-joboffer my-4 d-flex flex-wrap" *ngIf="!isLoading">
+      <li class="list-joboffer__item col-12">
+        <div class="card mb-3 h-100 p-4">
           <div class="row g-0">
-            <div class="col-4" (click)="getOfferDetail(offers._id)">
-              <img [src]="companyData.logo" class="img-fluid rounded-start">
+            <div class="col-3 col-md-2 pe-4" (click)="getOfferDetail(offers._id)">
+              <img [src]="companyData.logo" class="list-joboffer__img">
             </div>
-            <div class="col-7">
+            <div class="col-9 col-md-10">
               <div class="card-body">
-                <h3 class="card-title h4 offer__title" (click)="getOfferDetail(offers._id)">{{ offers.title }}</h3>
+                <h3 class="list-joboffer__title card-title h4 mb-2" (click)="getOfferDetail(offers._id)">{{ offers.title }}</h3>
                 <p class="offer-status">status <mat-icon [ngClass]="offers.offerStatus ? 'offer-status__active' : 'offer-status__inactive'">circle</mat-icon></p>
                 <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ offers.createdAt | date: "short" }}</small></p>
+                <div class="options-btn">
+                  <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #Menu="matMenu">
+                    <button mat-menu-item (click)="updateOfferDetail(offers._id)">
+                      <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
+                    </button>
+                    <button mat-menu-item (click)="changeOfferStatus(offers._id, offers.offerStatus)">
+                      <span>{{ 'SECONDARY-MENU.STATUS' | translate }}</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteOffer(offers._id)">
+                      <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
+                    </button>
+                  </mat-menu>
+                </div>
               </div>
-            </div>
-            <div class="col-1 options-btn">
-              <button class="secondary-menu__button" mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #Menu="matMenu">
-                <button mat-menu-item (click)="updateOfferDetail(offers._id)">
-                  <span>{{ 'SECONDARY-MENU.EDIT' | translate }}</span>
-                </button>
-                <button mat-menu-item (click)="changeOfferStatus(offers._id, offers.offerStatus)">
-                  <span>{{ 'SECONDARY-MENU.STATUS' | translate }}</span>
-                </button>
-                <button mat-menu-item (click)="deleteOffer(offers._id)">
-                  <span>{{ 'SECONDARY-MENU.DELETE' | translate }}</span>
-                </button>
-              </mat-menu>
             </div>
           </div>
         </div>

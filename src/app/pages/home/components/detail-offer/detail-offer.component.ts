@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
+import { DeveloperModelAPI } from 'src/app/models/developer.model';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class DetailOfferComponent {
   public offerDetail!: JobOfferModelAPI;
   public offerDescription!: string;
   public isLoading: boolean = false;
-  public userId: any = window.localStorage.getItem('_id');
+  public userId!: string;
   public applicantsCount!: number;
   public isDisabled!: boolean;
   public isAvailable!: boolean;
@@ -40,10 +41,12 @@ export class DetailOfferComponent {
         this.getOffer(params['id']);
       }
     );
-    console.log(this.offerDetail);
     const getEntity = this.storageService.getUser().entityType;
     this.entity = getEntity;
     this.getDevs();
+    if(this.storageService.isLoggedIn()) {
+      return this.userId = this.storageService.getUser().user._id;
+    }
   }
 
   public deleteOffer(offerId: string): void {
@@ -119,7 +122,7 @@ export class DetailOfferComponent {
       console.log(data);
     })
     this.jobofferService.updateUserWithOffer(this.userId, offerId)
-    .subscribe((data: JobOfferModelAPI) => {
+    .subscribe((data: DeveloperModelAPI) => {
       console.log(data);
     })
     this.isDisabled = true;

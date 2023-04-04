@@ -1,5 +1,5 @@
-import { CompanyModelAPI } from './../../models/company.models';
-import { JobOfferModelAPI, JobOfferModelPost } from './../../models/joboffer.model';
+import { CompanyModelAPI } from 'src/app/models/company.models';
+import { JobOfferModelAPI, JobOfferModelPost, JobOfferModelPut } from './../../models/joboffer.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
@@ -14,12 +14,15 @@ export class JobofferService {
     private httpClient: HttpClient
   ) { }
 
-  // TODO todos los endpoint que NO requiere autenticación
-
   // GET ALL JOB OFFERS
   public getOffer(): Observable<JobOfferModelAPI[]> {
     return this.httpClient.get<JobOfferModelAPI[]>(environment.urlJobOffers)
   }
+
+    // GET COMPANY BY ID
+    public getCompanyByID(CompanyID: string): Observable<CompanyModelAPI> {
+      return this.httpClient.get<CompanyModelAPI>(environment.urlCompany + CompanyID)
+    }
 
   // GET SORTED JOB OFFERS
   public getLastOfferList(): Observable<JobOfferModelAPI[]> {
@@ -28,9 +31,15 @@ export class JobofferService {
       map((response: JobOfferModelAPI[]) => {
         return response.sort((a: JobOfferModelAPI, b: JobOfferModelAPI) => {
           return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        }).slice(0, 3); //ultimas 4 ofertas creadas
+        }).slice(0, 4); //ultimas 4 ofertas creadas
       })
     )
+  }
+
+  //PUT OFFER BY ID
+  public updateOfferByID(id: string, offer: JobOfferModelPut): Observable<JobOfferModelAPI> {
+    const url = environment.urlJobOffers + `${id}`;
+    return this.httpClient.put<JobOfferModelAPI>(url, offer)
   }
 
   // GET JOB OFFER BY ID
@@ -43,7 +52,6 @@ export class JobofferService {
     return this.httpClient.post<JobOfferModelAPI>(environment.urlJobOffers, offer)
   }
 
-
   // PATCH DEVELEPER IN JOB OFFER
   public updateOfferWithUser(offerId: string, userId: string): Observable<JobOfferModelAPI> {
     const url = environment.urlJobOffers + `${offerId}`;
@@ -51,12 +59,13 @@ export class JobofferService {
     return this.httpClient.patch<JobOfferModelAPI>(url, data)
   }
 
-  // PATCH OFFER IN COMPANY.LISTOFFERS
-  public postOfferOnCompany(companyId: string, offerId: string): Observable<CompanyModelAPI> {
-    const url = environment.urlCompany + `${companyId}`;
-    const data = { listOffers: [offerId]};
-    return this.httpClient.patch<CompanyModelAPI>(url, data)
-  }
+    // PATCH offerStatus IN JOB OFFER
+    public updateOfferStatus(offerId: string, status: boolean): Observable<JobOfferModelAPI> {
+      const url = environment.urlJobOffers + `${offerId}`;
+      const data = { offerStatus: !status};
+      return this.httpClient.patch<JobOfferModelAPI>(url, data)
+    }
+
 
   // PATCH JOB OFFER IN DEVELOPER
   public updateUserWithOffer(userId: string, offerId: string): Observable<JobOfferModelAPI> {

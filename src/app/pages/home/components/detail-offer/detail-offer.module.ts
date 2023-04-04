@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { DetailOfferRoutingModule } from './detail-offer-routing.module';
 import { DetailOfferComponent } from './detail-offer.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { DetailOfferComponent } from './detail-offer.component';
     CommonModule,
     DetailOfferRoutingModule,
     SharedModule,
-    DetailOfferRoutingModule
+    DetailOfferRoutingModule,
+    MatIconModule,
+    MatMenuModule
 
   ]
 })

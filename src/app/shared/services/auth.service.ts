@@ -1,3 +1,4 @@
+import { JobOfferModelAPI } from './../../models/joboffer.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -17,7 +18,7 @@ export class AuthService {
   // TODO todos los endpoint que REQUIEREN autenticación
 
   login(email: string, password: string, type: string): Observable<any> {
-    const urlLogin = `http://localhost:3000/v1/users/login/${type}/${email}`;
+    const urlLogin = `${environment.urlBase}users/login/${type}/${email}`;
     return this.http.post<any>(
       urlLogin,
       {
@@ -74,6 +75,38 @@ export class AuthService {
       formData,
       httpOptionsCustom
     );
+  }
+  updateEntity(formData:any, entityType: string, id: string): Observable<any> {
+    debugger
+    let url: string;
+    if (entityType === 'Developer') {
+      url = `${environment.urlBase}developers/${id}`;
+    } else if (entityType === 'Company') {
+      url = `${environment.urlBase}companies/${id}`;
+    } else {
+      throw new Error(`Invalid entityType ${entityType}`);
+    }
+    console.log(formData);
+    const httpOptionsCustom = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+      }),
+    }
+    return this.http.put<any>(
+      url,
+      formData,
+      httpOptionsCustom
+    );
+  }
+
+  deleteOfferService(id: string): Observable<JobOfferModelAPI> {
+    const url = environment.urlJobOffers + id;
+    return this.http.delete<JobOfferModelAPI>(url)
+  }
+
+  public getDevelopers(): any {
+    const url = environment.urlDevelopers;
+    return this.http.get<any>(url);
   }
 
   //TODO HACER UPDATE DEVELOPER

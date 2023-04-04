@@ -20,6 +20,7 @@ export class RegisterComponent {
   public selectFile:any;
   public userLoginForm!: FormGroup;
   public entity:string="Company";
+  public currentUser!: any;
 
 
 /*variavles para el formulario de REGISTRO DE COMPANY */
@@ -130,10 +131,13 @@ public movilityFormControl!: FormControl;
 
 
 	ngOnInit() {
-    this.initFormCompany();
+    this.initFormCompany()
     this.initFormDeveloper();
     //TODO UPDATE
-    // isLoggedIn()
+    if (this.storageService.isLoggedIn()) {
+      this.currentUser = this.storageService.getUser();
+      this.isLoggedIn = true;
+    }
   }
 
   private initFormCompany(): void {
@@ -241,36 +245,52 @@ private initFormDeveloper(): void {
       formData.append('password', this.passwordFormControl.value);
       formData.append('numberEmployees', this.numberEmployeesFormControl.value);
 
-      // Display the values
-      // formData.forEach((value, key) => {
-      //   console.log(key, value);
-      // });
-
-      //TODO if isLoggedIn = true
-
-
-      this.authService.registerCompany(formData).subscribe({
-        next: response => {
-          this.isSuccessful = true;
-          this.isSignUpFailed = false;
-          this.storageService.saveUser(response.data.createdCompany, this.entity);
-          this.storageService.saveToken(response.data);
-          console.log(response.data);
-          this.isLoginFailed = false;
-          this.isLoggedIn = true;
-          this.companyRegisterForm.reset();
-          this.isLoading = false;
-          this.router.navigate(['/profile']);
-        },
-        error: err => {
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
-        }
+     // Display the values
+      formData.forEach((value, key) => {
+        console.log(key, value);
       });
+
+      if (this.isLoggedIn = true) {
+        const id = this.currentUser.user._id;
+        this.authService.updateEntity(formData, this.entity, id).subscribe({
+          next: response => {
+            console.log(response.data);
+            this.storageService.saveUser(response.data.updatedCompany, this.entity);
+            this.companyRegisterForm.reset();
+            this.isLoading = false;
+            this.router.navigate(['/profile']);
+          },
+          error: err => {
+            this.errorMessage = err.error.message;
+            this.isSignUpFailed = true;
+          }
+        });
+      } else {
+        this.authService.registerCompany(formData).subscribe({
+          next: response => {
+            this.isSuccessful = true;
+            this.isSignUpFailed = false;
+            this.storageService.saveUser(response.data.createdCompany, this.entity);
+            this.storageService.saveToken(response.data);
+            console.log(response.data);
+            this.isLoginFailed = false;
+            this.isLoggedIn = true;
+            this.companyRegisterForm.reset();
+            this.isLoading = false;
+            this.router.navigate(['/profile']);
+          },
+          error: err => {
+            this.errorMessage = err.error.message;
+            this.isSignUpFailed = true;
+          }
+        });
+      }
+
     }
   }
 
   onSubmitDeveloper() {
+
     this.isSubmitted = true;
     this.entity="Developer";
 
@@ -299,26 +319,42 @@ private initFormDeveloper(): void {
       // formDataDev.forEach((value, key) => {
       //   console.log(key, value);
       // });
+      if (this.isLoggedIn = true) {
+        const id = this.currentUser.user._id;
+        this.authService.updateEntity(formDataDev, this.entity, id).subscribe({
+          next: response => {
+            console.log(response.data);
+            this.storageService.saveUser(response.data.updatedDeveloper, this.entity);
+            this.companyRegisterForm.reset();
+            this.isLoading = false;
+            this.router.navigate(['/profile']);
+          },
+          error: err => {
+            this.errorMessage = err.error.message;
+            this.isSignUpFailed = true;
+          }
+        });
+      } else {
+        this.authService.registerDeveloper(formDataDev).subscribe({
+          next: response => {
+            this.isSuccessful = true;
+            this.isSignUpFailed = false;
+            this.storageService.saveUser(response.data.createdDeveloper, this.entity);
+            this.storageService.saveToken(response.data);
 
-      this.authService.registerDeveloper(formDataDev).subscribe({
-        next: response => {
-          this.isSuccessful = true;
-          this.isSignUpFailed = false;
-          this.storageService.saveUser(response.data.createdDeveloper, this.entity);
-          this.storageService.saveToken(response.data);
-
-          this.isLoginFailed = false;
-          this.isLoggedIn = true;
-           console.log(response)
-          this.developerRegisterForm.reset();
-          this.isLoading = false;
-          this.router.navigate(['/profile']);
-        },
-        error: err => {
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
-        }
-      });
+            this.isLoginFailed = false;
+            this.isLoggedIn = true;
+             console.log(response)
+            this.developerRegisterForm.reset();
+            this.isLoading = false;
+            this.router.navigate(['/profile']);
+          },
+          error: err => {
+            this.errorMessage = err.error.message;
+            this.isSignUpFailed = true;
+          }
+        });
+      }
     }
   }
 }

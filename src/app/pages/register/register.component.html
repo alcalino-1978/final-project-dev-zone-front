@@ -1,7 +1,8 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">< {{ 'PREVIOUS-PAGE-HOME' | translate }}</a>
   <div class="col-12 col-md-6 offset-md-3">
-    <h2 class="mat-headline-3 cat-title">{{ 'FORMS.TITLE.REGISTER' | translate }}</h2>
+    <h2 *ngIf="!isLoggedIn" class="mat-headline-3 cat-title">{{ 'FORMS.TITLE.REGISTER' | translate }}</h2>
+    <h2 *ngIf="isLoggedIn" class="mat-headline-3 cat-title">{{ 'FORMS.TITLE.UPDATE-USER' | translate }}</h2>
 
     <mat-tab-group>
       <mat-tab label="Developer">
@@ -244,15 +245,15 @@
           <mat-radio-button value="Presential">{{ 'FORMS.PRESENTIAL' | translate }}</mat-radio-button>
         </mat-radio-group>
 
-
-          <button mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.SUBMIT' | translate }}</button>
+          <button *ngIf="!isLoggedIn" mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.SUBMIT' | translate }}</button>
+          <button *ngIf="isLoggedIn" mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.UPDATE' | translate }}</button>
         </form>
       </mat-tab>
       <mat-tab label="Company">
         <!--*******-->
         <!--FORMULARIO DE REGISTRO COMPANY-->
         <!--*******-->
-        <form novalidate (ngSubmit)="onSubmitCompany()" [formGroup]="companyRegisterForm" enctype="multipart/form-data" class="form-container">
+        <form novalidate (ngSubmit)="onSubmitCompany()" [formGroup]="companyRegisterForm" enctype="multipart/form-data" class="form-container  mt-5">
           <mat-form-field class="form-field" appearance="outline">
             <mat-label for="name">{{ 'FORMS.NAME' | translate }}:</mat-label>
             <input matInput type="text" id="name" formControlName="name" placeholder="{{ 'FORMS.NAME' | translate }}"/>
@@ -372,7 +373,8 @@
               </p>
             </mat-error>
           </mat-form-field>
-          <button mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.SUBMIT' | translate }}</button>
+          <button *ngIf="!isLoggedIn" mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.SUBMIT' | translate }}</button>
+          <button *ngIf="isLoggedIn" mat-raised-button color="primary" type="submit" [disabled]="isLoading" class="cat-button">{{ 'FORMS.UPDATE' | translate }}</button>
         </form>
       </mat-tab>
     </mat-tab-group>

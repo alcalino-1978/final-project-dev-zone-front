@@ -1,3 +1,4 @@
+@import '../../../../../styles/mixins.scss';
 
 strong {
   font-weight: bold;
@@ -19,8 +20,12 @@ strong {
 }
 
 .not-available{
-  background-color: var(--yellow);
-  color: black;
+  background-color: #fffc1478;
+  /* color: black; */
+  border: 1px solid yellow;
+  border-radius: var(--spacingXs);
+  padding: var(--spacingXs);
+  margin-bottom: var(--spacingSm);
 }
 
 .detail-data {
@@ -35,8 +40,14 @@ strong {
 picture {
   position: relative;
   display: flex;
-  border-radius: 1.6rem;
+  border-radius: 1rem;
   overflow: hidden;
+  width: 38%;
+  @media only screen and (min-width: 768px) {
+    width: 100%;
+    min-width: 30rem;
+  }
+
   &::before {
     position: absolute;
     width: 100%;
@@ -54,6 +65,7 @@ picture {
   @media only screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   &__contract-detail {
@@ -80,7 +92,16 @@ picture {
     }
   }
 
-  &__description {
-    padding-left: 1rem;
+
+  &__company {
+    display: flex;
+    flex-direction: column;
+    order: -1;
+    @include media-breakpoint-up(md){
+      order: 0;
+      align-items: flex-end;
+      max-width: 35rem;
+    }
   }
+
 }

@@ -2,8 +2,7 @@
   <a routerLink="/" class="mb-5 d-flex">
     < {{ 'PREVIOUS-PAGE-HOME' | translate }}</a> <div class="col-12 col-md-6 offset-md-3">
       <h2 class="mat-headline-3 cat-title">{{ "OFFER-DETAIL.CREATE" | translate }}</h2>
-      <form novalidate class="form-container" [formGroup]="registerOfferForm" >
-
+      <form novalidate class="form-container" [formGroup]="updateOfferForm">
         <mat-form-field class="form-field" appearance="outline" >
           <mat-label for="title">{{ "OFFER-DETAIL.TITLE" | translate }}:</mat-label>
           <input matInput type="text" id="title" formControlName="title"/>
@@ -89,6 +88,7 @@
         <button mat-raised-button color="primary" type="submit" class="cat-button" (click)="onSubmit()">
           {{ "CREATE" | translate }}
         </button>
+
       </form>
 </div>
 </div>

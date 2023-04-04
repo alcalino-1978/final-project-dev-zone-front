@@ -1,0 +1,25 @@
+@import '../../../../../styles/mixins.scss';
+
+.offer{
+  cursor: pointer;
+  &__title {
+    color: var(--backgroundDark);
+  }
+
+  &-status {
+    margin-left: 4px;
+    color: rgb(144, 144, 144);
+    &__active{
+      font-size: 1rem;
+      display: contents;
+      color: green;
+    }
+
+    &__inactive{
+      font-size: 1rem;
+      display: contents;
+      color: red;
+    }
+  }
+}
+

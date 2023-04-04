@@ -59,7 +59,8 @@ import { ProyectoComponent } from './pages/proyecto/proyecto.component';
     MatPseudoCheckboxModule,
     ReactiveFormsModule,
     MatTabsModule,
-    ProfileModule
+    ProfileModule,
+
   ],
   providers: [ThemeToggler],
   bootstrap: [AppComponent]

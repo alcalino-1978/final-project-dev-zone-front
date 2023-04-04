@@ -1,3 +1,5 @@
+@import '../../../../../styles/mixins.scss';
+
 strong {
   font-weight: bold;
 }
@@ -18,8 +20,12 @@ strong {
 }
 
 .not-available{
-  background-color: var(--yellow);
-  color: black;
+  background-color: #fffc1478;
+  /* color: black; */
+  border: 1px solid yellow;
+  border-radius: var(--spacingXs);
+  padding: var(--spacingXs);
+  margin-bottom: var(--spacingSm);
 }
 
 .detail-data {
@@ -38,7 +44,8 @@ picture {
   overflow: hidden;
   width: 38%;
   @media only screen and (min-width: 768px) {
-    width: 70%;
+    width: 100%;
+    min-width: 30rem;
   }
 
   &::before {
@@ -84,14 +91,15 @@ picture {
     }
   }
 
-  &__description {
-    padding-left: 1rem;
-  }
 
   &__company {
     display: flex;
-    height: 100%;
-    gap: 1rem;
+    flex-direction: column;
+    order: -1;
+    @include media-breakpoint-up(md){
+      order: 0;
+      align-items: flex-end;
+    }
   }
 
 }

@@ -26,7 +26,6 @@ import { MatChipsModule} from '@angular/material/chips';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { ProfileModule } from '@pages/profile/profile.module';
-import { NewLinePipe } from './pipes/new-line.pipe';
 
 @NgModule({
   declarations: [

@@ -21,7 +21,8 @@
   "SECONDARY-MENU": {
     "EDIT": "Edit",
     "REGISTER": "Create",
-    "DELETE": "Delete"
+    "DELETE": "Delete",
+    "STATUS": "Change Status"
   },
   "FORMS": {
     "TITLE": {
@@ -73,14 +74,37 @@
   ,
   "OFFER-LIST": "Last offers",
   "ALL-OFFER-LIST": "Results of your search",
+  "PUBLISHED-OFFERS": "Published offers",
+  "CREATE": "Create",
   "OFFER-DETAIL": {
+    "CREATE": "Create Offer",
+    "MINSALARY": "Minimum Salary",
+    "MAXSALARY": "Maximum Salary",
     "TITLE": "Title",
-    "SHIFT": "Workday",
-    "CONTRACT": "Contract",
-    "MODALITY": "Work model",
+    "SHIFT":{
+      "TYPE": "Workday",
+      "PARTTIME": "Part-Time",
+      "REDUCED": "Reduced",
+      "SPLITDAY": "Split Day",
+      "ROTATING": "Rotating",
+      "FULLTIME": "Full-Time"
+    },
+    "CONTRACT":{
+      "TYPE": "Contract",
+      "INDEFINITE": "Indefinite-Term",
+      "FIXED": "Fixed-Term",
+      "TRAINING": "Training"
+    },
+    "MODALITY":{
+      "TYPE": "Work model",
+      "FULLREMOTE": "Full Remote",
+      "HYBRID": "Hybrid",
+      "PRESENTIAL": "Presential"
+    },
     "SALARY": "Salary",
     "VACANCIES": "Vacancies",
     "DESCRIPTION": "Description",
+    "KEYWORDS": "Keywords",
     "APPLICANTS": "Developers have signed up for this offer",
     "APPLY": "APPLY",
     "APPLIED": "ALREADY APPLIED",
@@ -122,5 +146,8 @@
     "TYPEJOB": "Type of job",
     "COMMON.YES": "Yes",
     "COMMON.NO": "No"
+  },
+  "CAROUSEL": {
+    "TITLE": "Companies with trust in us"
   }
 }

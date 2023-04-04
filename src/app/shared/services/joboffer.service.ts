@@ -2,8 +2,9 @@ import { CompanyModelAPI } from 'src/app/models/company.models';
 import { JobOfferModelAPI, JobOfferModelPost, JobOfferModelPut } from './../../models/joboffer.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { map, mergeMap, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { DeveloperModelAPI } from 'src/app/models/developer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -55,10 +56,15 @@ export class JobofferService {
   // PATCH DEVELEPER IN JOB OFFER
   public updateOfferWithUser(offerId: string, userId: string): Observable<JobOfferModelAPI> {
     const url = environment.urlJobOffers + `${offerId}`;
-    const data = { applicants: [userId]};
-    return this.httpClient.patch<JobOfferModelAPI>(url, data)
-  }
 
+    return this.httpClient.get<JobOfferModelAPI>(url).pipe(
+      mergeMap((response) => {
+        const updatedApplicants = [...response.applicants, userId];
+        const data = { applicants: updatedApplicants };
+
+    return this.httpClient.patch<JobOfferModelAPI>(url, data)
+    })
+    )}
     // PATCH offerStatus IN JOB OFFER
     public updateOfferStatus(offerId: string, status: boolean): Observable<JobOfferModelAPI> {
       const url = environment.urlJobOffers + `${offerId}`;
@@ -68,9 +74,13 @@ export class JobofferService {
 
 
   // PATCH JOB OFFER IN DEVELOPER
-  public updateUserWithOffer(userId: string, offerId: string): Observable<JobOfferModelAPI> {
+  public updateUserWithOffer(userId: string, offerId: string): Observable<DeveloperModelAPI> {
     const url = environment.urlDevelopers + `${userId}`;
-    const data = { jobOffers: [offerId]};
-    return this.httpClient.patch<JobOfferModelAPI>(url, data)
-  }
+    return this.httpClient.get<DeveloperModelAPI>(url).pipe(
+      mergeMap((response) => {
+        const updatedApplicants = [...response.jobOffers, offerId];
+        const data = { jobOffers: updatedApplicants };
+    return this.httpClient.patch<DeveloperModelAPI>(url, data)
+  })
+  )}
 }

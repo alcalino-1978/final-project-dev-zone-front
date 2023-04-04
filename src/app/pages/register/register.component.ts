@@ -320,7 +320,6 @@ private initFormDeveloper(): void {
       //   console.log(key, value);
       // });
       if (this.isLoggedIn = true) {
-        debugger
         const id = this.currentUser.user._id;
         this.authService.updateEntity(formDataDev, this.entity, id).subscribe({
           next: response => {

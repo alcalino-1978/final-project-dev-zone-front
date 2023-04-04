@@ -15,7 +15,12 @@
               <div class="card-body">
                 <h3 class="list-joboffer__title card-title h4">{{ offer.title }}</h3>
                 <p *ngFor="let item of offer.company" class="list-joboffer__definition card-text">{{item.name}}</p>
+                <h4 class="list-joboffer__title card-title h4">{{ 'OFFER-DETAIL.DESCRIPTION' | translate }}:</h4>
+                <p class="list-joboffer__definition card-text"> {{offer.description}}</p>
+                <h4 class="list-joboffer__title card-title h4">{{ 'OFFER-DETAIL.CONTRACT' | translate }}:</h4>
+                <p class="list-joboffer__definition card-text"> {{offer.typeJob}}</p>
                 <p class="card-text"><small class="text-muted">{{ "PUBLISHED" | translate }}{{ offer.createdAt | date: "short" }}</small></p>
+                <p></p>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 <div class="row">
   <a routerLink="/" class="mb-5 d-flex">
-    < {{ 'PREVIOUS-PAGE-HOME' | translate }}</a> <div class="col-12 col-md-4 offset-md-4">
-      <h2 class="mat-headline-3 cat-title -gradient">{{ "OFFER-DETAIL.CREATE" | translate }}</h2>
+    < {{ 'PREVIOUS-PAGE-HOME' | translate }}</a> <div class="col-12 col-md-6 offset-md-3">
+      <h2 class="mat-headline-3 cat-title">{{ "OFFER-DETAIL.CREATE" | translate }}</h2>
       <form novalidate class="form-container" [formGroup]="updateOfferForm">
         <mat-form-field class="form-field" appearance="outline" >
           <mat-label for="title">{{ "OFFER-DETAIL.TITLE" | translate }}:</mat-label>
@@ -88,6 +88,7 @@
         <button mat-raised-button color="primary" type="submit" class="cat-button" (click)="onSubmit()">
           {{ "CREATE" | translate }}
         </button>
+
       </form>
 </div>
 </div>

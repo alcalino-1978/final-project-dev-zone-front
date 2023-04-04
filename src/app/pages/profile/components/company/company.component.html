@@ -46,7 +46,7 @@
   <h3 class="mat-headline-4 cat-title">{{ 'DESCRIPTION' | translate }}</h3>
   <p>{{ data.description }}</p>
 </div>
-<div class="row">
+<div class="row" *ngIf="companyData?.listOffers && companyData.listOffers.length > 0">
   <h3 class="mat-headline-4 cat-title">{{ "PUBLISHED-OFFERS" | translate }}</h3>
 
   <div *ngFor="let offers of companyData.listOffers">

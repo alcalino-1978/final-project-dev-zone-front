@@ -205,12 +205,14 @@ a {
   }
   // Angular material button size && radius border
   .cat-button {
-    background-color: var(--primaryColor);
+    background-color: #2196f3;
       height: 6rem;
       font-size: 2rem;
       border-radius: 3.2rem;
       text-align: center;
       text-transform: uppercase;
+      border: 0;
+      color: #fff;
   }
   .mat-headline-4.cat-title {
     color: var(--primaryLightColor);

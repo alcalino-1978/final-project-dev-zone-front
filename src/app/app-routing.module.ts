@@ -36,7 +36,10 @@ const routes: Routes = [
     path: 'update-offer/:id',
     loadChildren: () => import('@pages/update-offer/update-offer.module').then(m => m.UpdateOfferModule)
   },
- // ...
+  {
+    path: 'proyecto',
+    loadChildren: () => import('@pages/proyecto/proyecto.module').then(m => m.ProyectoModule),
+  },
 ];
 
 @NgModule({

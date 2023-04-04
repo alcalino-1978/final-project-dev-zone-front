@@ -1,3 +1,4 @@
+
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule} from '@angular/material/chips';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 import { ProfileModule } from '@pages/profile/profile.module';
 
 @NgModule({
@@ -34,6 +36,7 @@ import { ProfileModule } from '@pages/profile/profile.module';
     RegisterComponent,
     UpdateUserComponent,
     QuienesSomosComponent,
+    ProyectoComponent,
   ],
   imports: [
     BrowserModule,

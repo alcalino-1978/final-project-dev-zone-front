@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
-  urlBase: 'http://localhost:3000/v1/',
+  urlBase: 'https://final-project-dev-zone-back.vercel.app/v1/',
   urlImage: 'https://cdn2.thecatapi.com/images/',
   urlUsers: 'https://final-project-node-ten.vercel.app/users/',
 
-  urlCompany: 'http://localhost:3000/v1/companies/',
-  urlDevelopers: 'http://localhost:3000/v1/developers/',
-  urlJobOffers: 'http://localhost:3000/v1/joboffers/',
+  urlCompany: 'https://final-project-dev-zone-back.vercel.app/v1/companies/',
+  urlDevelopers: 'https://final-project-dev-zone-back.vercel.app/v1/developers/',
+  urlJobOffers: 'https://final-project-dev-zone-back.vercel.app/v1/joboffers/',
 
   UNSPLASH_API_KEY: process.env['NG_APP_UNSPLASH_API_KEY'],
   urlUnsplash: `https://api.unsplash.com/photos/random/?query=developer&orientation=landscape&client_id=${process.env['NG_APP_UNSPLASH_API_KEY']}`,

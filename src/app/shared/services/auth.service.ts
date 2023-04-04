@@ -18,7 +18,7 @@ export class AuthService {
   // TODO todos los endpoint que REQUIEREN autenticación
 
   login(email: string, password: string, type: string): Observable<any> {
-    const urlLogin = `http://localhost:3000/v1/users/login/${type}/${email}`;
+    const urlLogin = `${environment.urlBase}users/login/${type}/${email}`;
     return this.http.post<any>(
       urlLogin,
       {

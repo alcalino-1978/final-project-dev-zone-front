@@ -2,19 +2,39 @@
 
 .list-joboffer {
   &__item {
-    margin-bottom: 2.4rem;
+    margin-bottom: var(--spacingMd);
     cursor: pointer;
-    padding-right: 1rem;
-    @include media-breakpoint-up(sm) {
-      padding-right: 2.4rem;
+    color: #000;
+    .card {
+      border-radius: var(--spacingXs);
     }
+
+  }
+  &__subtitle {
+    color: var(--backgroundDark);
+    font-weight: bold;
+    font-size: var(--spacingSm);
+    font-family: 'Oceanwide', sans-serif;
   }
   &__title {
     color: var(--backgroundDark);
+    font-size: var(--spacingLg);
+    font-family: 'Oceanwide', sans-serif;
+    margin: 0;
   }
   &__company {
     color: var(--textOnPrimary);
+    margin-bottom: var(--spacingMd);
   }
+  &__definition {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__img {
+    border-radius: var(--spacingXs);
+  }
+
 }
 
 .img-fluid {

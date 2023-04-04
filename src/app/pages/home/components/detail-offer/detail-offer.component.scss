@@ -99,6 +99,7 @@ picture {
     @include media-breakpoint-up(md){
       order: 0;
       align-items: flex-end;
+      max-width: 35rem;
     }
   }
 

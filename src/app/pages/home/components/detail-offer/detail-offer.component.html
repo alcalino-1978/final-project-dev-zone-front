@@ -33,10 +33,14 @@
           </span>
         </li>
         <li class="list-icons__item">
-          <span class="list-icons__icon"><mat-icon> desktop_mac </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.MODALITY.TYPE' | translate }}:</span>
+          <span class="list-icons__icon"><mat-icon> desktop_mac </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.MODALITY.TYPE' | translate }}:
+            {{ offerDetail.typeJob }}
+          </span>
         </li>
         <li class="list-icons__item">
-          <span class="list-icons__icon"><mat-icon> group </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.VACANCIES' | translate }}: </span>
+          <span class="list-icons__icon"><mat-icon> group </mat-icon></span><span class="list-icons__text">{{ 'OFFER-DETAIL.VACANCIES' | translate }}:
+            {{ offerDetail.vacancies }}
+          </span>
         </li>
         <li class="list-icons__item">
           <span class="list-icons__icon"><mat-icon> payments </mat-icon></span>

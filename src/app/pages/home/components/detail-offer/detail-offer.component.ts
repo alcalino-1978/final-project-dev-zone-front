@@ -16,7 +16,7 @@ export class DetailOfferComponent {
   public offerDetail!: JobOfferModelAPI;
   public offerDescription!: string;
   public isLoading: boolean = false;
-  public userId: any = window.localStorage.getItem('_id');
+  public userId: string = this.storageService.getUser().user._id;
   public applicantsCount!: number;
   public isDisabled!: boolean;
   public isAvailable!: boolean;
@@ -40,7 +40,6 @@ export class DetailOfferComponent {
         this.getOffer(params['id']);
       }
     );
-    console.log(this.offerDetail);
     const getEntity = this.storageService.getUser().entityType;
     this.entity = getEntity;
     this.getDevs();

@@ -72,8 +72,7 @@
     "CREATED": "Fecha de creación"
   },
   "OFFER-LIST": "Últimas ofertas",
-  "ALL-OFFER-LIST": "Resultados de tu búsqueda",
-  
+  "ALL-OFFER-LIST": "Resultados de tu búsqueda", 
   "OFFER-DETAIL": {
     "TITLE": "Título",
     "SHIFT": "Jornada",

@@ -271,6 +271,50 @@ a {
     margin: 0 var(--spacingMd) var(--spacingMd) 0;
   }
 }
+// JOB OFFER CARD'S STYLE
+.list-joboffer {
+  &__item {
+    margin-bottom: var(--spacingMd);
+    cursor: pointer;
+    color: #000;
+    .card {
+      border-radius: var(--spacingXs);
+    }
+
+  }
+  &__subtitle {
+    color: var(--backgroundDark);
+    font-weight: bold;
+    font-size: var(--spacingSm);
+    font-family: 'Oceanwide', sans-serif;
+  }
+  &__title {
+    color: var(--backgroundDark);
+    font-size: var(--spacingLg) !important;
+    font-family: 'Oceanwide', sans-serif !important;
+    margin: 0 !important;
+  }
+  &__company {
+    color: var(--textOnPrimary);
+    margin-bottom: var(--spacingMd);
+  }
+  &__definition {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__img {
+    border-radius: var(--spacingXs);
+  }
+
+  .options-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 4px;
+  }
+}
+
 // SNACKBAR CUSTOM
 .mat-mdc-snack-bar-container {
   &.error-snackbar {

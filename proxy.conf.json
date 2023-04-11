@@ -1,9 +1,11 @@
 {
-  "/v1": {
+  "/api": {
     "target": "https://singular-profiterole-5fb244.netlify.app",
-    "secure": false,
+    "secure": true,
     "changeOrigin": true,
-    "logLevel": "debug"
+    "pathRewrite": {
+      "^/api": ""
+    }
   },
   "/v1/gpt3": {
     "target": "http://localhost:3000",

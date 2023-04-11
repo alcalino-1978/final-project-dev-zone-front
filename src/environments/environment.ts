@@ -1,4 +1,4 @@
-const urlBase = 'https://final-project-dev-zone-back.vercel.app/v1';
+const urlBase = 'https://singular-profiterole-5fb244.netlify.app/v1';
 
 
 export const environment = {
@@ -6,7 +6,7 @@ export const environment = {
   urlBase: `${urlBase}`,
   urlImage: 'https://cdn2.thecatapi.com/images/',
   // urlUsers: 'http://localhost:3000/users/',
-  urlUsers: 'https://final-project-node-ten.vercel.app/users/',
+  urlUsers: 'https://singular-profiterole-5fb244.netlify.app/users/',
 
   urlCompany: `${urlBase}/companies/`,
   urlDevelopers: `${urlBase}/developers/`,

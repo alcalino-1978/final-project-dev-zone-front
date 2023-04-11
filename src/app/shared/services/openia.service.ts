@@ -11,6 +11,6 @@ export class OpenaiService {
   completions(message: string) {
     console.log(message)
     return this.http.post(`${environment.urlBase}/gpt-3/message`, { prompt: message });
-    //return this.http.post('http://localhost:3000/v1/gpt-3/message', { prompt: message });
+    // return this.http.post('http://localhost:3000/v1/gpt-3/message', { prompt: message });
   }
 }

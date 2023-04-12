@@ -14,7 +14,6 @@ export class StorageService {
   }
 
   public saveUser(user: any, entityType: string): void {
-    debugger
     const userData = { user, entityType };
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(userData));

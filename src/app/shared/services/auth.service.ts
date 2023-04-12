@@ -77,7 +77,6 @@ export class AuthService {
     );
   }
   updateEntity(formData:any, entityType: string, id: string): Observable<any> {
-    debugger
     let url: string;
     if (entityType === 'Developer') {
       url = `${environment.urlBase}developers/${id}`;

@@ -18,7 +18,7 @@ export class AuthService {
   // TODO todos los endpoint que REQUIEREN autenticación
 
   login(email: string, password: string, type: string): Observable<any> {
-    const urlLogin = `${environment.urlBase}users/login/${type}/${email}`;
+    const urlLogin = `${environment.urlUsers}login/${type}/${email}`;
     return this.http.post<any>(
       urlLogin,
       {
@@ -37,9 +37,9 @@ export class AuthService {
     const body = { id };
 
     if (entityType === 'Developer') {
-      url = `${environment.urlBase}developers/${id}`;
+      url = `${environment.urlDevelopers}${id}`;
     } else if (entityType === 'Company') {
-      url = `${environment.urlBase}companies/${id}`;
+      url = `${environment.urlCompany}${id}`;
     } else {
       throw new Error(`Invalid entityType ${entityType}`);
     }
@@ -79,9 +79,9 @@ export class AuthService {
   updateEntity(formData:any, entityType: string, id: string): Observable<any> {
     let url: string;
     if (entityType === 'Developer') {
-      url = `${environment.urlBase}developers/${id}`;
+      url = `${environment.urlDevelopers}${id}`;
     } else if (entityType === 'Company') {
-      url = `${environment.urlBase}companies/${id}`;
+      url = `${environment.urlCompany}${id}`;
     } else {
       throw new Error(`Invalid entityType ${entityType}`);
     }

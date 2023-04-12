@@ -71,10 +71,17 @@
         },
         "serve": {
           "builder": "@ngx-env/builder:dev-server",
-          "options": {
-            "browserTarget": "final-project-angular:build",
-            "proxyConfig": "./proxy.conf.json"
-          }
+          "configurations": {
+            "production": {
+              "browserTarget": "final-project-angular:build:production",
+              "proxyConfig": "./proxy.conf.json"
+            },
+            "development": {
+              "browserTarget": "final-project-angular:build:development",
+              "proxyConfig": "./proxy.conf.json"
+            }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@ngx-env/builder:extract-i18n",

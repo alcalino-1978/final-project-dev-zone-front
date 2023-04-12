@@ -1,4 +1,4 @@
-const urlBase = 'https://singular-profiterole-5fb244.netlify.app/v1';
+const urlBase = 'https://final-project-dev-zone-back.vercel.app/v1';
 
 
 export const environment = {

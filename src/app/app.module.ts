@@ -24,7 +24,6 @@ import { ThemeToggler } from '@shared/services/theme.service';
 import { SharedModule } from '@shared/shared.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule} from '@angular/material/chips';
-import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { ProyectoComponent } from './pages/proyecto/proyecto.component';
 import { ProfileModule } from '@pages/profile/profile.module';
@@ -34,7 +33,6 @@ import { ProfileModule } from '@pages/profile/profile.module';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UpdateUserComponent,
     QuienesSomosComponent,
     ProyectoComponent,
   ],

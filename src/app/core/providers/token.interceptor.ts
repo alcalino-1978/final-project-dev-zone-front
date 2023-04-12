@@ -23,11 +23,11 @@ export class TokenInterceptor implements HttpInterceptor {
     if (token || token === "") {
       request = req.clone({
         setHeaders: {
-          
+
           authorization: `Bearer ${token}`,
-          "Access-Control-Allow-Origin": "*",
-          'Access-Control-Allow-Headers': 'Accept',
-          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+          // "Access-Control-Allow-Origin": "*",
+          // 'Access-Control-Allow-Headers': 'Accept',
+          // 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
         },
       });
     }

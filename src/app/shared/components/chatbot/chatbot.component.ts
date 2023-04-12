@@ -43,7 +43,7 @@ export class ChatbotComponent {
     this.scrollToBottom();
     this.openaiService.completions(sentMessage).subscribe((response: any) => {
       this.loading = false;
-      console.log(response);
+      // console.log(response);
       this.messages.push({
         type: 'client',
         message: response.message,

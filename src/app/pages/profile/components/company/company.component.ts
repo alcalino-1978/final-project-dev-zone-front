@@ -29,30 +29,30 @@ export class CompanyComponent {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
+    // console.log(this.data);
     this.getCompanyByID(this.dataId);
 
   }
 
   public getOfferDetail(id: string): void {
-    console.log(id);
+    // console.log(id);
     this.router.navigateByUrl(`/offers/${id}`)
   }
 
   public updateOfferDetail(id: string): void {
-    console.log(id);
+    // console.log(id);
     this.router.navigateByUrl(`/update-offer/${id}`)
   }
 
   public changeOfferStatus(offerId: string, status: boolean): void {
     this.jobOfferService.updateOfferStatus(offerId, status).subscribe((data) => {
-      return console.log(data)
+      // return console.log(data)
     })
   }
 
   public deleteOffer(offerId: string): void {
     this.authService.deleteOfferService(offerId).subscribe((response) => {
-      console.log(response);
+      // console.log(response);
       });
     this.router.navigate(['/'])
   }
@@ -60,7 +60,7 @@ export class CompanyComponent {
   private getCompanyByID(dataId: string): void {
     this.isLoading = true;
     this.jobOfferService.getCompanyByID(dataId).subscribe((res: CompanyModelAPI) => {
-      console.log(res);
+      // console.log(res);
       this.companyData = res;
       this.isLoading = false
     }

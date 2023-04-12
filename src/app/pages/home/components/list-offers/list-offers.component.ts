@@ -50,7 +50,7 @@ export class ListOffersComponent {
   }
 
   public getOfferDetail(id: any): void {
-    console.log(id);
+    //console.log(id);
     this.router.navigateByUrl(`/offers/${id}`)
 
   }

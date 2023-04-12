@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   registerDeveloper(formData:any): Observable<any> {
-    console.log(formData);
+    // console.log(formData);
     const httpOptionsCustom = {
       headers: new HttpHeaders({
         'Accept': 'application/json',
@@ -85,7 +85,7 @@ export class AuthService {
     } else {
       throw new Error(`Invalid entityType ${entityType}`);
     }
-    console.log(formData);
+    // console.log(formData);
     const httpOptionsCustom = {
       headers: new HttpHeaders({
         'Accept': 'application/json',
@@ -107,9 +107,4 @@ export class AuthService {
     const url = environment.urlDevelopers;
     return this.http.get<any>(url);
   }
-
-  //TODO HACER UPDATE DEVELOPER
-  //TODO HACER UPDATE COMPANY
-  //TODO HACER UPDATE JOBOFFER
-
 }

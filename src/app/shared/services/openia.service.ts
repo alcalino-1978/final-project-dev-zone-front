@@ -9,7 +9,7 @@ export class OpenaiService {
   constructor(private http: HttpClient) { }
 
   completions(message: string) {
-    console.log(message)
+    // console.log(message)
     return this.http.post(`${environment.urlBase}/gpt-3/message`, { prompt: message });
     // return this.http.post('http://localhost:3000/v1/gpt-3/message', { prompt: message });
   }

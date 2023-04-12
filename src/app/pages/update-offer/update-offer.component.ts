@@ -133,15 +133,15 @@ export class UpdateOfferComponent {
   }
 
   public onSubmit(): void {
-    console.log(this.salaryMinFormControl);
-    console.log(this.salaryMaxFormControl);
-    console.log(this.updateOfferForm);
-    console.log(this.updateOfferForm.valid);
+    // console.log(this.salaryMinFormControl);
+    // console.log(this.salaryMaxFormControl);
+    // console.log(this.updateOfferForm);
+    // console.log(this.updateOfferForm.valid);
     this.isSubmitted = true;
     if(this.updateOfferForm.valid) {
 
       const userPARSED = JSON.parse(this.userJSON);
-      console.log(userPARSED.user._id);
+      // console.log(userPARSED.user._id);
 
       const offer: JobOfferModelPut = {
         title: this.titleFormControl.value as string,
@@ -165,13 +165,13 @@ export class UpdateOfferComponent {
       this.jobofferService.updateOfferByID(this.jobOfferID, offer).subscribe
       ((dataOffer) => {
         const offerId = dataOffer._id as string;
-        console.log(offerId);
+        // console.log(offerId);
         this.offerRoute = offerId;
 
         this.router.navigateByUrl(`/offers/${this.jobOfferID}`)
       })
     } else {
-      console.log('por aqui no es :/');
+      // console.log('por aqui no es :/');
 
     }
   }

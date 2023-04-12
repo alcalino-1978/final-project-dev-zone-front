@@ -20,14 +20,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
-    console.log('currentUser', this.currentUser);
-    console.log('currentUser.user', this.currentUser.user);
+    // console.log('currentUser', this.currentUser);
+    // console.log('currentUser.user', this.currentUser.user);
   }
   // Delete User
   deleteUser(): void {
     this.authService.deleteUserService(this.currentUser.user._id,this.currentUser.entityType).subscribe(
       response => {
-        console.log(response); // Handle successful response
+        // console.log(response); // Handle successful response
       },
       error => {
         console.error(error); // Handle error response

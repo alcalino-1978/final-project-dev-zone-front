@@ -113,7 +113,7 @@ public movilityFormControl!: FormControl;
   onFileSelectedDev(event:any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
+      // console.log(file);
       this.developerRegisterForm.patchValue({
         fileSourceDev: file
       });
@@ -246,15 +246,15 @@ private initFormDeveloper(): void {
       formData.append('numberEmployees', this.numberEmployeesFormControl.value);
 
      // Display the values
-      formData.forEach((value, key) => {
-        console.log(key, value);
-      });
+      // formData.forEach((value, key) => {
+      //   console.log(key, value);
+      // });
 
       if (this.isLoggedIn === true) {
         const id = this.currentUser.user._id;
         this.authService.updateEntity(formData, this.entity, id).subscribe({
           next: response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.storageService.saveUser(response.data.updatedCompany, this.entity);
             this.companyRegisterForm.reset();
             this.isLoading = false;
@@ -272,7 +272,7 @@ private initFormDeveloper(): void {
             this.isSignUpFailed = false;
             this.storageService.saveUser(response.data.createdCompany, this.entity);
             this.storageService.saveToken(response.data);
-            console.log(response.data);
+            // console.log(response.data);
             this.isLoginFailed = false;
             this.isLoggedIn = true;
             this.companyRegisterForm.reset();
@@ -323,7 +323,7 @@ private initFormDeveloper(): void {
         const id = this.currentUser.user._id;
         this.authService.updateEntity(formDataDev, this.entity, id).subscribe({
           next: response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.storageService.saveUser(response.data.updatedDeveloper, this.entity);
             this.companyRegisterForm.reset();
             this.isLoading = false;
@@ -344,7 +344,7 @@ private initFormDeveloper(): void {
 
             this.isLoginFailed = false;
             this.isLoggedIn = true;
-             console.log(response)
+            //  console.log(response)
             this.developerRegisterForm.reset();
             this.isLoading = false;
             this.router.navigate(['/profile']);

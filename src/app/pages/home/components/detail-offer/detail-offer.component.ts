@@ -51,7 +51,7 @@ export class DetailOfferComponent {
 
   public deleteOffer(offerId: string): void {
     this.authService.deleteOfferService(offerId).subscribe((response) => {
-      console.log(response); // Handle successful response
+      //console.log(response); // Handle successful response
       });
     this.router.navigate(['/'])
   }
@@ -89,7 +89,7 @@ export class DetailOfferComponent {
   }
 
   public updateOfferDetail(id: string): void {
-    console.log(id);
+    //console.log(id);
     this.router.navigateByUrl(`/update-offer/${id}`)
   }
 
@@ -111,7 +111,7 @@ export class DetailOfferComponent {
 
   public changeOfferStatus(offerId: string, status: boolean): void {
     this.jobofferService.updateOfferStatus(offerId, status).subscribe((data) => {
-      return console.log(data)
+      // return console.log(data)
     })
   }
 
@@ -119,11 +119,11 @@ export class DetailOfferComponent {
     this.isLoading = true;
     this.jobofferService.updateOfferWithUser(offerId, this.userId)
     .subscribe((data: JobOfferModelAPI) => {
-      console.log(data);
+      //console.log(data);
     })
     this.jobofferService.updateUserWithOffer(this.userId, offerId)
     .subscribe((data: DeveloperModelAPI) => {
-      console.log(data);
+      //console.log(data);
     })
     this.isDisabled = true;
     this.isLoading = false;

@@ -49,8 +49,8 @@ export class RegisterOfferComponent {
   ngOnInit(): void {
     this.initForm();
     const userPARSED = JSON.parse(this.userJSON);
-    console.log(this.userJSON);
-    console.log(userPARSED.user);
+    // console.log(this.userJSON);
+    // console.log(userPARSED.user);
   }
 
   private initForm(): void {
@@ -104,7 +104,7 @@ export class RegisterOfferComponent {
     if(this.registerOfferForm.valid) {
 
       const userPARSED = JSON.parse(this.userJSON);
-      console.log(userPARSED.user._id);
+      // console.log(userPARSED.user._id);
 
       const offer: JobOfferModelPost = {
         _id: '' as string,

@@ -20,7 +20,7 @@
   },
   "SECONDARY-MENU": {
     "EDIT": "Edit",
-    "REGISTER": "Create",
+    "REGISTER": "Create Offer",
     "DELETE": "Delete",
     "STATUS": "Change Status"
   },
@@ -78,6 +78,7 @@
   "CREATE": "Create",
   "OFFER-DETAIL": {
     "CREATE": "Create Offer",
+    "UPDATE": "Update Offer",
     "MINSALARY": "Minimum Salary",
     "MAXSALARY": "Maximum Salary",
     "TITLE": "Title",

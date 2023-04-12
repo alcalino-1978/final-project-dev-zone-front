@@ -1,7 +1,6 @@
-import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CompanyModelAPI } from './../../models/company.models';
-import { JobOfferModelPost, JobOfferModelAPI, JobOfferModelPut } from './../../models/joboffer.model';
+import { StorageService } from '@shared/services/storage.service';
+import { JobOfferModelAPI, JobOfferModelPut } from './../../models/joboffer.model';
 import { JobofferService } from './../../shared/services/joboffer.service';
 
 
@@ -46,10 +45,13 @@ export class UpdateOfferComponent {
   public typeJobFormControl!: FormControl;
   public vacanciesFormControl!: FormControl;
   public keywordsFormControl!: FormControl;
+  public isLoggedIn = false;
+  public currentUser!: any;
 
   constructor (
     private formBuilder: FormBuilder,
     private jobofferService: JobofferService,
+    private storageService: StorageService,
     private router: Router,
     private activatedRouter: ActivatedRoute
   ) { }
@@ -57,6 +59,10 @@ export class UpdateOfferComponent {
   ngOnInit(): void {
     this.getOfferId();
     this.initForm(this.jobOfferID);
+    if (this.storageService.isLoggedIn() === true) {
+      this.currentUser = this.storageService.getUser();
+      this.isLoggedIn = true;
+    }
   }
   private getOfferId(): void {
     this.activatedRouter.paramMap.subscribe((params) => {

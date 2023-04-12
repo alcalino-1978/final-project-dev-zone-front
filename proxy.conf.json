@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://singular-profiterole-5fb244.netlify.app",
+    "target": "https://singular-profiterole-5fb244.netlify.app/v1",
     "secure": true,
     "changeOrigin": true,
     "pathRewrite": {

@@ -25,9 +25,9 @@ export class TokenInterceptor implements HttpInterceptor {
         setHeaders: {
 
           authorization: `Bearer ${token}`,
-          // "Access-Control-Allow-Origin": "*",
-          // 'Access-Control-Allow-Headers': 'Accept',
-          // 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Headers': 'Accept',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
         },
       });
     }
